@@ -6,7 +6,7 @@
     - 기본 Algorithm 공부한 내용을 정리한 Directory 입니다.
 - JDK 1.8 설치
     - Linux(Ubuntu)
-        - <a href="https://thishosting.rocks/install-java-ubuntu/">설치</a>
+        - <a href="https://thishosting.rocks/install-java-ubuntu/">참조</a>
         1. Ubuntu update 및 필요시 필수 패키지 설치
             - ```sudo apt-get update && sudo apt-get upgrate```
             - ```sudo apt-get install software-properties-common```
