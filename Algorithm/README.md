@@ -18,6 +18,14 @@
         - ![Alt text](./image/sort_time_complexity.gif)
      
     
+    
+    - Stable vs Unstable sort
+        - Unstable은 중복되는 value의 정렬되지 않은 상태에서의 순서를 유지하는 보장이 없다.
+            - ![Alt text](./image/unstable_sort.png)
+            - 선택 정렬(Selection), 힙 정렬(Heap), 쉘 정렬(Shell), 퀵 정렬(Quick)  
+        - Stable은 중복되는 value의 정렬되지 않은 상태에서의 순서를 유지하는 것을 보장한다.
+            - ![Alt text](./image/stable_sort.png)
+            - 버블 정렬(Bubble), 삽입 정렬(Insertion), 합병 정렬(Merge)
 
     - 버블 정렬
         - 정렬 방식 애니메이션
@@ -37,5 +45,5 @@
                 - Ω(n^2) : 최상
                 - Θ(n^2) : 평균
                 - 10개의 요소를 정렬 시, 100번의 step, 100개면 10,000번, 1,000개면 1,000,000번
-        - 코드
+        - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Bubble_sort.java">코드</a>
         -
