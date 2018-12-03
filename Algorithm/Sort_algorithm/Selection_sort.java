@@ -4,16 +4,16 @@ public class Selection_sort {
     public static void main(String args[]){
 
         int[] array = {20, 35, -15, 7, 55, 1, -22};
-        for(int i = array.length-1; i >= 0; i--){
+        for(int unsortedIndex = array.length-1; unsortedIndex > 0; unsortedIndex--){
             int largest = 0;
 
-            for(int j=0; j <= i; j++){
+            for(int j=1; j <= unsortedIndex; j++){
                 if(array[largest] < array[j]){
                     largest = j;
                 }
             }
 
-            swap(array, largest, i);
+            swap(array, largest, unsortedIndex);
         }
 
         for(int i=0; i < array.length; i++){
