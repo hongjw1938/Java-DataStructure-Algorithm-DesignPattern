@@ -56,7 +56,7 @@
     
     - 선택 정렬
         - 정렬 방식 애니메이션
-            - ![Alt text](./image/selection_sort.png)
+            - ![Alt text](./image/selection_sort.gif)
             - 위 애니메이션과 같으며, 버블 정렬과 유사하게 정렬되지 않은 부분(Unsorted), 정렬된 부분(Sorted)가 구분 된다.
         - 개념
             - 초기에 정렬되지 않은 부분은 전체 배열의 Size - 1에 해당하는 Index
