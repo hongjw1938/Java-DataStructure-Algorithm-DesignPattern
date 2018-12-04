@@ -76,3 +76,28 @@
                 - 따라서, 기존의 같은 값 사이의 정렬 상태를 보장하지 못함.
         - 구현
             - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Selection_sort.java">코드</a>
+    
+    
+    - 삽입 정렬
+        - 정렬 방식 애니메이션
+            - ![Alt text](./image/insertion_sort.gif)
+            - 상기 애니메이션과 같음. 이전 정렬 방식과 유사하게 정렬 된 부분 / 아닌 부분을 구분하여 정렬함
+        - 개념
+            - 초기에 정렬된 부분을 Index 0(정렬하고자 하는 객체 배열의 최초 value)를 정렬 된(sorted) 부분으로 간주하여 시작
+            - 정렬 된 부분이라고 명명한 부분 바로 이후 부터는 정렬되지 않은 부분이라고 간주
+            - 해당 부분의 제일 첫 번째 값을 정렬 된 부분의 내용과 비교하여 알맞는 부분에 삽입
+                - 삽입 할 Value는 다른 변수에 저장
+                - 이 과정에서, 정렬 된 부분 중 삽입 할 Value보다 큰 Value는 한 칸씩 Index를 이동시켜가면서 비교하고 적절한 위치를 찾으면 해당 위치에 삽입
+            - 정렬된 부분 / 정렬되지 않은 시작 부분 Index 변경
+            - 위 과정 반복
+            - In-place 알고리즘이다.
+                - 추가적인 배열 저장 메모리가 필요하지 않다.
+            - 시간 복잡도
+                - O(n^2) - Quadratic
+            - Stable Sort 
+                - 중복된 값의 정렬이 그대로 유지됨.
+                - 왜냐하면, 해당 값을 비교 시에 어느 방향에서 시작하든 차례로 시작하며, 해당 값과 같은 값을 비교 시에는 더 이상의 비교를 수행하지 않게 되기 때문
+                - 물론 구현하기에 따라 다를 수는 있음. 하지만 기본적인 concept는 Stable
+            - 구현
+                - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Insertion_sort.java">코드</a>
+            
