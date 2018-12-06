@@ -95,10 +95,53 @@
                 - 추가적인 배열 저장 메모리가 필요하지 않다.
             - 시간 복잡도
                 - O(n^2) - Quadratic
+                - 만약 nearly ordered 된 상태의 배열이라면 거의 linear 수준의 시간 복잡도를 갖게 된다.
             - Stable Sort 
                 - 중복된 값의 정렬이 그대로 유지됨.
                 - 왜냐하면, 해당 값을 비교 시에 어느 방향에서 시작하든 차례로 시작하며, 해당 값과 같은 값을 비교 시에는 더 이상의 비교를 수행하지 않게 되기 때문
                 - 물론 구현하기에 따라 다를 수는 있음. 하지만 기본적인 concept는 Stable
-            - 구현
-                - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Insertion_sort.java">코드</a>
+        - 구현
+            - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Insertion_sort.java">코드</a>
+    
+    
+    - Shell 정렬
+        - 정렬 방식 애니메이션
+            - ![Alt text](./image/shell_sort.gif)
+        - 개념
+            - 삽입 정렬의 변형이다.
+                - 삽입 정렬의 경우, 위의 설명과 같이, 정렬 여부에 따라 구간을 나눈 뒤, 정렬 되지 않은 부분에서 Value를 고른 후, Neighbor들과 지속적으로 비교하여 적절한 삽입 위치를 찾는 방법이었다.
+                - Shell 정렬은 비슷하게 진행하되, 비교할 값을 바로 Neighbor에 두는 게 아니라, Gap을 두어 몇 Index 떨어진 Value와 비교하면서 정렬해 나간다.
+                - 한 번의 Shift 작업이 끝나면 Gap을 줄여가면서 다시 정렬을 시도하고 이 과정을 반복한다.
+                - 그리하여, Gap이 1이 될 때까지 지속되고 Gap이 1이라는 것은 삽입 정렬을 시도한다는 것과 마찬가지인 상황이 된다.
+                - 이 때, 배열의 값들은 Nearly sorted한 상태가 되고 이에 따라 매우 빠른 속도로 정렬을 수행할 수 있다는 장점이 있다.
+            - Gap Value의 결정
+                - <a href="https://en.wikipedia.org/wiki/Shellsort">참조</a>
+                - 위 위키피디아에 내용에 따라, 어떻게 Gap을 결정하는지에 기반하여 시간 복잡도가 달라지므로 참조한다.
+            - Gap Value 많이 사용되는 방식
+                - Knuth 방식
+                - ![Alt text](./image/knuth_gap.png)
+                - k값은 배열의 길이에 기반하여, 그 길이를 넘지 않도록 Gap의 value가 배열의 길이에 최대한 비슷하게 설정한다.
+            - Shell 정렬 예시
+                - ![Alt text](./image/shell_sort_example.png) 
+                - 위와 같이, 처음에는 배열 길이의 반으로 나누어 Gap value를 지정하여 정렬하고 그 Gap value를 1이 될 때까지 반복하여 나누어 정렬한다.
+                - 그리고 마지막에는 Gap value = 1 로 삽입 정렬을 시도한다.
+                - 진행은 아래와 같다.
+                    1. i = 3(gap value), j = i = 3 으로 시작한다.
+                    2. intArray[j-gap_value]와 intArray[j]의 값을 비교하여 정렬한다.
+                        - ![Alt text](./image/shell_sort_example2.png)
+                    3. i 값을 1 늘리고, j에 대입 후 이 과정을 반복한다.
+                - 주의점
+                    - Gap value 차이만큼 비교 시, 비교 gap value만큼의 차이가 나는 index 위치가 0보다 크거나 같다면 반복해서 비교함.
+                    - Gap value가 1일 때도 마찬가지임. 예를 들어, gap_value=3이고, 현재 비교 대상인 index는 6이라고 하자.
+                    - 그 경우, 6과 3(6-3)의 값이 비교되고, 3과 0(3-3)이 다시 한 번 비교된다.
+            - In place 알고리즘이다.
+                - 추가적인 배열 메모리 필요로 하지 않음
+            - 시간 복잡도
+                - 최악의 경우 : O(n^2)
+                - 그러나, 일반적으로 해당 경우보다 좋은 결과를 보임
+            - Unstable sort
+                - Gap에 따라 위치가 변경될 수 있어서 Stable함을 보장할 수 없다.
+            - 참고
+                - 버블 정렬에도 해당 정렬 방식을 응용해서 사용할 수 있다.
             
+                
