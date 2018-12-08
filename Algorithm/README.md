@@ -28,6 +28,8 @@
             - iterative 구현
                 - <a href="">코드 참조</a>
             - 재귀적인 구현
+                - 재귀적인 구현은 해당 method를 계속 호출하는 방식으로 구현함.
+                - <a href="">코드 참조</a>
 
 - Sort algorithm
     - 기본 정렬 알고리즘 시간복잡도
