@@ -13,6 +13,22 @@
         - <a href="https://ko.wikipedia.org/wiki/%EC%8B%9C%EA%B0%84_%EB%B3%B5%EC%9E%A1%EB%8F%84">위키</a>
 
 
+- Recursion
+    - 어떤 알고리즘들은 재귀적으로 해결해야 하는 경우도 있다. 따라서 이에 대해 알아본다.
+    - Factorial 알고리즘
+        - 수학의 Factorial에서 배우듯이 수치를 변화시켜 가면서 지속적으로 연산을 수행하는 방식임
+        - 순서
+            - 제시된 숫자가 0 이라면, 결과는 1이다.
+            - 아니라면, 승수(Multiplier)는 1로 지정한다. Factorial = 1로 지정한다.
+            - 승수가 제시된 숫자와 동일하지 않다면 다음을 수행한다.
+                - Factorial 값을 승수와 곱하고, 해당 결과를 Factorial 값으로 지정한다.
+                - 승수에 1을 더한다.
+            - Stop. 결과를 반환한다.
+        - 해당 순서를 구현
+            - iterative 구현
+                - <a href="">코드 참조</a>
+            - 재귀적인 구현
+
 - Sort algorithm
     - 기본 정렬 알고리즘 시간복잡도
         - ![Alt text](./image/sort_time_complexity.gif)
