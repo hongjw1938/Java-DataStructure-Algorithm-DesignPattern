@@ -29,7 +29,14 @@
                 - <a href="">코드 참조</a>
             - 재귀적인 구현
                 - 재귀적인 구현은 해당 method를 계속 호출하는 방식으로 구현함.
+                - 주의
+                    - 반드시 재귀 표현을 끝낼 수 있는 종료문을 조건에 맞추어 내부에 추가해야 한다.
+                    - 그렇지 않으면 계속해서 메소드를 호출하여 memory를 감당할 수 없게 되어 에러가 발생한다.
                 - <a href="">코드 참조</a>
+        - 위의 주의점에서 볼 수 있듯이, 재귀를 이용한 구현은 Overhead가 계속 추가되는 방식이므로, Iterative 방식이 어쩌면 더 효율적인 결론을 낼 수 있다.
+        - 그러나 때때로, 특정 logic을 수행할 때는 Iterative 방식이 코드 자체도 길어지고, 직관적이지 않은 현상을 낳을 수 있다.
+        - 따라서, 재귀 표현에 대해 명확하게 익혀둘 필요가 있다.
+        - Tail Call, Tail Recursion, Tail Optimization의 이야기는 <a href"https://homoefficio.github.io/2015/07/27/%EC%9E%AC%EA%B7%80-%EB%B0%98%EB%B3%B5-Tail-Recursion/>여기</a>를 참조한다.
 
 - Sort algorithm
     - 기본 정렬 알고리즘 시간복잡도
