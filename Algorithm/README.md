@@ -215,3 +215,51 @@
             - Stable 알고리즘이다.
         - 구현
             - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Merge_sort.java">코드</a>
+    
+    - Quick 정렬
+        - 정렬 방식 애니메이션
+            - ![Alt text](./image/merge_sort.gif)
+        - 개념
+            - 병합 정렬과 마찬가지로 divide and conquer 알고리즘이다.
+            - Recursive 알고리즘이다.
+            - Partitioning step
+                - 배열 내의 값 중 Pivot element를 결정한다.
+                - 해당 Pivot element를 기준으로 오름차순 정렬이라면, pivot의 좌측에는 pivot보다 작은 값, 우측에는 큰 값을 둔다.
+                - 그리하여 pivot은 좌, 우측 두 Partition의 사이에 위치하게 된다.
+                - 즉, pivot은 적절한 정렬된 자리에 위치하게 된다.
+                - 그러나, 좌, 우측의 각 element는 완전히 정렬된 상태가 아니다.
+            - 위의 Partitioning step이 각 좌 / 우측의 partition 배열에 대해 동일하게 processing된다.
+            - 궁극적으로, 모든 element는 pivot이 되고, 각 element는 결국 적절한 정렬 위치에 자리잡게 된다.
+            - 병합 정렬과 마찬가지로, series-of 1 element 배열로 partitioning 하게 되어 마지막까지 정렬된다.
+            - In-place 알고리즘
+                - 위에 partitioning을 한다고 했지만 이는 논리적인 구분이지 실제로 다른 배열에 따로 저장하지는 않는다.
+                - 즉, 병합 정렬과의 주요 차이점임
+            - 시간 복잡도
+                - O(nlogn)
+                - 그러나 최악의 경우 O(n^2)의 시간 복잡도를 보이는 데, 이에 따라 pivot value를 결정하는 여러 가지 기법이 있다.
+                - 따라서 대부분의 경우 병합 정렬보다 더 나은 결과를 보인다.
+            - Unstable 알고리즘이다.
+        - 예시
+            - 배열 : {20, 35, -15, 7, 55, 1, -22}
+            - 위와 같은 배열에, start = 0, end = 7(배열의 길이)이라고 가정하겠다.
+            - pivot은 어떤 partitioning에도 상관 없이 각 partition 배열의 첫 번째 element를 선정한다.
+            - 순서
+                1. 20은 pivot field에 따로 저장 된다. 
+                    - 현재 배열 : {20, 35, -15, 7, 55, 1, -22}
+                2. right to left 방식으로 진행하므로 --end를 하면 -22는 20보다 작은 값이므로 -22를 현재의 start 위치에 넣는다.
+                    - 현재 배열 : {-22, 35, -15, 7, 55, 1, -22}
+                3. 이 후 start++ 를 한다.
+                4. 그러면 start = 1이고 index 1에 위치한 35는 pivot인 20보다 크므로 35를 end index의 위치에 놓는다.
+                    - 현재 배열 : {-22, 35, -15, 7, 55, 1, 35}
+                5. start / end 값을 비교해보면 서로 cross 되지 않았다. 이에 따라 end--를 다시 수행. end는 5가 된다.
+                6. end index의 값인 1은 pivot 20보다 작다. 따라서 start index의 위치에 넣는다.
+                    - 현재 배열 : {-22, 1, -15, 7, 55, 1, 35}
+                7. start를 ++하면 2가 되는데 해당 위치의 -15는 pivot보다 이미 작으므로 움직이지 않는다. 한 번 더 ++하면 7인데 이 또한 움직이지 않는다.
+                8. start는 이제 4가 되고 55는 pivot보다 크다. 따라서 end의 index에 위치시킨다.
+                    - 현재 배열 : {-22, 1, -15, 7, 55, 55, 35}
+                9. start는 4고, end는 5이므로 end--를 하면 4가 되고 아직 cross 되지 않았고 값은 움직이지 않으므로 end--를 다시 하면 end는 3이 된다.
+                10. 이제 start / end가 cross 되었으므로 멈추고 pivot field에 저장한 값의 적절한 위치는 start의 index가 된다.
+                11. 그러므로 pivot 값을 4의 index 위치에 놓는다.
+                    - 현재 배열 : {-22, 1, -15, 7, 20, 55, 35}
+                12. 이제 20 좌측은 모두 20보다 작으며, 20 우측은 20보다 다 크다. 두 개의 partition으로 나뉘었으므로 위 과정을 좌, 우측 partition 배열에 대해 동일하게 수행한다.
+        
