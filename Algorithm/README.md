@@ -2,7 +2,16 @@
 - 알고리즘
     - 특정 Task를 완수하기 위해 진행해야 하는 process step을 Describe하는 것
 
-- Big O Notation
+
+- <a href="#big_o">Big O Notation</a>
+- <a href="#recursion">Recursion</a>
+- <a href="#bubble_sort">버블 정렬</a>
+- <a href="#selection_sort">선택 정렬</a>
+- <a href="#insertion_sort">삽입 정렬</a>
+- <a href="#merge_sort">병합 정렬</a>
+- <a href="#quick_sort">퀵 정렬</a>
+
+- <b id="big_o">Big O Notation</b>
     - 알고리즘을 수행하는 데는 시간 복잡도(Time Complexity), 공간 복잡도(Memory Complexity)를 계산한다.
     - 현재는 Memory 기술이 많이 발달하여 거의 Issue가 되지 않아 시간 복잡도만 가지고 연산 성능을 측정하낟.
     - 시간복잡도는 Worst case 시나리오를 기반으로 측정한다.
@@ -13,7 +22,7 @@
         - <a href="https://ko.wikipedia.org/wiki/%EC%8B%9C%EA%B0%84_%EB%B3%B5%EC%9E%A1%EB%8F%84">위키</a>
 
 
-- Recursion
+- <b id="recursion">Recursion</b>
     - 어떤 알고리즘들은 재귀적으로 해결해야 하는 경우도 있다. 따라서 이에 대해 알아본다.
     - Factorial 알고리즘
         - 수학의 Factorial에서 배우듯이 수치를 변화시켜 가면서 지속적으로 연산을 수행하는 방식임
@@ -42,8 +51,6 @@
     - 기본 정렬 알고리즘 시간복잡도
         - ![Alt text](./image/sort_time_complexity.gif)
      
-    
-    
     - Stable vs Unstable sort
         - Unstable은 중복되는 value의 정렬되지 않은 상태에서의 순서를 유지하는 보장이 없다.
             - ![Alt text](./image/unstable_sort.png)
@@ -54,8 +61,7 @@
         - 왜 이 내용이 중요한가?
             - 단순 Primitive 타입의 경우는 별로 큰 문제가 없을 수 있으나, 객체를 정렬하는 경우 오류를 낳을 수 있다. 이에 대해 고려할 것
         
-
-    - 버블 정렬
+    - <b id="bubble_sort">버블 정렬</b>
         - 정렬 방식 애니메이션
             - ![Alt text](./image/bubble_sort.gif)
             - 기본적인 정렬방식은 위와 같다.
@@ -78,8 +84,7 @@
         - 구현
             - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Bubble_sort.java">코드</a>
     
-    
-    - 선택 정렬
+    - <b id="selection_sort">선택 정렬</b>
         - 정렬 방식 애니메이션
             - ![Alt text](./image/selection_sort.gif)
             - 위 애니메이션과 같으며, 버블 정렬과 유사하게 정렬되지 않은 부분(Unsorted), 정렬된 부분(Sorted)가 구분 된다.
@@ -102,8 +107,7 @@
         - 구현
             - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Selection_sort.java">코드</a>
     
-    
-    - 삽입 정렬
+    - <b id="insertion_sort">삽입 정렬</b>
         - 정렬 방식 애니메이션
             - ![Alt text](./image/insertion_sort.gif)
             - 상기 애니메이션과 같음. 이전 정렬 방식과 유사하게 정렬 된 부분 / 아닌 부분을 구분하여 정렬함
@@ -128,8 +132,7 @@
         - 구현
             - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Insertion_sort.java">코드</a>
     
-    
-    - Shell 정렬
+    - <b id="shell_sort">Shell 정렬</b>
         - 정렬 방식 애니메이션
             - ![Alt text](./image/shell_sort.gif)
         - 개념
@@ -171,8 +174,7 @@
         - 구현
             - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Shell_sort.java">코드</a>
             
-    
-    - Merge(병합) 정렬
+    - <b id="merge_sort">Merge(병합) 정렬</b>
         - 정렬 방식 애니메이션
             - ![Alt text](./image/merge_sort.gif)
         - 개념
@@ -216,7 +218,7 @@
         - 구현
             - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Merge_sort.java">코드</a>
     
-    - Quick 정렬
+    - <b id="quick_sort">Quick 정렬</b>
         - 정렬 방식 애니메이션
             - ![Alt text](./image/merge_sort.gif)
         - 개념
