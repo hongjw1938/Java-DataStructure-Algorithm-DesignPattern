@@ -221,7 +221,7 @@
     
     - <b id="quick_sort">Quick 정렬</b>
         - 정렬 방식 애니메이션
-            - ![Alt text](./image/merge_sort.gif)
+            - ![Alt text](./image/quick_sort.gif)
         - 개념
             - 병합 정렬과 마찬가지로 divide and conquer 알고리즘이다.
             - Recursive 알고리즘이다.
