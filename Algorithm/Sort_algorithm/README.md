@@ -16,3 +16,6 @@
      
 - 퀵(Quick) 정렬
     - Quick 정렬 구현 코드 참조 : <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Quick_sort.java">Quick_sort.java</a>
+    
+- Counting 정렬
+    - Counting 정렬 구현 코드 참조 : <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Counting_sort.java">Counting_sort.java</a>

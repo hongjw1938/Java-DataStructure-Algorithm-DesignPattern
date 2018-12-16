@@ -10,6 +10,7 @@
 - <a href="#insertion_sort">삽입 정렬</a>
 - <a href="#merge_sort">병합 정렬</a>
 - <a href="#quick_sort">퀵 정렬</a>
+- <a href-"#counting_sort">Counting 정렬</a>
 
 - <b id="big_o">Big O Notation</b>
     - 알고리즘을 수행하는 데는 시간 복잡도(Time Complexity), 공간 복잡도(Memory Complexity)를 계산한다.
