@@ -305,4 +305,42 @@
             - 3을 그 다음, 4를 그 다음.. 이런식으로 숫자만큼 계속 넣는다.
             - 결과적으로 전체가 정렬된 상태가 된다.
             - 각 value를 비교하지 않았다.
-            - 
+        
+    - <b id="radix_sort">Radix 정렬</b>
+        - 정렬 방식
+            - ![Alt text](./image/radix_sort.gif)
+        - 개념
+            - 데이터에 대한 특별한 Assumption 즉, 가정을 한다.
+                - 데이터는 반드시 같은 radix 및 width(길이)를 가져야 한다.
+                    - radix는 각 character의 unique digits 또는 values이다.
+                    - 예를 들어, 10진법이면 0~9, 2진법이면 0,1, 영어 알파벳이면 0~26까지 이다.
+                    - width는 value의 길이를 의미한다.(hello면 5)
+                - 이에 따라, data는 반드시 integer 아니면 String이다.
+            - 정렬은 각 개별 digit 또는 letter의 position에 기반한다.
+            - rightmost position에서 시작한다.
+            - 각 stage에서 반드시 <b>stable sort</b> 알고리즘을 사용해야 한다.
+            - <a href="#counting_sort">Counting sort</a> 또한 radix sort로 사용될 수 있다. Stable한 경우에만
+            - 시간 복잡도
+                - O(n)
+                - data에 대한 가정을 기반으로 하기 때문에 가능한 결과
+                - 그러나 overhead가 포함되기 때문에 O(nlogn)보다 안 좋은 결과를 종종 내놓음
+                - 왜 overhead가 있느냐면, 각 digit / letter의 수를 찾아야 하고 그를 기반으로 각 phase에서 정렬하기 때문
+            - In-place 알고리즘이다.
+            - Stable 알고리즘이다.
+        - 예시
+            - 다음과 같은 배열이 있다고 하자.
+                - array : {4725, 4586, 1330, 8792, 1594, 5729}
+                - 해당 배열의 각 value들은 같은 radix이며, 길이도 4로 같다.
+            - 해당 배열의 one's position은 좌측부터, (5, 6, 0, 2, 4, 9)이다.
+                - one's position은 가장 weight가 낮음. 따라서 그것에서 부터 정렬 시작
+            - 이에 따라 작은 숫자에서 큰 숫자로 정렬하면 다음과 같이 된다.
+                - array : {1330, 8792, 1594, 4725, 4586, 5729}
+            - 이제 10's position을 기반으로 정렬한다. 주의할 점은 반드시 stable 해야 한다는 것
+                - array : {4725, 5729, 1330, 4586, 8792, 1594}
+                - 즉, 4725가 여전히 5729의 좌측에 위치한다는 것을 알 수 있다. 이것이 매우 중요
+            - 이제 100's position을 기반으로 다시 정렬하면
+                - array : {1330, 4586, 1594, 4725, 5729, 8792}
+            - 마지막으로 1000's position을 기반으로 정렬
+                - array : {1330, 1594, 4586, 4725, 5729, 8792}
+            - stable하기 때문에 올바른 방식으로 정렬된다는 것을 알 수 있다.
+        
