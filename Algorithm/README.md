@@ -305,7 +305,37 @@
             - 3을 그 다음, 4를 그 다음.. 이런식으로 숫자만큼 계속 넣는다.
             - 결과적으로 전체가 정렬된 상태가 된다.
             - 각 value를 비교하지 않았다.
-        
+        - Stable Counting 정렬
+            - 개념
+                - 추가적인 Step이 필요하다.
+                - 기존 배열에 언제 value들이 쓰여져야 하는지 계산할 수 있어야 한다.
+                - Stability를 확보하기 위해 backward 순서로 배열에 value를 써내려 간다.
+            - 예시
+                - <a href="#radix_sort">Radix 정렬</a>을 잠시 참조하자.
+                - 이러한 배열이 있었다. -> 배열 : {1330, 8792, 1594, 4725, 4586, 5729}
+                - 해당 배열은 one's position에서 이미 배열된 상태이며, 이를 기반으로 생각해보도록 하면,
+                - Ten's position을 기준으로 2는 2개, 3은 1개, 8 1개, 9 2개이다.
+                - 따라서 Counting Array는 다음과 같다.
+                - count_array = {0, 0, 2, 1, 0, 0, 0, 0, 1, 2}
+                - 그렴, 상단의 기존 배열과 같은 길이의 temporary 배열을 만든다. 그를 이용해 각 value가 어떻게 채워질 지 지정할 수 있게 된다.
+                - 예를 들어, count_array에 따라 2개 있는 10의 자리가 2인 두 value가 temporary의 앞 쪽에 차지하고 이와 같이 반복하여 채워질 수 있다.
+                - 그런데, count_array를 조정하여 각 value가 순서대로 위치하여 보존할 수 있도록 지정하는 것이 중요하다.
+                - 즉, 다음과 같이 해당 value가 나온 숫자를 계속 더하여 count_array를 조정한다.
+                    - count_array = {0, 0, 2, 3, 3, 3, 3, 3, 3, 4, 6}
+                    - 즉, 3이하의 value가 3개 이며, 9이하의 value는 총 6개 라는 사실을 확인할 수 있다.
+                - 그러면, 이 값을 기준으로, 기존 배열의 rightmost value부터 검사하여 적당한 위치에 value를 넣으면 된다.
+                - 다음과 같은 코드가 된다.
+                    - ![Alt text](./image/stable_cs.png)
+                    - 즉, k=5라면, input[5]는 5729이고, 해당 Digit은 2이다. 따라서, countArray[2]가 된다.
+                    - 그러면, prefix operator에 의해 1을 빼니까, 해당 value는 1이 되고 임시 배열인 tmp[1]에 5729를 저장하게 되는 것이다.
+                    - 이렇게 하여, 가장 우측부터 조사하여 순서를 유지하여 임시 배열인 tmp에 저장할 수 있게 된다.
+                    - 그러면 tmp = {0, 5729, 0, 0, 0, 0} 이 된다.
+                    - 그리고, count는 prefix에 의해 감소하여 count_array = {0, 0, 1, 3, 3, 3, 3, 3, 4, 6} 이 된다.
+                    - k=4라면, input[4] = 4586이 되고, Digit은 8이므로 --countArray[8]은 3이 되고 tmp[3]의 위치에 4586이 저장되고 4는 3으로 줄어 count_array에 저장된다.
+                    - k=3라면, input[3] = 4725이고, Digit은 2이므로 --countArray[2]는 0이 되어 tmp[0] = 4725가 된다.
+                    - 이와 같이 k=0까지 줄어들며 채운다.
+                    - 이를 이용해 tmp에 저장된 배열의 value를 기존 배열에 복사한다.
+                
     - <b id="radix_sort">Radix 정렬</b>
         - 정렬 방식
             - ![Alt text](./image/radix_sort.gif)
