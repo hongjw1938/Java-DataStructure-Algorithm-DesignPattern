@@ -11,6 +11,8 @@
 - <a href="#merge_sort">병합 정렬</a>
 - <a href="#quick_sort">퀵 정렬</a>
 - <a href="#counting_sort">Counting 정렬</a>
+- <a href="#radix_sort">Radix 정렬</a>
+- <a href="#jdk_library">JDK Arrays class sort method</a>
 
 - <b id="big_o">Big O Notation</b>
     - 알고리즘을 수행하는 데는 시간 복잡도(Time Complexity), 공간 복잡도(Memory Complexity)를 계산한다.
@@ -374,3 +376,15 @@
                 - array : {1330, 1594, 4586, 4725, 5729, 8792}
             - stable하기 때문에 올바른 방식으로 정렬된다는 것을 알 수 있다.
         
+    - <b id="jdk_library">JDK Arrays class sort method</b>
+        - 개념
+            - Java의 JDK에는 기본적으로 배열을 정렬해주는 library가 포함되어 있다.
+            - <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html">library 문서 참조</a>
+            - 해당 sort method는 내부적으로 DualPivotQuicksort의 sort method를 호춯한다.
+                - 해당 알고리즘은 O(nlogn)의 시간 복잡도의 성능을 지닌다.
+                - 일반적인 one-pivot Quick 정렬에 비해 빠르다.
+                - 이 알고리즘은 2개의 pivot을 사용하여 더 빠르게 정렬함.
+            - Java 8에서는 Arrays 클래스에 parallelSort 라는 method 또한 존재한다.
+                - 이 방식은, 병합 정렬 방식으로 계속 나누다가, minimum granularity에 도달하면 해당 Sub-array를 sort method를 이용해 정렬한다.
+                - 이는 Thread를 사용하여 수행하기 때문에 parallelSort라고 불리는 것.
+            - JDK의 Sort 알고리즘을 사용 시, Object를 이용해 정렬하는 경우에는 Comparable 인터페이스를 통해 정렬 방식을 지정해주어야 한다.
