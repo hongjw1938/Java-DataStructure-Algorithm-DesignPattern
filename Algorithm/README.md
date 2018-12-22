@@ -2,17 +2,18 @@
 - 알고리즘
     - 특정 Task를 완수하기 위해 진행해야 하는 process step을 Describe하는 것
 
-
-- <a href="#big_o">Big O Notation</a>
-- <a href="#recursion">Recursion</a>
-- <a href="#bubble_sort">버블 정렬</a>
-- <a href="#selection_sort">선택 정렬</a>
-- <a href="#insertion_sort">삽입 정렬</a>
-- <a href="#merge_sort">병합 정렬</a>
-- <a href="#quick_sort">퀵 정렬</a>
-- <a href="#counting_sort">Counting 정렬</a>
-- <a href="#radix_sort">Radix 정렬</a>
-- <a href="#jdk_library">JDK Arrays class sort method</a>
+- 정렬 알고리즘
+    - <a href="#big_o">Big O Notation</a>
+    - <a href="#recursion">Recursion</a>
+    - <a href="#bubble_sort">버블 정렬</a>
+    - <a href="#selection_sort">선택 정렬</a>
+    - <a href="#insertion_sort">삽입 정렬</a>
+    - <a href="#merge_sort">병합 정렬</a>
+    - <a href="#quick_sort">퀵 정렬</a>
+    - <a href="#counting_sort">Counting 정렬</a>
+    - <a href="#radix_sort">Radix 정렬</a>
+    - <a href="#jdk_library">JDK Arrays class sort method</a>
+    
 
 - <b id="big_o">Big O Notation</b>
     - 알고리즘을 수행하는 데는 시간 복잡도(Time Complexity), 공간 복잡도(Memory Complexity)를 계산한다.
