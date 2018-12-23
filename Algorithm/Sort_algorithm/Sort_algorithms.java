@@ -7,12 +7,12 @@ public class Sort_algorithms {
         int[] array2 = {4725, 4586, 1330, 8792, 1594, 5729};
         int[] array3 = {2, 5, 9, 8, 2, 8, 7, 10, 4, 3};
         int[] array4 = { 10, -12, -52, 2315, 23, -5, 1, 0, 2, 7312};
-        shellSort2(array1);
+        quickSort(array1, 0, array1.length);
         mergeSort(array4, 0, array4.length);
+        countSort(array3, 2, 10);
 
-
-        for(int i=0; i < array4.length; i++){
-            System.out.println(array4[i]);
+        for(int i=0; i < array3.length; i++){
+            System.out.println(array3[i]);
         }
     }
 
@@ -154,5 +154,52 @@ public class Sort_algorithms {
         System.arraycopy(array, i, array, start + tempIndex, mid - i);
 
         System.arraycopy(temp, 0, array, start, tempIndex);
+    }
+
+    // Quick 정렬
+    public static void quickSort(int[] array, int start, int end){
+        if(end - start < 2) return;
+
+        int pivot = getQuickPivot(array, start, end);
+        quickSort(array, start, pivot);
+        quickSort(array, pivot+1, end);
+    }
+
+    // Quick 정렬의 Pivot의 위치를 반환
+    public static int getQuickPivot(int[] array, int start, int end){
+
+        int i = start;
+        int j = end;
+        int pivot = array[start];
+
+        while(i < j){
+            while(i < j && array[--j] >= pivot);
+            if(i < j){
+                array[i] = array[j];
+            }
+            while(i < j && array[++i] <= pivot);
+            if(i < j){
+                array[j] = array[i];
+            }
+        }
+        array[j] = pivot;
+        return j;
+    }
+
+    // Count 정렬
+    public static void countSort(int[] array, int min, int max){
+        int[] count_array = new int[(max - min) + 1];
+
+        for(int i=0; i < array.length; i++){
+            count_array[array[i] - min]++;
+        }
+
+        int i=0;
+        for(int j=min; j <= max; j++){
+            while(count_array[j - min] > 0){
+                array[i++] = j;
+                count_array[j - min]--;
+            }
+        }
     }
 }
