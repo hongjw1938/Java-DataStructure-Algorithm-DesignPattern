@@ -10,9 +10,10 @@ public class Sort_algorithms {
         quickSort(array1, 0, array1.length);
         mergeSort(array4, 0, array4.length);
         countSort(array3, 2, 10);
+        radixSort(array2, 10, 4);
 
-        for(int i=0; i < array3.length; i++){
-            System.out.println(array3[i]);
+        for(int i=0; i < array2.length; i++){
+            System.out.println(array2[i]);
         }
     }
 
@@ -201,5 +202,36 @@ public class Sort_algorithms {
                 count_array[j - min]--;
             }
         }
+    }
+
+    // Radix 정렬
+    public static void radixSort(int[] array, int radix, int width){
+        for(int i=0; i < width; i++){
+            radixSingleSort(array, radix, i);
+        }
+    }
+
+    // Radix 각 position 별 정렬
+    public static void radixSingleSort(int[] array, int radix, int position){
+        int numItem = array.length;
+        int[] counting = new int[radix];
+        for(int i=0; i < array.length; i++){
+            counting[getDigit(array[i], radix, position)]++;
+        }
+        for(int i=1; i < counting.length; i++){
+            counting[i] += counting[i-1];
+        }
+        int[] temp = new int[numItem];
+        for(int index=numItem-1; index >= 0; index--){
+            temp[--counting[getDigit(array[index], radix, position)]] = array[index];
+        }
+        for(int index=0; index < numItem; index++){
+            array[index] = temp[index];
+        }
+    }
+
+    // Radix 정렬 각 value 나머지 값 반환
+    public static int getDigit(int value, int radix, int position){
+        return value / (int)Math.pow(radix, position) % radix;
     }
 }
