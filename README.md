@@ -16,7 +16,7 @@
         3. Java 설치
             - ```sudo apt-get install oracle-java8-installer```
     - Windows
-        - <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html">여기</a>서 설
+        - <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html">여기</a>서 설치
 - IDE 설치
     - <a href="https://www.jetbrains.com/">여기</a>서 설치
     - IntelliJ를 다운로드 받고 설치.
