@@ -44,3 +44,23 @@
             - Operation 기반 시간복잡도
                 - ![Alt text](./image/array_2.png)
                 - 즉, 배열을 Loop하는 경우 선형 시간 복잡도를 갖게 된다.
+
+- 추상 자료형(Abstract Data Type)
+    - Abstract Data Type
+        - 어떻게 Data가 organize 되어야 하는지 지정해놓지 않음.
+        - 수행할 수 있는 operation을 지정
+        - Concrete Data Structure가 아니다.(array의 경우 그러함, 그래서 class로 보통 구현함)
+        - 보통 interface이다.
+        - 일반적으로 특정 수행 가능한 behavior를 지정하며, conceptual idea를 의미함.
+    - 즉, 기능의 구현 부분을 나타내지 않고 순수하게 가능한 기능이 무엇인지 나열한 것을 의미함
+    - 대략, 사용 설명서와 같음.
+    - 추상 자료형은, 구현자/사용자를 분리한다. 라이브러리를 사용하거나 내장 함수를 사용하는 것도 추상 자료형이 정의되어 있기 때문임
+    - 이러한 구현은 외부로부터 숨겨져 있어, 정보 은닉의 효과를 얻는다.
+
+- 리스트(List)
+    - 개념
+        - 기본적으로 Abstract Data Type이다. 따라서 Interface를 가짐
+            - Java list : <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">참조</a>
+                - 기존의 list와는 다르게 custom하며 사용하고 싶은 경우, AbstrctList / AbstractSequentialList 를 구현할 것
+                - 여기서는 Array/LinkedList, Vector를 다룸
+        
