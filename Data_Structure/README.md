@@ -45,6 +45,11 @@
                 - ![Alt text](./image/array_2.png)
                 - 즉, 배열을 Loop하는 경우 선형 시간 복잡도를 갖게 된다.
 
+<br/>
+<br/>
+<br/>
+<br/>
+
 - 추상 자료형(Abstract Data Type)
     - Abstract Data Type
         - 어떻게 Data가 organize 되어야 하는지 지정해놓지 않음.
@@ -56,6 +61,8 @@
     - 대략, 사용 설명서와 같음.
     - 추상 자료형은, 구현자/사용자를 분리한다. 라이브러리를 사용하거나 내장 함수를 사용하는 것도 추상 자료형이 정의되어 있기 때문임
     - 이러한 구현은 외부로부터 숨겨져 있어, 정보 은닉의 효과를 얻는다.
+
+<br/><br/><br/><br/><br/><br/>
 
 - 리스트(List)
     - 개념
@@ -71,4 +78,103 @@
             - 그러나, Data를 지속적으로 계속 추가하여야 하는 경우, resize, remove, move, add 등의 작업이 있어 많이 느릴 수 있다.
             - array를 기반으로 만들기 때문에 capacity를 지정하여 배열의 크기를 지정하여 구현한다.
             - 만약, capacity를 지정하지 않으면 기본적으로 10의 크기를 갖는 ArrayList를 만들게 된다.
-        
+        - 코드
+            - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Data_Structure/List">List</a> Directory 확인
+ 
+<br/><br/> 
+
+    - Vector
+        - <a href="https://docs.oracle.com/javase/9/docs/api/java/util/Vector.html">Document</a>
+        - 개념
+            - Thread safe array list 이다. 즉, Code synchronize가 없이도 복수의 Thread에서 참조해서 쓸 수 있다.
+                - ArrayList는 그렇지 않다. 따라서, ArrayList에서 복수의 Thread를 통해 add/delet/insert 등을 하게 되는 경우 충돌이 발생할 수 있다.
+            - JDK1.0 부터 있었던 자료형. 왜 ArrayList를 따로 만들었을까?
+                - 문제는, Synchronize를 시키는데 Overhead가 있기 때문에 속도가 느리다는 것이다.
+                - 그래서 ArrayList가 필요하게 되었다. 왜냐하면, Synchronize를 할 필요가 없는 Code의 경우 속도가 중요할 수 있었기 때문
+            - 따라서, Synchronize가 필요한 경우 Vector를 사용할 것이 권장된다.
+                - 다음의 그림을 보면 vector class에는 synchronize가 있는 것을 확인할 수 있다.
+                - ![Alt text](../image/vector_add.png)
+            - ArrayList와 동일하게 Array를 기반으로 구현된 자료형이다.
+        - 코드
+            - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Data_Structure/List">List</a>확인
+
+<br/><br/>
+ 
+    - LinkedList
+        - <a href="https://docs.oracle.com/javase/9/docs/api/java/util/LinkedList.html"></a>
+        - Singly LinkedList 개념
+            - 각 list의 item은 node라고 부른다.
+            - ArrayList와는 다르게, 자신의 이후(이전도 가능)에 어떤 item이 오는지에 대한 정보를 알고 있다.
+                - 따라서, 다음 노드에 대한 정보를 저장하는 추가적인 코드를 구현해야 함
+            - 또한, Element를 추가함에 있어서 Size의 한계는 memory에 기반하므로, 배열을 새로 만들고 추가할 필요는 없다. 즉, Resize도 불필요 없다.
+                - 그러나, Element 마다 여러 정보를 포함하게 되기 때문에 메모리의 한계가 있는 경우 LinkedList가 최적이 되지 않을 수 있다.
+                - 이러한 특성에 의해, 삽입과 삭제에 있어 ArrayList보다 빠르다.
+                - 그러나, item을 찾아내는 과정에 있어선 ArrayList보다 느리다.
+            - 첫 item은 list의 head node가 된다.
+            - 마지막 item은 null을 가리킨다.(환형 linked list는 다름)
+            - 예시 시나리오
+                - <b>첫 노드로 insert</b> 하는 경우 절차
+                    - ![Alt text](../image/linked_list_head_insert.png)
+                    1. 해당 노드를 생성
+                    2. 기존 head를 해당 노드의 next로 지정
+                    3. 삽입한 노드를 head로 지정
+                    4. 해당 insert의 시간 복잡도는 O(1)
+                - <b>head node Delete</b> 시 절차
+                    - ![Alt text](../image/linked_list_head_delete.png)
+                    1. head 노드를 removedNode로 저장
+                    2. next 노드를 head로 지정
+                    3. removedNode 반환
+                    4. 시간 복잡도는 O(1)
+            - 그림 설명
+                - ![Alt text](../image/linked_list_reference.png)
+        - Doubly LinkedList 개념
+            - Singly와 비슷하게 head가 있고 추가적으로 tail이 있음
+            - 각 item은 next와 previous에 대한 정보를 가짐. 
+            - 시나리오
+                - <b>head에 insert</b> 시 절차
+                    1. 새 노드 생성
+                    2. 기존 head를 새 노드의 next로 지정
+                    3. 기존 head의 previous를 새 노드로 지정
+                    4. 새 노드의 previous를 기존 head의 previous로 지정
+                    5. 새 노드를 head로 지정
+                    6. O(1)의 시간 복잡도
+                - <b>tail에 insert</b> 시 절차
+                    1. 새 노드 생성
+                    2. tail의 next를 새 노드의 next로 지정
+                    3. tail의 next를 새 노드로 지정
+                    4. 새 노드의 previous를 tail로 지정
+                    5. 새 노드를 tail로 지정
+                    6. O(1)의 시간 복잡도
+                - <b>head를 delete</b> 시 절차
+                    1. head node를 removedNode로 지정
+                    2. head의 next 노드를 head의 previous로 지정
+                    3. head의 next를 head로 지정
+                    4. removedNode 반환
+                    5. O(1)의 시간 복잡도
+                - <b>tail을 delete</b> 시 절차
+                    1. tail node를 removedNode로 지정
+                    2. tail node의 next를 tail node의 previous node의 next로 지정
+                    3. tail node의 previous node를 tail로 지정
+                    4. removedNode 반환
+                    5. O(1)의 시간 복잡도
+                - <b>B Node와 C Node 사이에 A를 insert</b> 시 절차
+                    1. A의 next node를 B의 next node로 지정
+                    2. A의 previous node를 C의 previous node 로 지정
+                    3. B의 next node를 A로 지정
+                    4. C의 previous node를 A로 지정
+                    5. O(1)의 시간 복잡도라면, head/tail에 insert하는 경우이고, 나머지는 O(n)
+                - <b>B와 C 사이의 A node 삭제</b> 시 절차
+                    1. A를 removedNode로 지정
+                    2. C의 previous node를 A의 previous node로 지정
+                    3. B의 next node를 A의 next node로 지정
+                    4. A를 반환
+                    5. O(1)이라면, head/tail에서 제거, 나머지는 O(n)
+            - 그림 설명
+                - ![Alt text](../image/doubly_linked_list.png)
+        - 종류
+            - Singly LinkedList
+                - 위 예시에서 한 방향으로만 연결된 경우가 그러함
+            - Doubly LinkedList
+                - 양 방향으로 연결된 LinkedList를 의미
+            - 환형 LinkedList
+                - tail과 head가 연결된 LinkedList를 의미
