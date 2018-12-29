@@ -80,8 +80,8 @@
             - 만약, capacity를 지정하지 않으면 기본적으로 10의 크기를 갖는 ArrayList를 만들게 된다.
         - 코드
             - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Data_Structure/List">List</a> Directory 확인
-           
 <br/><br/> 
+
     - Vector
         - <a href="https://docs.oracle.com/javase/9/docs/api/java/util/Vector.html">Document</a>
         - 개념
