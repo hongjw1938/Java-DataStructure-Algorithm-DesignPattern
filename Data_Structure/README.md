@@ -63,9 +63,7 @@
     - 대략, 사용 설명서와 같음.
     - 추상 자료형은, 구현자/사용자를 분리한다. 라이브러리를 사용하거나 내장 함수를 사용하는 것도 추상 자료형이 정의되어 있기 때문임
     - 이러한 구현은 외부로부터 숨겨져 있어, 정보 은닉의 효과를 얻는다.
-
 <br/><br/><br/><br/><br/><br/>
-
 - <b id="list">리스트(List)</b>
     - 개념
         - 기본적으로 Abstract Data Type이다. 따라서 Interface를 가짐
@@ -82,7 +80,7 @@
             - 만약, capacity를 지정하지 않으면 기본적으로 10의 크기를 갖는 ArrayList를 만들게 된다.
         - 코드
             - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Data_Structure/List">List</a> Directory 확인
- 
+           
 <br/><br/> 
     - Vector
         - <a href="https://docs.oracle.com/javase/9/docs/api/java/util/Vector.html">Document</a>
