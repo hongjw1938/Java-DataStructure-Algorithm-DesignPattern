@@ -2,7 +2,9 @@
 - 자료구조란?
     - 데이터를 구조화하여 저장하는 방법
     - 예) 배열(순차적), 트리(계층적) 등
-    - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Data_Structure#%EB%B0%B0%EC%97%B4">배열</a>
+    - <a href="#array">배열</a>
+    - <a href="#adt">추상자료형</a>
+    - <a href="#list">리스트</a>
 
 <br>
 <br>
@@ -11,7 +13,7 @@
 <br>
 <br>
 
-- 배열
+- <b id="array">배열</b>
     - 크기 변경 불가
         - 메모리 상에서 인접한 위치 차지
         - 크기 변경 시 해당 memory 상 위치가 인접한지 보장할 수 없음
@@ -50,7 +52,7 @@
 <br/>
 <br/>
 
-- 추상 자료형(Abstract Data Type)
+- <b id="adt">추상 자료형(Abstract Data Type)</b>
     - Abstract Data Type
         - 어떻게 Data가 organize 되어야 하는지 지정해놓지 않음.
         - 수행할 수 있는 operation을 지정
@@ -64,7 +66,7 @@
 
 <br/><br/><br/><br/><br/><br/>
 
-- 리스트(List)
+- <b id="list">리스트(List)</b>
     - 개념
         - 기본적으로 Abstract Data Type이다. 따라서 Interface를 가짐
             - Java list : <a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html">참조</a>
@@ -171,6 +173,11 @@
                     5. O(1)이라면, head/tail에서 제거, 나머지는 O(n)
             - 그림 설명
                 - ![Alt text](../image/doubly_linked_list.png)
+        - JDK의 LinkedList
+            - 개념
+                - 기본적으로 JDK에서 제공하는 LinkedList는 Doubly LinkedList이다.
+                - 자체적으로 구성한 Node class를 가지며, Synchronize되지 않는다.
+                - AbstractSequentialList를 부모 class로 가지기 때문에 해당 class의 method를 override하여 사용할 수 있다.  
         - 종류
             - Singly LinkedList
                 - 위 예시에서 한 방향으로만 연결된 경우가 그러함

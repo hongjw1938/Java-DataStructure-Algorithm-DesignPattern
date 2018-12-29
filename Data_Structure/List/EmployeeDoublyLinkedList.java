@@ -4,6 +4,39 @@ public class EmployeeDoublyLinkedList {
     private DLEmployeeNode head;
     private DLEmployeeNode tail;
     private int size;
+    /*
+        도전 과제 1
+            - addBefore() method 직접 구현해보기
+     */
+
+    public boolean addBefore(Employee newEmployee, Employee existingEmployee){
+        if(head == null){
+            return false;
+        }
+
+        // find the existing employee
+        DLEmployeeNode current = head;
+        while(current != null && !current.getEmployee().equals(existingEmployee)){
+            current = current.getNext();
+        }
+
+        if(current == null){
+            return false;
+        }
+
+        DLEmployeeNode newNode = new DLEmployeeNode(newEmployee);
+        newNode.setPrevious(current.getPrevious());
+        newNode.setNext(current);
+        current.setPrevious(newNode);
+
+        if(head == current){
+            head = newNode;
+        } else {
+            newNode.getPrevious().setNext(newNode);
+        }
+        size++;
+        return true;
+    }
 
     // head node 추가
     public void addToFront(Employee employee){
