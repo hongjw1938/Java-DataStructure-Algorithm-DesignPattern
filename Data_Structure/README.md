@@ -84,7 +84,6 @@
             - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Data_Structure/List">List</a> Directory 확인
  
 <br/><br/> 
-
     - Vector
         - <a href="https://docs.oracle.com/javase/9/docs/api/java/util/Vector.html">Document</a>
         - 개념
@@ -99,9 +98,7 @@
             - ArrayList와 동일하게 Array를 기반으로 구현된 자료형이다.
         - 코드
             - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Data_Structure/List">List</a>확인
-
 <br/><br/>
- 
     - LinkedList
         - <a href="https://docs.oracle.com/javase/9/docs/api/java/util/LinkedList.html"></a>
         - Singly LinkedList 개념
