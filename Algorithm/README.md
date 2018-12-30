@@ -389,3 +389,4 @@
                 - 이 방식은, 병합 정렬 방식으로 계속 나누다가, minimum granularity에 도달하면 해당 Sub-array를 sort method를 이용해 정렬한다.
                 - 이는 Thread를 사용하여 수행하기 때문에 parallelSort라고 불리는 것.
             - JDK의 Sort 알고리즘을 사용 시, Object를 이용해 정렬하는 경우에는 Comparable 인터페이스를 통해 정렬 방식을 지정해주어야 한다.
+    

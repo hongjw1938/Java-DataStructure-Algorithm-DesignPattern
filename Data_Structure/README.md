@@ -5,6 +5,7 @@
     - <a href="#array">배열</a>
     - <a href="#adt">추상자료형</a>
     - <a href="#list">리스트</a>
+    - <a href="#stack">스택</a>
 
 <br>
 <br>
@@ -92,7 +93,7 @@
                 - 그래서 ArrayList가 필요하게 되었다. 왜냐하면, Synchronize를 할 필요가 없는 Code의 경우 속도가 중요할 수 있었기 때문
             - 따라서, Synchronize가 필요한 경우 Vector를 사용할 것이 권장된다.
                 - 다음의 그림을 보면 vector class에는 synchronize가 있는 것을 확인할 수 있다.
-                - ![Alt text](../image/vector_add.png)
+                - ![Alt text](./image/vector_add.png)
             - ArrayList와 동일하게 Array를 기반으로 구현된 자료형이다.
         - 코드
             - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Data_Structure/List">List</a>확인
@@ -111,19 +112,19 @@
             - 마지막 item은 null을 가리킨다.(환형 linked list는 다름)
             - 예시 시나리오
                 - <b>첫 노드로 insert</b> 하는 경우 절차
-                    - ![Alt text](../image/linked_list_head_insert.png)
+                    - ![Alt text](./image/linked_list_head_insert.png)
                     1. 해당 노드를 생성
                     2. 기존 head를 해당 노드의 next로 지정
                     3. 삽입한 노드를 head로 지정
                     4. 해당 insert의 시간 복잡도는 O(1)
                 - <b>head node Delete</b> 시 절차
-                    - ![Alt text](../image/linked_list_head_delete.png)
+                    - ![Alt text](./image/linked_list_head_delete.png)
                     1. head 노드를 removedNode로 저장
                     2. next 노드를 head로 지정
                     3. removedNode 반환
                     4. 시간 복잡도는 O(1)
             - 그림 설명
-                - ![Alt text](../image/linked_list_reference.png)
+                - ![Alt text](./image/linked_list_reference.png)
         - Doubly LinkedList 개념
             - Singly와 비슷하게 head가 있고 추가적으로 tail이 있음
             - 각 item은 next와 previous에 대한 정보를 가짐. 
@@ -167,7 +168,7 @@
                     4. A를 반환
                     5. O(1)이라면, head/tail에서 제거, 나머지는 O(n)
             - 그림 설명
-                - ![Alt text](../image/doubly_linked_list.png)
+                - ![Alt text](./image/doubly_linked_list.png)
         - JDK의 LinkedList
             - 개념
                 - 기본적으로 JDK에서 제공하는 LinkedList는 Doubly LinkedList이다.
@@ -180,3 +181,47 @@
                 - 양 방향으로 연결된 LinkedList를 의미
             - 환형 LinkedList
                 - tail과 head가 연결된 LinkedList를 의미
+<br/><br/><br/>
+- <b id="stack">스택</b>
+    - <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Stack.html">Document</a>
+    - 개념
+        - 기본적으로 추상자료형임.
+            - 즉, Data를 갖고 할 수 있는 행위가 명시되어 있음
+            - Could be backed by any Data structure
+        - LIFO 방식. Last In, First Out. Call stack 구현에 가장 적합
+        - push
+            - Stack의 top에 item을 추가한다.
+        - pop
+            - top의 item을 제거한다.
+        - peek
+            - top item을 제거하지는 않고 반환한다.
+        - ideal backing data structure
+            - linked list.
+            - 단방향 연결리스트를 생각해보면, front에 Element를 계속 추가 / 제거하는 방식으로 생각할 수 있음
+            - 배열로 생각하게 되면, 제일 처음에 추가된 Element를 제거하면 배열을 계속 재조정해줘야 하는 번거로움이 있음
+        - 시간 복잡도
+            - O(1) for push / pop / peek -> linked list인 경우
+            - array를 사용하는 경우, push는 O(n)
+                - 왜냐하면, full로 차면 array를 재조정해야 하기 때문
+            - 또한 array를 사용 시, pop에 대해 다를 수 있음
+                - 계속 resize되어 push되었다가 많은 element가 빼내어져서 더 이상 그 크기만큼이 필요없어진 상황이라고 하자.
+                - 그러면, 다시 resize하는 것은 risk가 있을 수 있다. 왜냐하면 또 추가될 수 있으니까
+                - 따라서, resizing을 다시 한다면 O(n) 이하의 시간 복잡도를 가지게 됨.
+            - peek의 경우에는 array를 사용하더라도 그대로 O(1). 단순히 Element만 반환하기 때문
+            - 최대 item이 들어갈 개수를 이미 아는 경우에는 배열이 더 효율적일 수 있음
+            - 또한, memory의 한계가 명확한 경우, 배열이 더 적합할 수 있음
+    - 그림으로 보기
+        - ![Alt text](./stack.gif)
+    - JDK stack
+        - 실제 Stack이라는 class가 있음. Vector 클래스에서 몇 Operation을 확장한 방식
+        - 보통의 pop / peek / push는 당연히 제공되고, 비어있는지의 여부인 empty, top에서 각 Element가 어느 정도 거리에 있는지 알려주는 search도 있음
+        - Deque interface를 이용하여 구현하였음. 따라서 다음과 같이 사용
+            - ```Deque<Integer> stack = new ArrayDeque<Integer>();```
+            - 그런데 해당 코드의 경우, Array를 기반으로 만들어진 것임.
+        - 이외에 LinkedList를 Deque interface로 구현한 것도 있음. 해당 코드를 기반으로 만들면 LinkedList 기반으로 stack을 생성함
+            - 실제 LinkedList class는 Deque interface를 구현하였음.
+<br/><br/><br/>
+- <b id="queue">Queue</b>
+    - document
+    - 개념
+        - ADT임. 데이터를 저장 및 access하는 것에 방점
