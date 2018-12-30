@@ -211,7 +211,7 @@
             - 최대 item이 들어갈 개수를 이미 아는 경우에는 배열이 더 효율적일 수 있음
             - 또한, memory의 한계가 명확한 경우, 배열이 더 적합할 수 있음
     - 그림으로 보기
-        - ![Alt text](./stack.gif)
+        - ![Alt text](./image/stack.gif)
     - JDK stack
         - 실제 Stack이라는 class가 있음. Vector 클래스에서 몇 Operation을 확장한 방식
         - 보통의 pop / peek / push는 당연히 제공되고, 비어있는지의 여부인 empty, top에서 각 Element가 어느 정도 거리에 있는지 알려주는 search도 있음
