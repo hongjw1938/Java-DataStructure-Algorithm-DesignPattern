@@ -6,6 +6,7 @@
     - <a href="#adt">추상자료형</a>
     - <a href="#list">리스트</a>
     - <a href="#stack">스택</a>
+    - <a href="#queue">큐</a>
 
 <br>
 <br>
@@ -222,6 +223,57 @@
             - 실제 LinkedList class는 Deque interface를 구현하였음.
 <br/><br/><br/>
 - <b id="queue">Queue</b>
-    - document
+    - <a href="https://docs.oracle.com/javase/9/docs/api/java/util/Queue.html">document</a>
+        - Queue Interface
+        - ArrayBlockingQueue class
+        - ConcurrentLinkedQueue class
+        - Deque Interface
+        - ArrayDeque class
     - 개념
         - ADT임. 데이터를 저장 및 access하는 것에 방점
+        - FIFO 방식의 데이터 구조 - First In, First Out
+        - add
+            - enqueue라고도 부르며, item을 queue의 끝에 추가함
+        - remove
+            - dequeue라고도 부르며, queue의 front item을 제거
+        - peek
+            - 가장 front에 있는 item을 반환. remove는 하지 않음
+        - stack과 마찬가지로 Array, LinkedList 기반으로 구현할 수 있다.
+            - LinkedList기반으로 구현하면, 위의 모든 동작이 Constant 시간 복잡도를 가지며, Array 기반이면 Constant / Linear 시간 복잡도를 갖게 된다.
+    - 그림으로 설명
+        - ![Alt text](./image/queue.gif)
+    - Array 기반 Queue
+        - 배열을 기반으로 Queue를 만들게 되면 Resize에 대한 이슈가 있게 된다.
+        - front item의 위치, back item의 위치를 기반으로 현재 Queue가 비어있는지 확인함.
+        - 따라서, 이 방식을 그대로 사용하면, 일정한 수준의 item이 add / remove 되어 일정한 크기를 유지해도 되는 순간에도 resize를 해야 하는 비효율이 발생할 수 있다.
+        - Circular Queue는 이를 개선할 수 있다.
+    - Circular Queue
+        - Queue의 element가 더해지고 제거되면서 front / back의 인스턴스 변수가 이동하며 계속 resize를 하는 현상을 방지해야함
+        - 이 때, end가 마지막 부분을 hit하면, 처음 부분이 비었을 때, 다시 그 부분을 채울 수 있게 하는 방식으로 해결
+        - 물론, 처음 부분이 비어있지 않다면 resize를 해야 한다.
+        - 또한, 이 때, front는 배열의 중간을 가리키고 back은 0을 가리키게 되면, 계속 element를 추가하게 되는 경우 back과 front가 cross하는 상황이 발생할 수 있다.
+        - 이 경우에도 배열을 새로 생성하여 resize하는 작업을 수행해야 한다.
+        - 즉, back과 front의 위치에 따라 각 method에 대한 구현 부분을 변경해주어야 한다.
+    - JDK Queue
+        - Queue interface를 기반으로 기본적인 action에 대한 추상 method가 구현되어 있음
+            - 매우 기본적인 method를 포함. 복잡하지 않음
+            - 계속, add / remove 를 기반으로 하였는데, 실제 Queue interface에서는 add / remove / element와 offer / poll / peek 를 하나의 묶음으로 볼 수 있다.
+            - 상호 관련 내용은 동일하나, 전자의 3개 method는 Exception을 반환하고, 후자의 3개 method는 특정 value를 반환한다.
+        - ArrayBlockingQueue는 bounded blocking queue로 Queue interface를 구현한 class임
+            - 해당 class는 array를 resize하지 않는다.
+            - 그래서, 이미 꽉 찬 queue에 element를 추가하면 해당 thread의 작업은 수행되지 않는다.
+            - 다른 thread가 동작하여 queue에서 element를 제거할 때까지 block된다.
+            - remove에 대해서도 같다. 비어있으면 block되고 추가될 때까지 대기
+            - Producer / Consumer scenario에 사용되는 방식임. 즉, message를 Producer가 전달하면 Consumer는 queue에서 해당 메시지를 빼서 확인
+            - 만약, message가 전달되지 않았다면 전달될 때까지 block됨.
+        - ConcurrentLinkedQueue는 linked node 기반의 thread safe한 unbounded queue이다. Queue interface를 구현
+            - non blocking 알고리즘으로 복수의 thread가 사용할 것을 기반으로 구현한 자료구조임
+            - 일반적으로 자료구조의 size를 반환하는 것은 item의 개수에 전혀 상관이 없다. 왜냐면, counter를 따로 변수로 지정하기 때문
+            - 그런데, 이 방식의 자료구조는 복수의 thread가 접근가능하기 때문에 해당 size를 반환할 때도 constant 시간 복잡도를 유지할 수 없게 구현되어 있다.
+        - AbstractQueue를 사용하면 customzing하여 Queue를 자유롭게 구현할 수 있다.
+        - Deque interface는 Queue interface를 상속받는 interface로 양방향으로 삽입/제거가 가능한 method를 구현함
+        - ArrayDeque class는 위 Deque interface를 구현한 class임
+            - resize 가능한 자료구조임
+            - 따라서, 양 방향에서 삽입/제거가 가능함.
+        - 이외에도 Document를 살펴보면 여러 가지 있음.
+    
