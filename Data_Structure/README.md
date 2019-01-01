@@ -7,6 +7,7 @@
     - <a href="#list">리스트</a>
     - <a href="#stack">스택</a>
     - <a href="#queue">큐</a>
+    - <a href="#hash_table">해시 테이블</a>
 
 <br>
 <br>
@@ -276,4 +277,128 @@
             - resize 가능한 자료구조임
             - 따라서, 양 방향에서 삽입/제거가 가능함.
         - 이외에도 Document를 살펴보면 여러 가지 있음.
-    
+<br/><br/><br/>
+- <b id="hash_table">Hash Table</b>
+    - <a href="https://docs.oracle.com/javase/9/docs/api/java/util/Map.html">Document</a>
+        - Map interface
+        - HashMap Class
+        - LinkedHashMap Class
+        - Hashtable Class
+        - ConcurrentHashMap Class
+    - <a href="https://ratsgo.github.io/data%20structure&algorithm/2017/10/25/hash/">블로그 참조</a>
+    - 개념
+        - ADT이므로 어떤 것을 background로 만들어도 된다.
+        - Key를 이용하여 Data에 Access할 수 있는 자료구조임.
+        - Key는 Integer Type이 아니어도 상관 없다.
+        - Key / value pair로 구성되며 data type은 서로 일치할 필요는 없다.
+            - 즉, String을 key / Employee 객체를 value로 사용해도 된다.
+        - Dictionary map이라고도 부른다. key를 알면 value값에 접근하는데 최적화 됨
+        - 배열기반의 hash table이 하나의 type이 될 수 있는데, Java의 map class 를 사용해봤다면 이를 사용한 것
+            - key / value pair를 제공하면 hash 함수로 key를 int value에 mapping. value를 해당 key로 hash된 값에 저장
+            - Retrieve 시에는 key를 제공하면 hash 함수로 key를 mapping하고 저장된 값을 반환할 수 있다.
+    - Hashing
+        - 어떠한 data type의 key도 integer로 mapping될 수 있음
+        - 즉, Hash 함수는 key를 int로 mapping하는 함수
+        - Java에서는 hash 함수는 Object.hashCode()임
+        - 동일한 hash 값에 하나 이상의 value가 들어가게 되면 충돌이 발생
+            - 그래서, 충돌이 발생하는 경우 알고리즘을 사용해 다른 곳에 값을 추가하여 넣어주는 등 추가적인 전략을 사용한다.
+            - Load Factor를 사용하면 충돌이 발생할 수 있는 가능성을 대략적으로 가늠할 수 있다.
+            - 일반적으로, Hash Table은 시간복잡도가 Constant하나, 충돌이 많아 이를 처리해야 하는 경우, 시간 복잡도가 증가할 수 있다.
+        - Java에는 Object.hashCode() method가 있어서 이를 사용해서 hashing을 하는 경우가 많다.
+            - 원하는 대로 Override해서 사용할 수도 있음. String value로 key를 사용시, 주의점은 String value는 negative int 값을 반환할 수 있다는 점이다. 그래서 Math.abs()를 통해 positive로 변경하기도 함
+        - 함수 종류
+            - division method
+                - 나눗셈법으로 빠른 연산이 가능함. 대개 소수 사용
+            - Multiplication method
+                - 곱셈법으로 보통 2의 제곱수로 정함
+                - h(k) = (kA mod 1) * m
+            - universal hashing
+                - 다수의 해시함수를 만들고, 이 해시함수의 집합 H에서 무작위로 해시함수를 선택해 해시값을 만드는 기법
+    - Load Factor
+        - hash table이 어느 정도 full한지 알려주는 정보
+        - Load Factor = # of items / capacity = size / capacity 임
+        - 즉, 이 value는 array 기반 hash table을 resize하는 기준이 될 수 있다.
+            - 즉, 0.5라면 array 기반 hash table이 반 정도 찼다는 의미임.
+        - load factor가 너무 낮으면 empty space가 많다는 의미이며, 너무 높으면 충돌 가능성이 높다는 의미이다.
+        - load factor가 시간 복잡도를 결정하는 역할을 한다.
+    - 충돌 해결 방법
+        - Open addressing
+            - hashing 된 key에 해당하는 index에 이미 값이 들어가 있는 경우, 다른 위치를 찾아서 다시 put 하는 것
+            - Linear Probing(선형 탐사)
+                - 이는 이미 해당 index에 value가 들어가 있는 경우, 선형적으로 값을 증가시켜 다른 index를 찾아 value를 삽입하는 방식
+                - 예를 들어, key를 hashing해서 mapping된 값이 5인데, 배열의 5 index 부분이 이미 차지되었다면, 6으로 증가시켜서 put 하는 방식임
+                - 해당 작업을 자리를 찾을 때까지 진행함.
+                - 만약 Hash Table이 꽉 찼다면 값을 넣을 수 없게 한다.
+                - put
+                    - 배열의 hashing 된 index 값이 null인지 확인 후, null이 아니라면, hashing 된 key 값을 최소값으로 내리거나 ++함
+                    - 해당 작업을 반복하여, 배열에 빈 자리가 있는지 계속 확인, 무한 반복을 막기 위해 기존의 hashing 값을 따로 저장하여 그 값과 비교
+                    - 만약, 이렇게 했는데 해당 배열의 빈 자리가 없다면 값을 넣지 않음
+                - get
+                    - get의 경우, 기존의 key를 그냥 집어넣어 value를 retrieve 하면 충돌이 발생한 경우 올바르지 못 한 결과를 낳게 됨
+                    - 그래서 이를 방지하기 위해 value에 key 또한 저장해두어 비교해야 한다.
+                - remove
+                    - key로 전달되는 값을 hashing한 value가 존재하면 그것을 반환하기 전에 null로 지정하고 반환함
+                    - 여기서, key를 찾는 method를 통해 적절한 key에 해당하는 value를 반환해야함.
+                    - 중요한 점은, Linear probing의 특성 상, 같은 hashing 값에 대해서 선형적으로 index 값이 증가하기 전에 해당 value가 이미 null이라면 더 이상 loop를 통해 선형 증가 시킬 필요가 없다는 것이다.
+                    - 왜냐하면, 만약 같은 hashing을 통해 5라는 index에 해당하는 value가 3개 있었다고 치자. 5, 6, 7에 각각 value가 들어갈 텐데, 이 때, 5에 대한 value를 remove 했다고 가정한다.
+                    - 그러면, 7에 해당 하는 value를 다시 remove 하고 싶은 경우, 7까지 찾아보지 않는다. 왜냐하면 이전에 한 번 remove를 하면서 rehashing을 통해 값을 다시 조정하여 배열에 넣기 때문이다.
+                    - rehashing
+                        - 이는, remove 시에 Linear probing의 메커니즘을 유지하기 위해 전체 배열을 새로 만들어 다시 hashing 된 key에 따라 value를 넣는 방법임
+                        - 이 방법은, 당연히 array를 새로 만들어 복사해 넣기 때문에 성능에 영향을 미치게 된다.
+                        - rehashing이외의 방법은 해당 객체를 저장하는 class에 deleted field를 추가하여 삭제 여부를 확인하는 방법이ㅏㄷ.
+                        - 이 경우에는, 소위 polluted hash table을 사용하게 된다는 단점이 있다. 특히 load factor를 변화시키지 못한 다는 단점이 있다.
+                        - 따라서, rehashing을 보통 더 많이 사용하게 된다.
+            - Quadratic Probing(제곱 탐사)
+                - 선형 탐사 방식이 +1 / +2 등 고정된 폭으로 계속 적절한 입력 가능한 index를 찾는 것에 비해 제곱 탐사는 충돌 시, 제곱 값에 따라 다음 index를 찾는 방식
+                - 예를 들어 처음 충돌 시, 1^2, 다음은 2^2, 3^2 등의 방식으로 계속해서 탐사해간다.
+                - 이 방식은 그러나 initial Probe, 즉 최초 탐사 값이 같은 복수의 key가 존재하는 secondary clustering에 매우 취약함
+            - Double hashing(이중 해싱)
+                - 탐사하고자 하는 해시 값의 규칙성을 없애서 clustering을 방지하는 기법임.
+                - 2개의 hash 함수를 준비하여 하나는 initial probe 값을 얻을 때, 또 다른 하나는 collision 발생 시 탐사 이동폭을 얻기 위해 사용한다.
+                - 이러면, 최초 해시값이 같아도 이동폭이 달라, primary / secondary clustering을 모두 완화 가능
+                - 예를 들어, 최초 해시값을 구하는 함수는 3으로 나눈 나머지, 이동폭 구하는 해시 함수는 5로 나눈 나머지로 가정하자
+                    - key가 integer 타입인 경우, 3과 6이 전달 시 최초 해시값은 0으로 동일하나 이동폭은 3 / 1로 각각 다르다.
+            - Open addressing의 시간 복잡도
+                - Chaining과 달리 table 크기가 고정되어 n개 데이터 저장 시, Load Factor = n / m 으로 1과 같거나 작다고 가정된다.
+                - 즉, Open addressing은 Table에 data가 full하지 않는다는 걸 전제로 하는 방식인 것.
+                - 계산 복잡성은 탐사(probing)횟수에 비례한다. 즉, 탐사 횟수의 기대값이 중요
+                    - successful search : 1/a * ln(1/(1-a))
+                    - unsuccessful search : 1/a
+                    - 위에서 a는 load factor를 의미하며 이에 따라 복잡성이 달라지게 된다.
+        - Chaining
+            - 이는 Linear Probing에 비해 간단하다. 각 Array의 Element가 각각 LinkedList node로 연결된 형식의 Hash Table이다.
+            - 즉, 각각의 Index에 LinkedList 객체를 저장하게 됨. 이에 따라 충돌이 발생하더라도 Node를 추가해서 저장하면 된다는 장점이 있다.
+            - 단점은 LinkedList를 저장하기 때문에 Constant 시간 복잡도의 장점을 완전히 살릴 수 없다는 것이다.
+                - 그러나 Hashing 함수가 적절하여 Collision이 거의 발생하지 않는 다면 매우 훌륭한 방식임
+            - Chaining의 경우에는 Load Factor가 명확한 성능에 영향을 미친다. 실제 Chaining방식의 경우 Linear를 사용하여 최악의 경우 Linear time complextity를 발생시킬 수 있음
+            - 이 때, array의 size를 더 크게 하면 작게 할 때보다 더 collision이 작게 발생할 수 있다.
+                - 예를 들어, size가 10이면 5 / 15의 key가 전달 되면 단순 division method 사용 시 5로 충돌 발생할 수 있다.
+                - 그러나, 20으로 size를 늘리면 5, 15로 key 값이 달라지기 때문에 collision이 적게 발생하게 된다.
+    - JDK HashTable
+        - Map interface
+            - HashMap등 HashTable을 구현한 class들이 구현한 interface
+        - HashMap Class
+            - 일반적인 operation에 대해 constant time complextity를 보이며, null key에 null value를 허용한다.
+            - 그러나 resize / rehashing 시에는 해당 시간 복잡도를 유지할 수 없다.
+            - 성능에 영향을 미치는 두 Parameter는 initail capacity와 load factor이다.
+                - hash table에 entry들의 수가 load facoter, 현재 capacity 를 초과하면 rehashing이 발생한다. capacity 는 2배
+                - default load factor는 0.75이다.
+                - 최초 capacity를 지정할 때, entry의 수와 load factor를 고려하여 지정해야 한다.
+            - 이 class는 synchronize되지 않으며, multiple thread를 고려해야 하는 경우 Collection framework의 synchronizedMap을 사용할 것을 권장한다.
+            - 이미 사용중인 Key를 바탕으로 Value를 집어넣으면 Collision이 발생하여 Overlap 된다. 즉, 추가적인 처리를 하지 않는 class
+                - 이를 방지하기 위한 method는 putIfAbsent()이다. key가 사용중이지 않은 경우에만 value를 추가한다.
+        - LinkedHashMap
+            - hashTable을 map interface와 LinkedList를 기반으로 구현한 것이다.
+            - HashMap은 array기반으로 구현된 방식이고 이는 LinkedList를 기반인데, 그 중에서도 Doubly LinkedList이다.
+            - 당연히 기본은 array이고 각 index의 객체는 LinkedList로 구현됨
+            - synchronize되지 않기에, 해당 기능을 원하는 경우 Collection framework의 synchronizedMap을 사용할 것
+            - removeEldestEntry() method
+                - 이 method는 가장 entry에서 오래된 객체를 반환하는 method이다.
+                - 왜 이런 method가 있냐면, Map을 Cache로 사용하는 경우가 있기 때문이다.
+                - 그래서, Cache는 빠른 access를 원하기에 Map 객체가 계속 growing하기를 원하지 않기에 이러한 method 또한 존재한다.
+        - HashTable
+            - HashMap과 약간 다른데, null 을 key, value로 사용할 수 없다.
+            - synchronize되기 때문에 해당 기능이 필요 없다면 이를 사용하지 않는 게 좋다. overhead 존재
+        - ConcurrentHashMap
+            - 이는 synchronize된 HashTable을 구현한 class이다.
+        - 이 외에도 많음. 스스로 찾아서 공부할 것.
