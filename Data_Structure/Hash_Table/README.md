@@ -7,3 +7,9 @@
     - Employee 객체 구현 코드
 - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Data_Structure/Hash_Table/Main.java">Main.java</a>
     - Main method 구현 코드
+
+### Challenge
+- hash 함수 만들어보기
+    - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Data_Structure/Hash_Table/ChallengeHashFunc.java">ChallengeHashFunc.java</a>
+- LinkedList의 중복 item 제거
+    - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Data_Structure/Hash_Table/ChallengeRemoveDupl.java">ChallengeRemoveDupl.java</a>
