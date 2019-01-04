@@ -13,6 +13,11 @@
     - <a href="#counting_sort">Counting 정렬</a>
     - <a href="#radix_sort">Radix 정렬</a>
     - <a href="#jdk_library">JDK Arrays class sort method</a>
+    - <a href="#bucket_sort">Bucket 정렬</a>
+
+- 탐색 알고리즘
+    - <a href="#linearSearch">linear search</a>
+    - <a href="#binarySearch">binary search</a>
     
 
 - <b id="big_o">Big O Notation</b>
@@ -389,4 +394,48 @@
                 - 이 방식은, 병합 정렬 방식으로 계속 나누다가, minimum granularity에 도달하면 해당 Sub-array를 sort method를 이용해 정렬한다.
                 - 이는 Thread를 사용하여 수행하기 때문에 parallelSort라고 불리는 것.
             - JDK의 Sort 알고리즘을 사용 시, Object를 이용해 정렬하는 경우에는 Comparable 인터페이스를 통해 정렬 방식을 지정해주어야 한다.
+    <br/>
+    - <b id="bucket_sort">Bucket 정렬</a>
+        - 정렬 방식
+            - ![Alt text](./image/bucket_sort.png)
+        - 개념
+            - Hashing을 사용한다.
+            - Data에 대한 가정을 함. Radix와 Counting 정렬과 같이
+            - hash된 item의 value가 균등하게 분포하여 충돌이 적은 경우 매우 효과적
+            - 시간 복잡도
+                - 데이터에 대한 가정을 통해 O(n)이 가능
+            - Not in-place 알고리즘이다.
+                - 왜냐하면, Bucket들을 이용해 정렬하므로 추가적인 메모리를 소모하기 때문
+            - Stable 여부는 정렬 알고리즘에 따라 다를 것.
+            - O(n)의 시간 복잡도를 만들고 싶다면 bucket당 item이 하나여야 함
+            - Bucket 정렬의 내부 Sorting phase에는 Insertion 정렬이 주로 사용됨.
+                - Bucket 내부의 item 수가 적으면 매우 빠르게 동작하기 때문
+        - 작동 방식
+            - Scattering phase
+                - bucket으로 모든 item을 hashed value를 기반으로 분배함
+                - 각 bucket의 item을 정렬
+            - gathering phase
+                - bucket을 병합(Concatenate)
+                - 이를 단순히 Concatenate로 가능하게 하기 위해서 모든 Bucket 끼리의 값은 차이가 있어야 함
+                - Bucket X가 X-1의 Bucket보다 모든 value가 다 greater해야 한다.
+            - 즉, Counting 정렬의 일반화라고 볼 수 있다.
+<br/><br/><br/>
+- Search algorithm
+    - <b id="linearSearch">Linear Search</b>
+        - 개념
+            - 선형으로 전체 배열을 scan하여 찾는 방법
+            - Data가 정렬된 상태가 아니어도 된다.
+            - 시간 복잡도 : O(n) - 최악의 경우
     
+    - <b id="binarySearch">Binary Search</b>
+        - 개념
+            - 데이터가 이미 정렬된 상태이어야 한다.
+            - 배열의 중간에 있는 element를 선택하고 찾고자 하는 value와 비교한다.
+            - 만약 value와 찾고자 하는 element(이하 searching)이 같다면 끝
+            - searching이 더 작다면, left half를 찾아봄
+            - searching이 더 크다면, right half를 찾아봄
+            - recursive를 사용해서 할 수 있음.
+                - 재귀적으로 반을 나누어 계속 탐색을 진행하다 보면, partition에 하나의 element만 남게 된다.
+                - 그 상황까지 가지 않을 수도 있다.
+                - 따라서 시간복잡도는 O(logn)이 된다.
+            - 그러나 iterative 방식으로 사용하는 것이 method call overhead가 적음
