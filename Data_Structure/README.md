@@ -8,6 +8,7 @@
     - <a href="#stack">스택</a>
     - <a href="#queue">큐</a>
     - <a href="#hash_table">해시 테이블</a>
+    - <a href="#tree">트리</a>
 
 <br>
 <br>
@@ -402,3 +403,51 @@
         - ConcurrentHashMap
             - 이는 synchronize된 HashTable을 구현한 class이다.
         - 이 외에도 많음. 스스로 찾아서 공부할 것.
+<br/><br/<br/>
+- <b id="tree">트리</b>
+    - <a href="">Document</a>
+    - 개념
+        - Gray type
+            - Data Structure라고 부르는 사람도 있고 ADT라고 부르는 사람도 있다.
+        - 계층적 데이터 구조를 의미한다.
+            - ![Alt text](./image/tree.png)
+            - 위 사진과 같이 계층 구조를 가지며, 각 원은 하나의 Node이다.
+            - 각 Node는 복수의 Child를 가질 수 있으나, 하나의 Parent만 가질 수 있다.
+            - 15라는 value를 가지는 Node는 Root Node로 불리며 이 Root Node는 Tree에서 단 하나임
+            - Arrow 모양으로 Parent가 Child를 가리키는 형태는 Edge라고 부른다.
+                - Edge의 수에 따라 Depth, height가 결정 된다.
+                - 15는 Depth가 0이고 그 아래는 1, 그 아래는 2 이런식으로 Depth가 결정된다.
+                - Node의 height는 leaf 노드에서의 가장 긴 path를 갖는 edge의 수를 의미한다.
+                - 따라서 leaf Node의 height는 0, 그 위는 1, 2 이런식으로 결정된다.
+                - 그래서 전체 Tree의 Height는 최 하단 Leaf에서 Root의 경우를 의미한다.
+            - Parent Node아래의 모든 자손 Node를 합쳐 Subtree라고 부른다.
+        - Java의 Class나 File System이 하나의 Tree구조를 가진다고 볼 수 있다.
+            - Java의 Class는 하나의 부모 Class를 가지고 많은 자손을 가질 수 있다.
+            - Root는 Object가 될 것.
+        - 가장 마지막에 있는 Node는 leaf node라고 부르며 이들은 Child가 없다
+        - 하나의 Node만 가지는 Tree를 Singleton tree라고 부르며 해당 Node는 Root Node가 된다.
+        - 부모 노드에서 자손 노드로 가는 길은 단 하나 뿐이다.
+            - 해당 Path를 결정 시에 Tree 구조에서는 Cycle을 형성하는 Path는 만들어질 수 없다.
+    - Binary Tree(이진 트리)
+        - 모든 노드는 0, 1, 2개의 Child nodes를 갖는다.
+        - Child들은 left / right child로 refer된다.
+        - 완전 이진 트리(Complete B-Tree)
+            - Leaf 즉, last level의 node를 제외한 모든 Node가 Children Node를 가지는 경우를 의미
+            - Left Child부터 차례대로 채워지며, 만약 Leaf 바로 이전 단계의 Node가 Left는 없고 Right만 있다면 Empty spot 이 있어 완전 이진트리가 아니다.
+        - 포화 이진 트리(Full B-Tree)
+            - 이는 완전 이진 트리의 충분조건을 가지며, 모든 Node가 (leaves 제외)하고 2개의 Child node를 갖는 경우를 의미한다.
+    - Binary Search Tree(BST, 이진 탐색 트리)
+        - 삽입, 삭제, Retrieve를 O(logn)의 시간 복잡도로 수행 가능
+            - 왜냐면, 이미 정렬된 Value들을 기반으로 전체의 log의 경우에 해당하는 Path만 찾아서 Action을 수행하기 때문
+        - left child는 항상 parent보다 더 작은 value를 갖는다.
+        - Right child는 항상 parent보다 더 큰 value를 갖는다.
+        - 즉, Root의 좌측의 모든 Node는 Root의 value보다 작은 Value를 가지며, right는 큰 Value만 가진다.
+        - 따라서, tree의 최소값을 찾는 경우 Left만 계속 내려가면 되고, Maximum 값을 찾는 경우는 Right만 찾으면 된다.
+        - Rebalancing
+            - 이미 정렬된 데이터를 삽입하면 한 쪽 방향으로 길게 늘어진 상태의 Tree형태가 될 것이다.
+            - 그러면, O(logn)이 아닌 Linear 시간 복잡도를 갖는 단순 LinkedList의 형태가 된다.
+            - 이는 Tree를 사용 시에 바람직하지 않다. 그래서 Left / Right의 Height가 큰 차이가 나지 않도록 재조정하는 것이 필요하다.
+            - 이러한 알고리즘을 구현한 Tree 구조는 대표적으로 두 가지이다.
+                - AVL Tree
+                - Red Black Tree
+            - 해당 알고리즘은, 삽입, 삭제 시 Node를 이동시키고 Tree를 회전시켜서 Balance를 유지하는 방식을 취한다.
