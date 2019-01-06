@@ -405,7 +405,9 @@
         - 이 외에도 많음. 스스로 찾아서 공부할 것.
 <br/><br/<br/>
 - <b id="tree">트리</b>
-    - <a href="">Document</a>
+    - <a href="https://docs.oracle.com/javase/9/docs/api/java/util/TreeMap.html">Document</a>
+        - TreeMap
+        - TreeSet
     - 개념
         - Gray type
             - Data Structure라고 부르는 사람도 있고 ADT라고 부르는 사람도 있다.
@@ -451,3 +453,52 @@
                 - AVL Tree
                 - Red Black Tree
             - 해당 알고리즘은, 삽입, 삭제 시 Node를 이동시키고 Tree를 회전시켜서 Balance를 유지하는 방식을 취한다.
+        - method
+            - insert
+                - root Node를 우선 검사해서 null인지 확인하고 null이라면 root node에 데이터 삽입
+                - root가 이미 data가 있다면 root의 data와 비교하여 좌/우측으로의 방향 설정
+                - 만약 방향 설정되었는데 해당 방향의 node의 data가 이미 있다면 해당 노드를 기반으로 insert method 재 호출
+                - 해당 방향의 노드가 null이면 그 node에 데이터 입력
+            - Traversal
+                - level
+                    - 각 level의 node를 방문
+                    - 0, 1, 2의 level마다 각 node를 순서대로 방문함.
+                - pre-order
+                    - root의 subtree를 우선 방문
+                    - root, left, right의 순서
+                    - ![Alt text](./image/BST_preorder.png)
+                - post-order
+                    - root의 subtree를 나중에 방문
+                    - left, right, root 순서
+                    - ![Alt text](./image/BST_postorder.png)
+                - in-order
+                    - left, root, right 순으로 방문
+                    - 이진 탐색 트리는 정렬된 상태이므로 이를 기반으로 하면 정렬된 데이터를 순서대로 얻을 수 있다.
+                    - ![Alt text](./image/BST_inorder.png)
+            - min data value 반환
+                - 가장 left에 있는 Node가 min data를 갖는 Node
+            - max data value 반환
+                - 가장 right에 있는 Node가 max data를 갖는 Node
+            - delete
+                1. Node가 leaf인 경우
+                    - 단순히 Null화 시켜서 삭제하면 끝
+                2. Node가 하나의 child만 갖는 경우
+                    - Node의 child를 단순히 삭제할 Node로 이동시킴.
+                3. Node가 둘의 children을 갖는 경우
+                    - 대체할 노드를 찾아내야 한다.
+                    - 현재 Tree 구조에 대해 최소한의 disruption만 허용할 필요가 있다.
+                    - 대체할 노드를 삭제될 노드의 좌측 혹은 우측 subtree에서 찾을 수 있다.
+                    - 좌측에서 찾는 경우, 좌측 노드 중 가장 큰 값을 갖는 노드로 대체해야 한다.
+                    - 우측에서 찾는 경우, 우측 노드 중 가장 작은 값을 갖는 노드로 대체해야 한다.
+                    - 둘 중에 하나의 방법을 찾아서 대체할 것.
+    - JDK Tree
+        - TreeMap
+            - AbstractMap 인터페이스를 구현하였음.
+            - Key, Value로 이루어진 것으로 Red-black tree기반으로 구현되었음
+            - 자체적으로 balancing을 형성함.
+            - Red-black이 완전하진 않지만 적합한 수준의 성능, 밸런싱 tradeoff 를 가짐
+            - synchronize되지 않기 때문에 복수의 thread를 사용하는 application의 경우, SortedMap 클래스로 wrapping할 것
+                - 예) ```SortedMap m = Collections.synchronizedSotredMap(new TreeMap(...))```
+        - TreeSet
+            - Set은 ADT로 중복된 값을 가질 수 없는 데이터 구조를 의미함
+            - TreeMap을 기반으로 구현된 구조임
