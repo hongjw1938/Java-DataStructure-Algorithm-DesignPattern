@@ -9,6 +9,8 @@
     - <a href="#queue">큐</a>
     - <a href="#hash_table">해시 테이블</a>
     - <a href="#tree">트리</a>
+    - <a href="#heap">힙</a>
+    - <a href="#set">Set</a>
 
 <br>
 <br>
@@ -502,3 +504,90 @@
         - TreeSet
             - Set은 ADT로 중복된 값을 가질 수 없는 데이터 구조를 의미함
             - TreeMap을 기반으로 구현된 구조임
+<br/><br/><br/>
+- <b id="heap">힙</b>
+    - <a href="https://docs.oracle.com/javase/9/docs/api/java/util/PriorityQueue.html">Document</a>
+        - PriorityQueue class
+    - 예시
+        - ![Alt text](./image/heap.gif)
+    - 개념
+        - 특수한 형태의 Binary Tree를 의미한다.
+        - 완전 이진 트리이며, heap의 속성을 반드시 만족해야 한다.
+            - 따라서, Child는 반드시 left에서 right로 추가된다.
+        - 일반적으로 Array를 기반으로 구현된다.
+        - 최대 혹은 최소 value는 반드시 tree의 root이어야 한다.(이것이 이점)
+            - 그렇기 때문에, 최대/최소값을 찾는 시간 복잡도는 O(1)이 된다.
+        - Heapify
+            - 이진 트리를 heap으로 변경하는 프로세스. 이는 삽입 / 삭제 이후 종종 반드시 수행해야 된다.
+        - Sibling 간의 순서는 필요하지 않다.
+        - Max heap
+            - 모든 Parent Node는 children에 대비해 값이 크거나 같아야 한다.
+            - 즉, Maximum value가 root
+        - Min heap
+            - 모든 Parent Node는 children에 대비해 값이 작거나 같아야 한다.
+            - 즉, Mininum value가 root
+        - 시간 복잡도
+            - insert 시에는 Constant가 될 수도 있지만, Heapify를 해야 하는 경우 최악이라면 O(logn)이 된다.
+            - delete 시, 보통 root를 빼기 위해 사용하지만 특정 구현의 경우 특정 value를 삭제하길 원한다면 linear 시간 복잡도를 구성하게 된다.
+                - 그리고, 찾은 이후에, delete이후 Heapify를 해야 하므로 최악의 경우, O(logn)이 된다.
+                - 그래서 전체적으로 O(n) + O(logn)인데, 보통 root를 delete할 때 사용하니까 root를 제거한다면 최악의 경우 O(logn)만 소요할 것
+        - 위 설명에 따라, 만약 random access operation이 목적인 경우라면, Heap은 별로 좋은 선택이 될 수 없다.
+    - 배열 기반 힙
+        - root는 array의 index 0에 저장된다.(종종 0부터 사용하는 것이 실수로 인한 오류를 만들 수 있어 1부터 시작하기도 함)
+        - 좌측 child는 array[1], 우측은 array[2]가 된다.
+        - 그림의 예
+            - ![Alt text](./image/array_heap.png)
+        - 따라서, subtree의 root의 index가 i라면
+            - left child index : 2i + 1
+            - right child index : 2i + 2
+            - parent = floor((i-1) / 2)
+        - 위와 같은 indexing이 가능한 이유는 완전 이진 트리로 empty spot이 없기 때문이다.
+        - insert action(Max heap 가정)
+            - 항상 new item은 배열의 마지막에 추가한다. 그 다음 heap을 고친다.(heapify)
+            - new item을 parent와 비교한다.
+            - 만약 new item이 parent보다 크다면, parent와 해당 item을 swap. 아니라면 그대로 내버려둠
+            - 이 과정을 반복
+        - delete action(Max heap 가정)
+            - 우선 대체할 value를 결정해야 한다.
+                - rightmost value를 지정하면 tree를 완전 이진 형태로 유지할 수 있음.
+            - 그러고 나서 heapify 수행
+                - 대체할 value가 parent보다 크다면, above 방향으로 fix하며, 작다면 below방향(child와 비교)으로 fix
+            - Fix heap above
+                - insert 때와 같음. parent와 비교하여 필요 시 swap
+                - 필요 시 라는 것은, max / min heap에 따라 다름
+            - Fix heap below
+                - 대체할 값을 두 children 중 큰 쪽과 비교하여 필요 시 대체
+                - 필요 시 라는 것은, max / min heap에 따라 다름
+    - JDK PriorityQueue(ADT)
+        - Queue는 기본적으로 FIFO를 위해 사용하는데, 만약 이를 조금 변경하여 가장 우선순위에 있는 것을 항상 반환받고 싶다면 어떨까?
+        - PriorityQueue는 이를 위해 구현된 것으로 Max Heap형태로 구현되는 것이 일반적.
+            - JDK에선 Min heap으로 구성된다.
+            - 그래서, 특정 우선순위를 변경하고 싶다면, Comparator를 사용해서 변경할 수 있다.
+        - 따라서, root에 있는 값은 항상 최우선 순위에 해당하는 value가 되고, 그 이후에 PriorityQueue가 fix되면, 해당 root 또한 그 시점에서 최우선순위의 value가 된다.
+        - Array를 기반으로 구현되었으며, Unbounded이지만 내부에서 size에 따라 array를 조정한다.
+        - synchronize되지 않으므로, 복수의 thread를 사용시 PriorityBlockingQueue class를 사용할 것.
+        - method
+            - remove
+                - 최우선 순위의 value를 반환 받고 자료구조에서 제거
+                - 이 경우 Heap을 fix해야 한다.
+            - pull / peek
+                - 최우선 순위의 value를 반환 받되 자료구조에서 유지
+<br/><br/><br/>
+- <b id="set">Set</b>
+    - <a href="https://docs.oracle.com/javase/9/docs/api/java/util/Set.html">Document</a>
+        - Set Interface
+        - HashSet class
+        - LinkedHashSet class
+        - TreeSet class
+    - 개념
+        - 중복된 값을 허락하지 않는 ADT타입
+    - JDK
+        - AbstractSet Interface
+            - Set을 Customize해서 구현하고 싶은 경우에 사용
+            - Set Interface를 상속하였음
+        - HashSet class
+            - HashTable 기반의 Set 자료구조임
+        - LinkedHashSet class
+            - HashTable 및 LinkedList 기반으로 구현됨
+        - TreeSet class
+            - TreeMap을 기반으로 구현됨.
