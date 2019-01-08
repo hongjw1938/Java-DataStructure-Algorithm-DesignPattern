@@ -14,6 +14,7 @@
     - <a href="#radix_sort">Radix 정렬</a>
     - <a href="#jdk_library">JDK Arrays class sort method</a>
     - <a href="#bucket_sort">Bucket 정렬</a>
+    - <a href="heap_sort">힙 정렬</a>
 
 - 탐색 알고리즘
     - <a href="#linearSearch">linear search</a>
@@ -419,6 +420,20 @@
                 - 이를 단순히 Concatenate로 가능하게 하기 위해서 모든 Bucket 끼리의 값은 차이가 있어야 함
                 - Bucket X가 X-1의 Bucket보다 모든 value가 다 greater해야 한다.
             - 즉, Counting 정렬의 일반화라고 볼 수 있다.
+    <br/>
+    - <b id="heap_sort">힙 정렬</b>
+        - 작동 방식 애니메이션
+            - ![Alt text](./image/heap_sort.gif)
+        - 개념
+            - Heap 자료구조인 경우만 정렬 가능
+            - 그 구조에 따라, Max값에 대한 정보가 있음. 해당 root를 array의 마지막과 swap
+            - Heapify를 하고, last value를 제거.
+            - Heapify가 끝나면, 두 번째 최대 값이 root가 됨. 이 과정을 반복
+            - 상위 애니메이션이 매우 직관적이므로 추가적인 설명은 생략
+            - 시간 복잡도
+                - O(nlogn) : 왜냐하면 fix를 해야 하기 때문.
+                - 그런데, 이렇게 sort를 해버리면 heap을 사용하는 의미가 없어지기 때문에 거의 사용하지 않는다.
+                - 특히, 기존의 array를 heap으로 만들어줘야 하는 번거로움이 있어 일반적으로 다른 sort algorithm을 사용하는 것이 좋을 수 있다.
 <br/><br/><br/>
 - Search algorithm
     - <b id="linearSearch">Linear Search</b>
