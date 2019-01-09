@@ -19,7 +19,13 @@
 - 탐색 알고리즘
     - <a href="#linearSearch">linear search</a>
     - <a href="#binarySearch">binary search</a>
-    
+
+- Problem Solve 알고리즘(추가 중)
+    - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve">참조</a>
+    - 해당 Directory에는 다음의 내용을 다루고 있음
+        - Graph
+            - Breadth-first search
+            - Depth-first search
 
 - <b id="big_o">Big O Notation</b>
     - 알고리즘을 수행하는 데는 시간 복잡도(Time Complexity), 공간 복잡도(Memory Complexity)를 계산한다.
