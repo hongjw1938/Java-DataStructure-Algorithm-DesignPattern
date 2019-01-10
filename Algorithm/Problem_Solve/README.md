@@ -1,0 +1,103 @@
+### Problem Solve Algorithm
+- 목록
+    - <a href="#graph">그래프</a>
+    - <a href="#bfs">BFS</a>
+</br></br>
+
+- <b id="graph">그래프</b>
+    - 개념
+        - 그래프는 G(V, E)로 표현
+            - V는 Vertex(정점) 개수, E는 Edge의 수
+            - 각 Object 간의 pairwise(쌍으로) 이루어지는 수학적 구조를 의미
+        - Graph는 Vertices / Nodes / Edges로 이루어짐
+        - Directed / Undirected Graph
+            - Node에서 Node로 Pointing 하는 부분이 있는 경우 Directed Graph
+            - Node간에 Pointing이 없는 Graph는 Undirected Graph
+            - 일반적으로 Directed Graph를 다루는 경우가 많다.
+        - 프로그래밍 표현 방법
+            1. Adjacency matrix
+                - 다음과 같이 특정 정점끼리 Direct Connection이 있으면 1, 없으면 0으로 표시
+                - ![Alt text](./image/adjacency_matrix.png)
+                - 상단 그림을 보면 A, B는 연결되어 있으므로 A B 는 1로, 표현했고, A, E는 연결되어 있지 않으니 0으로 표시
+                - 그리고 자기 자신과의 연결은 0으로 표현하였다.
+            2. Edge list representation
+                - Vertex class를 만들고 연결된 이웃을 저장하는 방식
+                - ![Alt text](./image/edge_list_representation.png)
+                - 상단 처럼 Class를 언어로 만들고, neighbors라는 배열에 연결된 이웃을 저장하는 방식임
+    - 응용 분야(왜 배워야 하는가)
+        - 최단 거리 알고리즘의 기반
+            - GPS, High Frequency Trading 등의 기술에 사용됨
+        - Graph traversing
+            - Web crawlers
+        - Spanning Trees
+        - Maximum flow problem
+            - 수 많은 문제가 이 방식으로 정의될 수 있다.
+        - 그래프는 Matrix로 나타낼 수 있기 때문에, 실제 구글의 경우도 Graph 알고리즘인데도 Matrix 관련 operation이 많다.
+            - 이를 통해 Page problem 등 다양한 문제를 해결할 수 있다.
+            - Singular value decomposition : Eigenvalues(고유 수치) / Eigenvectors(고유 벡터)
+<br/><br/><br/>
+- <b id="bfs">Breadth First Search(BFS)</b>
+    - 개념
+        - 하나의 그래프 traversal 알고리즘이다.
+        - 넓이 우선 탐색이라고도 부른다.
+        - 용도
+            - Graph의 모든 Node를 방문하고 싶은 경우에 사용할 수 있는 알고리즘 중 하나
+            - 모든 Vertex(Node)를 정확히 한 번씩 방문
+            - 해당 Vertex를 방문하고 그 다음의 이웃 Vertex를 방문하게 된다.
+            - 최단 거리 알고리즘을 구현할 때 사용한다
+            - 최단 거리 알고리즘 : 다익스트라 알고리즘
+            - AI에도 사용되는 방식
+        - 시간 복잡도
+            - O(v+E)
+        - 공간(메모리) 복잡도
+            - 많은 pointer, 변수를 저장해야 하기 때문에 크게 좋지 않다.
+            - 그래서 DFS를 사용하는 경우도 많다.
+    - 구현 방식
+        - 자료 구조 : Queue
+            - FIFO 구조의 Data structure를 사용한다.
+            - 따라서 Queue ADT를 사용하여 구현
+            - 최초에 비어 있는 Queue를 만들고 각 Node에 대한 방문 여부를 Check하는 reference를 만든다.
+            - Queue가 비게 될 때까지 iterate한다.
+            - ![Alt text](./image/bfs_concrete.png)
+        - 예시
+            - ![Alt text](./image/bfs_graph_example.png)
+            - 위와 같은 구조의 Graph를 BFS로 방문한다고 가정
+            - A vertex 추가     : Queue = {A},          Visited : A
+            - A dequeue         : Queue = {},           Visited : A
+            - 이웃 vertex 추가  : Queue = {G, F, B},    Visited : A
+            - B dequeue         : Queue = {G, F},       Visited : A, B
+            - C, D vertex 추가  : Queue = {D, C, G, F}  Visited : A, B
+            - F dequeue         : Queue = {D, C, G}     Visited : A, B, F
+            - G dequeue         : Queue = {D, C}        Visited : A, B, F, G
+            - H vertex 추가     : Queue = {H, D, C}     Visited : A, B, F, G
+            - <b>...</b>
+            - 위와 같이 반복하여 Children이 있으면 계속 추가하고 FIFO방식으로 조사
+            - 위 그림을 기반으로 한다면 BFS는 row기반으로 순서대로 방문하는 것
+    - DFS와의 차이점
+        - DFS는 최대한 먼 거리에 있는 Node부터 방문하게 되는 경우로 구현됨.
+    - Applications
+        - AI / ML의 경우 robot이 주변을 쉽게 인식하기 위한 알고리즘으로 사용
+        - Maximum Flow 알고리즘 : Edmonds-Karp 알고리즘에서 사용
+        - Cheyen's 알고리즘에서 사용 (garbage collection) : heap memory를 참조하는 active를 유지
+            - heap의 모든 reference들을 찾기 위해 BFS를 사용한다.
+            - 이를 통해 "dead references"를 제거함
+        - Tree 등의 자료구조 Serialization / Deserialization
+            - Tree가 재 구조화 되도록 효율적으로 구성
+    - Web Crawler
+        - ![Alt text](./image/bfs_webcrawl)
+        - 위와 같이 Internet은 각 Domain 사이에 연결이 되어 있다고 볼 수 있다.
+        - 그러면, 기본적으로 Graph / network를 아래와 같이 볼 수 있다.
+            - Vertex : Domain / URL / Website
+            - Edge : connection
+        - BFS를 통해서 web을 traverse할 수 있는데 이것이 web crawl이 될 수 있다.
+            - Topology ~ degree distribution and so on
+        - 상위 그림 Topology
+            - Google은 3개의 Neighbor : tesal, nasdaq, apple
+            - 위 처럼 Direction에 따라 이웃을 지정할 수 있다.
+            - 이를 기반으로 vertex간 관계를 지정하고 BFS로 방문할 수 있다.
+        - 이용
+            - 자주 방문한 website
+            - network 상의 중요한 website
+            - Barabasi model : Complex network 이론
+                - 이 방식이 SNS와 같은 예시에 대해 유용한 정보를 포함한다고 결론 지음
+                - 예를 들어, 그룹 내 가장 유명인 / 사내 최고 중요 software 엔지니어와 같은 유용한 정보를 파악할 수 있다고 생각했다. 
