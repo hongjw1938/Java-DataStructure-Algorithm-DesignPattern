@@ -2,7 +2,7 @@ package com.problemsolve.bfs;
 
 import java.util.*;
 
-public class BakJoon11403 {
+public class BaekJoon11403 {
     // 가중치 없는 방향 그래프 G가 주어질 때, 모든 정점 (i, j)에 대해서, i에서 j로
     // 가는 경로가 있는지 없는지 구하는 프로그램 작성
     private static int[][] neighbors;
