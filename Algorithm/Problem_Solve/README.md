@@ -37,6 +37,8 @@
             - Singular value decomposition : Eigenvalues(고유 수치) / Eigenvectors(고유 벡터)
 <br/><br/><br/>
 - <b id="bfs">Breadth First Search(BFS)</b>
+    - 알고리즘 구현 내역
+        - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/BFS">참조</a>
     - 개념
         - 하나의 그래프 traversal 알고리즘이다.
         - 넓이 우선 탐색이라고도 부른다.
@@ -84,7 +86,7 @@
         - Tree 등의 자료구조 Serialization / Deserialization
             - Tree가 재 구조화 되도록 효율적으로 구성
     - Web Crawler
-        - ![Alt text](./image/bfs_webcrawl)
+        - ![Alt text](./image/bfs_webcrawl.png)
         - 위와 같이 Internet은 각 Domain 사이에 연결이 되어 있다고 볼 수 있다.
         - 그러면, 기본적으로 Graph / network를 아래와 같이 볼 수 있다.
             - Vertex : Domain / URL / Website
