@@ -2,6 +2,7 @@
 - 목록
     - <a href="#graph">그래프</a>
     - <a href="#bfs">BFS</a>
+    - <a href="#dfs">DFS</a>
 </br></br>
 
 - <b id="graph">그래프</b>
@@ -39,6 +40,8 @@
 - <b id="bfs">Breadth First Search(BFS)</b>
     - 알고리즘 구현 내역
         - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/BFS">참조</a>
+    - BFS 이해하기 간단 Animation
+        - ![Alt Text](./image/bfs.gif)
     - 개념
         - 하나의 그래프 traversal 알고리즘이다.
         - 넓이 우선 탐색이라고도 부른다.
@@ -103,3 +106,60 @@
             - Barabasi model : Complex network 이론
                 - 이 방식이 SNS와 같은 예시에 대해 유용한 정보를 포함한다고 결론 지음
                 - 예를 들어, 그룹 내 가장 유명인 / 사내 최고 중요 software 엔지니어와 같은 유용한 정보를 파악할 수 있다고 생각했다. 
+        - 구현
+            - web crawler의 경우, 특정 Page의 이웃 Page 즉, 해당 Page에서 Source 코드를 참조하였을 때, link로 사용하거나 참조하고 있는 URL을 이웃 URL로 간주하여 해당 URL들을 기반으로 지속하여 이웃 URL을 찾아내는 방식이다.
+            - BFS를 사용하는 이유는, DFS를 사용할 경우 Deeply 하게 하나의 Neighbor를 기준으로 지속하여 찾기 때문에 현재 Site의 이웃을 우선적으로 찾지 못하는 단점이 있다.
+            - 그래서, BFS를 사용하여 Web Crawler를 만드는데, Queue를 통해 이웃 URL을 지속적으로 저장하고, List에 방문한 URL을 계속 추가하여 중복은 제외하고 점진적으로 지속하여 이웃을 추가하는 방식을 택한다.
+            - 해당 구현 내용은 <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/BFS/WebCrawler">여기</a>에서 참조할 수 있다.
+<br/><br/><br/>
+- <b id="dfs">Depth First Search(DFS)</b>
+    - 알고리즘 구현 내역
+        - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/DFS">참조</a>
+    - DFS 이해하기 간단 Animation
+        - ![Alt Text](./image/dfs.gif)
+    - 개념
+        - BFS와 동일하게 Graph Traversal 알고리즘 중 하나이다.
+        - 깊이 우선 탐색이라고 부른다.
+        - 19세기에 미로 문제를 푸는 전략으로 Tremaux에 의해 연구되었음
+        - 각 Branch Node를 기반으로 Backtracking 전에 최대한 멀리, 깊이 탐색하는 방식이다.
+            - BFS는 기억하듯이, Layer를 계속 우선적으로 파고 들어가는 것이 아니라 해당 Layer를 다 탐색한 다음 더 깊은 Layer를 탐색하는 방식임
+        - 시간 복잡도
+            - O(V+E)
+        - 공간 복잡도
+            - BFS보다는 괜찮음.
+    - 구현 방식
+        - Iteration 방식 또는 Recursion 방식으로 구현될 수 있다.
+            - Recursion(재귀) 방식의 접근이 더 좋다고 판단하는 경우가 많은 듯.
+            - 더욱 Compact하기 때문이다. OS는 어떤 방식을 사용하든 Stack을 사용할 것이기 때문
+                - 내부적으로 Memory를 사용할 때, JVM이 처리하는 방식에서 Stack memory와 Heap memory가 있는데, method를 쌓아가며 활용하는 방식은 기본적으로 Stack memory에 쌓이며 LIFO 방식으로 동작하기 때문임.
+            - 어느 쪽을 사용하든 결과는 같으며 복잡도 또한 비슷하다.
+        - 자료 구조 : Stack(Iteration)
+            - LIFO 방식으로 동작한다.
+            - 최초 Vertex를 Stack에 넣고 방문여부를 값을 변경해 주고 Stack이 비어있지 않을 동안 Pop하여 Last In을 빼내어 준다.
+            - 해당 객체의 이웃 Node들이 방문되지 않은 상태면 계속 Stack에 추가하여 방문 여부를 변경해준다.
+            - 이를 반복하여 구현한다.
+            - BFS와 매우 유사하나, ADT가 전혀 다르다. Stack과 Queue의 사용 용도를 안다면 알 수 있을 것이다.
+            - ![Alt Text](./image/bfs_concrete.png)
+        - 예시
+            - ![Alt Text](./image/dfs_example.png)
+            - 위 그림과 같은 구조의 Graph를 Traverse 한다고 가정한다.
+            - A를 Stack에 추가                  : Stack = {A},              visited = {A}
+            - A를 빼고 자식을 확인              : Stack = {},               visited = {A}
+            - 자식노드 B와 F, G를 Stack에 추가  : Stack = {G, F, B},        visited = {B}
+            - 마지막에 들어간 B 빼고 자식 확인
+            - B의 자식 C를 Stack에 추가         : Stack = {G, F, C},        visited = {A, B, C}
+            - 자식이 없으므로 BackTrack -> B
+            - 이와 같은 방식으로 깊이를 우선하여 탐색한다.
+        - 주의
+            - 처음에 Tree구조에서 특정 방향을 먼저 탐색하기로 했으면, 일관성 있게 탐색 방식을 유지할 것.
+    - Applications
+        - Topological Ordering
+        - Kosaraju algorithm
+            - Graph상에 Strongly connected component를 찾음
+            - 이를 통해 Recommendation System 만들 수 있음(Youtube)
+        - Detecting cycles
+            - Graph가 DAG(Directly Acyclic Graph)인지 아닌지 확인
+            - DAG는 비순환 그래프를 의미한다. 즉, 순환하지 않고 일방향성을 가진다는 것
+            - 블록체인에서 사용되는 Algorithm이다.
+        - Maze를 생성하거나 나오는 길을 찾을 때 사용
+    - 
