@@ -162,4 +162,22 @@
             - DAG는 비순환 그래프를 의미한다. 즉, 순환하지 않고 일방향성을 가진다는 것
             - 블록체인에서 사용되는 Algorithm이다.
         - Maze를 생성하거나 나오는 길을 찾을 때 사용
-    - 
+    - Topological Ordering
+        - 개념
+            - 방향이 있는 Graph에서 Vertex u부터 Vertex v까지 전체 edge uv 에 대해 u가 v에 비해 순서가 앞선다.
+            - 즉, Graph의 Vertex들은 각각의 Task로 정의되고 edge는 특정 Task는 우선하여 처리되어야 한다는 constaint가 된다는 의미임.
+            - Topological Ordering은 Application의 유효한 Sequence가 되며 Graph가 Cycle을 형성하지 않는 경우에만(DAG) 성립한다.
+            - DAG는 최소 하나의 Topological Ordering을 갖는다.
+        - Topological Sort
+            - 시간 복잡도
+                - 선형, Linear
+            - Project 관리에 매우 중요함.
+            - Hamiltonian path : 무방향 / 방향 그래프에서 각 Vertex를 정확히 한 번씩 방문하는 경로
+                - 즉, Hamiltonian Path가 있다면, Topological Sort 순서는 Unique하다.
+                - 역으로, 해당 정렬 방식이 그 경로를 구성하지 못한 다면, DAG는 둘 이상의 Topological Ordering 을 갖게 된다.
+            - 그래서 Hamiltonian Cycle이 매우 중요한 이슈가 됨
+                - 이를 찾는 것은 매우 어려운 문제임
+                - 그러나 이 Path가 존재하면 단일 Topological Sort Ordering이 있다는 의미임.
+                - 매우 복잡한 문제이나 선형 시간 복잡도의 Path가 있는지를 결정할 수는 있다.
+        - 예시
+            - ![Alt Text](./image/topological_order.png)
