@@ -181,3 +181,26 @@
                 - 매우 복잡한 문제이나 선형 시간 복잡도의 Path가 있는지를 결정할 수는 있다.
         - 예시
             - ![Alt Text](./image/topological_order.png)
+            - 위 Project Graph에서 시작하는 Vertex는 Incoming Edge가 있어선 안된다.
+            - 즉, 위에서는 A-C-E-B-D 와 같은 방식으로 수행될 수 있다.
+        - Applications
+            - Maven, Ant, Gradle와 같은 Dependency 관리 software 엔지니어링
+            - University syllabus / curriculum 구성
+    - Cycle Detection
+        - Cycle을 Ditect하기 위함.
+        - 특정 경우 Cycle이 긍정적일 수 있음.
+            - FOREX(외환시장)에서 Arbitrage(재정거래) situation인 경우를 찾는 다면 그것이 우리가 찾는 Cycle임.
+            - 이 부분은 경제학을 공부하거나 외환 거래를 알아볼 것
+        - 그러나 대부분의 경우 피해야 함.
+            - OS와 같은 경우, A / B / C process가 상호적으로 상대가 끝나기를 대기한다면 OS는 Freeze될 것이다.
+            - 이러한 Cycle은 피해야한다.
+        - Concrete 구현
+            - ![Alt Text](./image/cycle_detection_concrete.png)
+                - beingVisited가 중요
+                - neighbor를 모두 확인하였는데 현재 상태가 beingVisited 상태라면 Cycle이 있는 것이ㅏㄷ!
+            - beingVisited란?
+                - backtracking을 통해 원래의 Vertex로 돌아온다면 visited상태이고
+                - 그 전까지는 being visited 상태이다.
+                - ![Alt Text](./image/being_visited.png)
+                    - 위에서 1은 현재 being visited상태이다.
+                    - 8까지 방문하고 다시 backtracking하여 1로 돌아온다면 1은 visited상태가 된다.

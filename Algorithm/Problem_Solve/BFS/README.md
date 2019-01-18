@@ -30,3 +30,18 @@
     - 문제 번호 : 2468
     - <a href="https://www.acmicpc.net/problem/2468">문제 참조</a>
     - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/BFS/BaekJoon2468.java">답안</a>
+
+- 미로탐색
+    - 문제 번호 : 2178
+    - <a href="https://www.acmicpc.net/problem/2178">문제 참조</a>
+    - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/BFS/BaekJoon2178.java">답안</a>
+
+- 단지번호 붙이기
+    - 문제 번호 : 2667
+    - <a href="https://www.acmicpc.net/problem/2667">문제 참조</a>
+    - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/BFS/BaekJoon2667.java">답안</a>
+
+- 나이트의 이동
+    - 문제 번호 : 7562
+    - <a href="https://www.acmicpc.net/problem/7562">문제 참조</a>
+    - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/BFS/BaekJoon7562.java">답안</a>
