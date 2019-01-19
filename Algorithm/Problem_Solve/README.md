@@ -192,7 +192,7 @@
             - FOREX(외환시장)에서 Arbitrage(재정거래) situation인 경우를 찾는 다면 그것이 우리가 찾는 Cycle임.
             - 이 부분은 경제학을 공부하거나 외환 거래를 알아볼 것
         - 그러나 대부분의 경우 피해야 함.
-            - OS와 같은 경우, A / B / C process가 상호적으로 상대가 끝나기를 대기한다면 OS는 Freeze될 것이다.
+            - OS와 같은 경우, A / B / C process가 상호적으로 상대가 ���나기를 대기한다면 OS는 Freeze될 것이다.
             - 이러한 Cycle은 피해야한다.
         - Concrete 구현
             - ![Alt Text](./image/cycle_detection_concrete.png)
@@ -204,3 +204,4 @@
                 - ![Alt Text](./image/being_visited.png)
                     - 위에서 1은 현재 being visited상태이다.
                     - 8까지 방문하고 다시 backtracking하여 1로 돌아온다면 1은 visited상태가 된다.
+    
