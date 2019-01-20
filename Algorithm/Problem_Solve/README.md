@@ -3,6 +3,7 @@
     - <a href="#graph">그래프</a>
     - <a href="#bfs">BFS</a>
     - <a href="#dfs">DFS</a>
+    - <a href="#bdfs">BFS vs DFS Memory 관리</a>
 </br></br>
 
 - <b id="graph">그래프</b>
@@ -204,4 +205,19 @@
                 - ![Alt Text](./image/being_visited.png)
                     - 위에서 1은 현재 being visited상태이다.
                     - 8까지 방문하고 다시 backtracking하여 1로 돌아온다면 1은 visited상태가 된다.
-    
+<br/><br/><br/>
+- <b id="bdfs">BFS vs DFS Memory 관리</b>
+    - Memory 복잡도
+        - BFS
+            - ![Alt Text](./image/BFS_memory.png)
+            - 위와 같은 Graph가 있는 경우 BFS는 각 Vertex의 Neighbor Vertex들을 Queue에  저장해 두어야 하낟.
+            - 만약 위와 같은 Balanced Tree 상태에서 N개의 Node가 Tree에 있다면 Leave Node를 저장 시에는 N/2 만큼의 공간이 필요하게 된다.
+            - 즉 N개의 item을 갖는 Tree를 Traverse하고 싶다면 O(N)만큼 저장하여야 한다.
+            - AI, Robot movement 등의 연구에서는 BFS방식이 선호될 수밖에 없다.
+                - 왜냐하면, Layer by Layer 방식으로 탐색을 수행하여 인식할 필요가 있는 경우가 많기 때문
+        - DFS
+            - ![Alt Text](./image/DFS_memory.png)
+            - 즉, 깊이를 우선하여 탐색하면 위와 같은 Balanced Tree에서 Tree의 Height 만큼만 Stack에 저장하면 된다.
+            - 그래서 Balanced Tree라면 전체 N개 중 LogN 개 만큼만 Stack에 저장한다.
+            - 따라서 공간 복잡도는 O(logN)이 된다.
+            - 해당 이유 때문에, BFS보다 DFS가 좀 더 선호됨. 왜냐하면 Memory 친화적이기 때문
