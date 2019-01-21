@@ -1,4 +1,4 @@
-package com.problemsolve.bfs;
+package com.problemsolve.baekjoon.bfs;
 
 import java.util.*;
 
