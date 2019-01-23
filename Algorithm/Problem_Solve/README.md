@@ -4,6 +4,9 @@
     - <a href="#bfs">BFS</a>
     - <a href="#dfs">DFS</a>
     - <a href="#bdfs">BFS vs DFS Memory 관리</a>
+    - <a href="#shortest">최단 경로 알고리즘</a>
+        - <a href="#dijkstra">다익스트라 알고리즘</a>
+        - <a href="#bellman-ford">벨만-포드 알고리즘</b>
 </br></br>
 
 - <b id="graph">그래프</b>
@@ -221,3 +224,116 @@
             - 그래서 Balanced Tree라면 전체 N개 중 LogN 개 만큼만 Stack에 저장한다.
             - 따라서 공간 복잡도는 O(logN)이 된다.
             - 해당 이유 때문에, BFS보다 DFS가 좀 더 선호됨. 왜냐하면 Memory 친화적이기 때문
+</br></br></br>
+- <b id="shortest">최단 경로 알고리즘</b>
+    - 개념
+        - 그래프상의 두 vertex 간의 최단 경로를 구하는 문제
+        - 해당 vertex들 간의 사이에는 edge들이 존재하며 해당 edge는 weight가 있고 그를 최소화해야 한다.
+        - Google Map의 경우 내부적으로 City 간 커다란 graph를 만들고 그 사이에서 최단 경로 알고리즘을 사용한다.
+    - 구현 알고리즘
+        - 다익스트라 알고리즘(중요)
+        - 벨만-포드 알고리즘(중요)
+        - A* Search
+        - Floyd-Warshall 알고리즘
+    - <b id="dijkstra">다익스트라 알고리즘</b> 소개
+        - 개념
+            - 컴퓨터 과학자 Edsger Dijkstra에 의해 1965년 고안됨.
+            - 이는 positive edge weight를 handling할 수 있다.
+            - 기본적으로 A => B의 최단 경로를 찾는 것이지만, 최단 경로 Tree를 만들 수 있다.
+                - 즉, 특정 node에서 모든 node로의 최단 거리 Tree를 만들어낼 수 있다.
+            - 단일 source 기반 최단 경로 알고리즘으로써 non-negative weight 기반 그래프 탐색에서 가장 빠른 방식의 알고리즘이다.
+            - 문제는, 특정 Source에서 만들어진 Weight를 다른 Source를 위해서는 사용할 수 없다.
+                - 즉, 각 Source마다 계산을 다시 해야만 한다.
+            - 이 알고리즘은 Greedy 알고리즘으로 local 최소점을 기반으로 Global 최적점을 찾을 수 있다.
+            - 시간 복잡도
+                - O(V*logV + E)
+                - 이 알고리즘은 Greedy하여 다음 가능한 Vertex까지의 최소 거리를 각각 찾는데, 적절한 자료구조를 사용해야 시간 복잡도를 획기적으로 낮출 수 있다.
+                - 제대로 고려하지 않으면 N^2까지 좋지 않은 성능을 낼 수 있다.
+                - 따라서, Binary Heap / Fibonacci Heap(우선 순위 큐) 등을 사용하여 구현한다.
+                    - 최소 Heap을 이용하면 최단 거리를 구해주고 최대 Heap을 이용하면 가장 먼 거리를 구할 수 있다.
+        - 알고리즘
+            - Pseudocode
+                - [!Alt Text](./image/dijkstra_node.png)
+                    - 각 Node는 이름, 최소 거리, 이전 Node에 대한 정보를 갖는다.
+                - [!Alt Text](./image/dijkstra_pseudo.png)
+                    - While문 이전까지는 Initialization Phase이다.
+                        - 즉, start point는 source이므로 거리가 0.
+                        - 다른 모든 node는 거리를 INF로 추정시켜 놓고, Graph에서 Node를 각각 꺼내서 Queue에 넣는다.
+                    - While Loop 
+                        - Queue가 비어 있지 않은 동안, 최소 Heap의 Node를 꺼내어 따로 저장(이 때문에 Heap사용)
+                        - 해당 Node의 이웃 Node를 다 비교하여 기존 Queue에서 나온 Node와 해당 Node의 Source와의 거리를 합한 weight가 기존에 저장된 내용보다 작다면 해당 내용으로 갱신
+                            - 최초 비교 때는 원래의 거리와 INF 값이 비교될 것이다.
+                        - 그리고 해당 거리들이 갱신된 값이 저장된 배열을 반환한다.
+        - Concrete Example
+            - Example 그림
+                - ![Alt Text](./image/dijkstra_example.png)
+            - 설명
+                - 최초에 A라는 Source로부터의 Edge의 거리가 있으나 실제 계산된 거리는 INF라고 가정한다..
+                - A에서 시작하여 B / H / E 라는 이웃 Node를 모두 고려 한다.
+                    - 현재 Queue = {}
+                    - B의 경우, 0 + 5와 INF를 비교했을 때, 5가 더 작으므로 5로 Update
+                        - 이전 Node(Predecessor)는 A
+                    - H는 8 < INF이므로 8로 update
+                        - 이전 Node(Predecessor)는 A
+                    - E는 9 < INF이므로 9로 update
+                        - 이전 Node(Predecessor)는 A
+                    - 이 때, 각각에 Update한 이후 각 Node를 Queue에 add
+                - 현재 Queue = {B, H, E}
+                    - 여기서, 가장 작은 Content는 B가 가지고 있으므로 B를 탐색
+                    - Queue = {H, E}
+                    - B의 이웃인 H, C, D를 각각 탐색한다.
+                    - D는 5+ 15 < INF이므로 20으로 update
+                        - 이전 Node(Predecessor)는 B
+                    - C는 5 + 12 < INF이므로 17로 Update
+                        - 이전 Node(Predecessor)는 B
+                    - H는 5 + 4 > 8이므로 update하지 않음
+                        - 이전 Node(Predecessor)는 그대로 A
+                    - 이 때, 각각에 update한 후 각 Node는 Queue에 add(H제외)
+                - 현재 Queue = {H, E, C, D}
+                    - 최소 Content는 H가 가장 작음. H를 remove
+                    - Q = {E, C, D}
+                    - H의 이웃인 C, D를 고려함
+                    - C는 기존 17 > 15이므로 15로 update
+                        - 이전 Node(Predecessor)는 H로 변경
+                    - F는 14 < INF이므로 14로 update
+                        - 이전 Node(Predecessor)는 H
+                    - 이 때, 각각에 update한 후 각 Node는 Queue에 add(C는 이미 되어 있음)
+                - 현재 Queue = {E, C, D, F}
+                    - 최소 Content는 E
+                    - Q = {C, D, F}
+                    - E의 이웃인 F, G, H 고려
+                    - F는 기존 14 > 9 + 4이므로 update
+                        - 이전 Node(Predecessor)는 E update
+                    - G는 9 + 20 < INF 이므로 29로 update
+                        - 이전 Node(Predecessor)는 E
+                    - H는 기존 8과 9+5이므로 유지
+                        - 이전 Node(Predecessor)는 A 유지
+                    - Queue에 add(H 제외)
+                - 현재 Queue = {C, D, F, G}
+                    - 최소는 F이므로 F remove
+                    - Q= {C, D, G}
+                    - F의 이웃인 C, G 탐색
+                    - C는 기존 15와 13 + 1이므로 update
+                        - 이전 Node(Predecessor)는 F
+                    - G는 13+13 < 29이므로 update
+                        - 이전 Node(Predecessor)는 F
+                    - Queue에 add
+                - 현재 Queue = {C, D, G}
+                    - 최소는 C
+                    - 이웃인 D, G 탐색
+                    - D는 13 + 3 < 20이므로 16 update
+                        - 이전 Node(Predecessor)는 C update
+                    - G는 14 +11 < 26이므로 25 update
+                        - 이전 Node(Predecessor)는 C update
+                - 현재 Queue = {D, G}
+                    - 최소는 D
+                    - 이웃 G 탐색
+                    - G는 17 + 9 > 25이므로 유지
+                        - 이전 Node(Predecessor)는 C 유지
+                - 현재 Queue = {G}
+                    - 이 때, 이웃이 없으므로 탐색을 중지
+            - 결과
+                - ![Alt Text](./image/dijkstra_example_result.png)
+                - 이와 같이 Predecessor에 의해 최단 거리가 지정된다.
+    - <b id="bellman-ford">벨만 포드 알고리즘</b> 소개
+        - 이는 negative edge weight 또한 handling할 수 있다.
