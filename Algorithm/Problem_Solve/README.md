@@ -235,6 +235,7 @@
         - 벨만-포드 알고리즘(중요)
         - A* Search
         - Floyd-Warshall 알고리즘
+        <br/><br/><br/>
     - <b id="dijkstra">다익스트라 알고리즘</b> 소개
         - 개념
             - 컴퓨터 과학자 Edsger Dijkstra에 의해 1965년 고안됨.
@@ -335,5 +336,39 @@
             - 결과
                 - ![Alt Text](./image/dijkstra_example_result.png)
                 - 이와 같이 Predecessor에 의해 최단 거리가 지정된다.
+        - 인접 행렬을 이용한 다익스트라 알고리즘 해결
+            - 예
+                - [!Alt Text](./image/dijkstra_adjcency.png)
+                - 무방향 그래프로 상호 Wegiht를 가지고 있다.
+                - value != 0 이라면, connection이 있는 것이다.
+        <br/><br/><br/>
     - <b id="bellman-ford">벨만 포드 알고리즘</b> 소개
-        - 이는 negative edge weight 또한 handling할 수 있다.
+        - 개념
+            - 이는 negative edge weight 또한 handling할 수 있다.
+            - 1958년 Bellman 및 Ford가 각각 만들었으며, 다익스트라 보다는 느리지만, negative edge weight도 다룰 수 있다는 robust함이 있다.
+            - 다익스트라는 edge를 greedy하게 최소 비용을 기반으로 모두 탐색하는데, 벨만-포드 알고리즘은 V-1 iteration로 모든 edge를 동시에 탐색한다.
+                - V-1 iteration이 기본이나 +1 이 있다면 Cycle이 있는 것
+                - 만약 cost가 V-th iteration에서 감소했다면 negative cycle이 있는 것이다.
+            - 시간 복잡도
+                - O(V*E)
+        - Negative Cycle?
+            - ![Alt Text](./image/negative_cycle.png)
+            - 위와 같이 최소 비용으로 탐색 시,  A - B - C - A의 방향인데, 그 다음에 같은 방식으로 탐색 시 계속해서 cost가 감소함!
+            - 현실 시나리오에선 negative cycle은 없지만, 우리는 문제를 풀기 위해 특정 경우 graph를 조작할 필요가 있다.
+                - 그런 경우에는 negative cycle을 찾아낼 수 있어야 한다.
+                - Knapsack 문제라든지 방향 graph의 4X-related problem등이 그러함
+        - 알고리즘
+            - Peudocode
+                - ![Alt Text](./image/bellma-ford-pseudo.png)
+                - source로의 거리는 우선 모두 0으로 지정하고 Graph에서 모든 거리는 INF로 하고 이전 Node는 미지정 상태로 유지한다.
+                - 그리고, 모든 edge에서 destination으로의 거리가 짧아질 수 있다면 해당 value로 update한다.
+                    - V-1 time relaxation.
+                    - 즉, 모든 Node에서 모든 edge로의 weight를 구하고 더 짧은 경우 update하는 것
+                    - 그러면서 가장 짧은 이전 노드도 변경
+                - 최대 가능한 path는 edge상 V-1개인데, 그렇기에 Scanning을 V-1 번 하는 것이다.
+                    - 그래서 만약 마지막 Scanning에서 distance update가 한 번 더 발생한다면 negative cycle이 있다고 봐야 한다.
+                    - 그래서 마지막에 한 번 더 final iteration을 수행하는 것이다.
+        - Yen Optimization
+            - 1970년에 고안된 것으로 Bellman-Ford 알고리즘이 때때로 너무 느리기 때문에 최적화할 용도로 고안됨
+            - 만약 두 iteration 사이에 distance chanage가 발생하지 않는 다면 algorithm 수행을 끝내는 방식이다.
+                - 이러한 방식을 bubble sort에서도 사용했었다.
