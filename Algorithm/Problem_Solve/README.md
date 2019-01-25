@@ -235,6 +235,42 @@
         - 벨만-포드 알고리즘(중요)
         - A* Search
         - Floyd-Warshall 알고리즘
+    - Applications
+        - DAG인 경우는 최단 거리를 쉽게 찾을 수 있다. 
+            - 해당 Vertex들을 topological_order로 정렬하여 선형 시간복잡도의 수준으로 모든 Edge의 최단 거리를 계산할 수 있다.
+            - 이러한 방식은 벨만-포드 / 다익스트라보다 훨씬 빠르다.
+            - knapsack 문제를 푸는 데 응용
+        - GPS, vehicle routing, navigation
+        - FX 시장의 재정 거리 상황
+        - Routing information protocol에서 사용
+        - Distributed algorithm이다.
+            - 각 노드는 자신과 모든 다른 노드와의 거리를 계산함
+            - 각 노드는 인접 노드에 자신의 table을 전달
+            - 노드가 이웃 노드로부터 table을 받으면, 다른 모든 node로의 최단 경로를 계산할 수 있다.
+                - 그를 통해 자신의 table을 update할 수 있다.
+        - Avidan-Shamir method
+            - ![Alt Text](./image/avidan-shamir-exam.png)
+            - 우리가 이미지를 browser / smartphone에서 왜곡 없이 size를 줄이고 싶은 경우
+            - 이미지의 변형이 일어나지 않도록 보장
+            - least significat bit string을 제거
+            - least energy를 갖는 pixel의 string을 제거
+            - photoshop, gimp에서 사용
+            - 매우 큰 Graph build
+                - vertex들은 pixel이고 edge는 각각을 아래 방향으로 3개의 neighbor를 가리키는 pointing
+            - energy function은 edge의 weight가 어떻게 될지 결정한다.
+            - acyclic
+                - topological order를 이용해 해당 string이 제거되도록 할 수 있다.
+        - 최장 경로 문제
+            - Graph상의 최장 경로를 찾음
+            - DAG는 선형 시간 복잡도를 갖고 scheduling에서 중요한 path를 찾을 수 있는 중요한 application
+            - edge weight를 무효화하고 최단 경로 알고리즘을 동작
+            - negative edge 발생 가능하므로 벨만-포드
+            - Parallel job 스케쥴링 문제에 응용함
+                - duration 및 제약 사항 아래에서 job의 스케쥴링이 가능(start time을 각각에서 찾는다.)
+        - CPM(Critical Path Method)
+            - 1940 ~ 43년 사이에 맨하탄 프로젝트에서 사용
+            - 전체 running time을 최소화하기 위해 알고리즘으로 project의 activity set을 스케쥴링
+            - 이를 위해 모든 project의 activities가 필요하고 각 activities의 duration, activities의 dependency를 알아야 함
         <br/><br/><br/>
     - <b id="dijkstra">다익스트라 알고리즘</b> 소개
         - 개념
@@ -341,6 +377,11 @@
                 - [!Alt Text](./image/dijkstra_adjcency.png)
                 - 무방향 그래프로 상호 Wegiht를 가지고 있다.
                 - value != 0 이라면, connection이 있는 것이다.
+            - 진행
+                - [!Alt Text](./image/dijkstra_adjcency1.png) 
+                - [!Alt Text](./image/dijkstra_adjcency2.png)
+                - [!Alt Text](./image/dijkstra_adjcency3.png)
+                    - 빨갛게 칠해진 것이 최단 거리가 된다.
         <br/><br/><br/>
     - <b id="bellman-ford">벨만 포드 알고리즘</b> 소개
         - 개념
