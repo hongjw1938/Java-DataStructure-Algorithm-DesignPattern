@@ -54,3 +54,8 @@
     - 문제 번호 : 11724
     - <a href="https://www.acmicpc.net/problem/11724">문제 참조</a>
     - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/BFS/BaekJoon/BaekJoon11724.java">답안</a>
+
+- 연구소 바이러스 문제
+    - 문제 번호 : 14502
+    - <a href="https://www.acmicpc.net/problem/14502">문제 참조</a>
+    - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/BFS/BaekJoon/BaekJoon14502.java">답안</a>
