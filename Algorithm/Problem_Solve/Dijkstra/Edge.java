@@ -1,7 +1,10 @@
 package com.problemsolve.dijkstra;
 
+
+// 간선 정보 저장하는 Class
 public class Edge {
 
+    // 해당 Start Vertex에서 Target Vertex로의 Cost
     private double weight;
     private Vertex startVertex;
     private Vertex targetVertex;

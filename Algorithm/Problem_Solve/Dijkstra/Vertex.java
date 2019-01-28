@@ -6,10 +6,17 @@ import java.util.List;
 // Heap을 사용하여 Vertex들의 정렬을 해야 하므로 Comparable을 구현
 public class Vertex implements Comparable<Vertex>{
 
+    // Vertex의 자체 Data
     private String name;
+
+    // Vertex에 연결된 Edge List
     private List<Edge> adjacenciesList;
     private boolean visited;
+
+    // 가장 근접한 이웃 Vertex
     private Vertex predecessor;
+
+    // 최초에 각 Vertex의 Start Vertex로의 Cost는 최대값
     private double distance = Double.MAX_VALUE;
 
     public Vertex(String name){
