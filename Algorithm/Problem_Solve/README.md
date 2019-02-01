@@ -6,7 +6,8 @@
     - <a href="#bdfs">BFS vs DFS Memory 관리</a>
     - <a href="#shortest">최단 경로 알고리즘</a>
         - <a href="#dijkstra">다익스트라 알고리즘</a>
-        - <a href="#bellman-ford">벨만-포드 알고리즘</b>
+        - <a href="#bellman-ford">벨만-포드 알고리즘</a>
+        - <a href="#dag">DAG 최단 경로 알고리즘</a>
 </br></br>
 
 - <b id="graph">그래프</b>
@@ -201,7 +202,7 @@
         - Concrete 구현
             - ![Alt Text](./image/cycle_detection_concrete.png)
                 - beingVisited가 중요
-                - neighbor를 모두 확인하였는데 현재 상태가 beingVisited 상태라면 Cycle이 있는 것이ㅏㄷ!
+                - neighbor를 모두 확인하였는데 현재 상태가 beingVisited 상태라면 Cycle이 있는 것이다!
             - beingVisited란?
                 - backtracking을 통해 원래의 Vertex로 돌아온다면 visited상태이고
                 - 그 전까지는 being visited 상태이다.
@@ -413,3 +414,8 @@
             - 1970년에 고안된 것으로 Bellman-Ford 알고리즘이 때때로 너무 느리기 때문에 최적화할 용도로 고안됨
             - 만약 두 iteration 사이에 distance chanage가 발생하지 않는 다면 algorithm 수행을 끝내는 방식이다.
                 - 이러한 방식을 bubble sort에서도 사용했었다.
+    <br/><br/></br>
+    - <b id="dag">DAG Shortest Path Algorithm</b>
+        - DAG의 개념은 상단에서 설명하였음.
+        - 이러한 Graph의 경우 순환하지 않으므로 Topological Ordering을 구현할 수 있음
+        - 이에 따라 선형 시간복잡도에 근사한 수준으로 매우 빠르게 최단 경로를 찾아낼 수 있다.
