@@ -8,6 +8,7 @@
         - <a href="#dijkstra">다익스트라 알고리즘</a>
         - <a href="#bellman-ford">벨만-포드 알고리즘</a>
         - <a href="#dag">DAG 최단 경로 알고리즘</a>
+        - <a href="#forex_market">외환 시장 재정거래 예시</a>
 </br></br>
 
 - <b id="graph">그래프</b>
@@ -419,3 +420,14 @@
         - DAG의 개념은 상단에서 설명하였음.
         - 이러한 Graph의 경우 순환하지 않으므로 Topological Ordering을 구현할 수 있음
         - 이에 따라 선형 시간복잡도에 근사한 수준으로 매우 빠르게 최단 경로를 찾아낼 수 있다.
+    <br/><br/><br/>
+    - <b id="forex_market">외환 시장 재정 거래 예시</b>
+        - 환율 테이블은 아래와 같음
+            - ![Alt Text](./image/forex_market.png)
+        - Vertex : 화폐
+        - Edge : 환율 테이블 관계도
+        - 알고리즘
+            - 화폐에 대해서 자연 로그를 취해야 한다.
+            - 이후, 모든 edge에 -1 곱함
+                - 이 경우, Negative Cycle을 찾을 수 있는 Negative weighted 그래프를 만들 수 있음
+                - Bellman-Ford 알고리즘으로 해결
