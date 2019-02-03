@@ -401,14 +401,14 @@
             - 시간 복잡도
                 - O(V*E)
         - Negative Cycle?
-            - ![Alt Text](./image/negative_cycle.png)
+            - ![Alt Text](./image/negative_cycle_exam.png)
             - 위와 같이 최소 비용으로 탐색 시,  A - B - C - A의 방향인데, 그 다음에 같은 방식으로 탐색 시 계속해서 cost가 감소함!
             - 현실 시나리오에선 negative cycle은 없지만, 우리는 문제를 풀기 위해 특정 경우 graph를 조작할 필요가 있다.
                 - 그런 경우에는 negative cycle을 찾아낼 수 있어야 한다.
                 - Knapsack 문제라든지 방향 graph의 4X-related problem등이 그러함
         - 알고리즘
             - Peudocode
-                - ![Alt Text](./image/bellma-ford-pseudo.png)
+                - ![Alt Text](./image/bellman-ford-pseudo.png)
                 - source로의 거리는 우선 모두 0으로 지정하고 Graph에서 모든 거리는 INF로 하고 이전 Node는 미지정 상태로 유지한다.
                 - 그리고, 모든 edge에서 destination으로의 거리가 짧아질 수 있다면 해당 value로 update한다.
                     - V-1 time relaxation.
