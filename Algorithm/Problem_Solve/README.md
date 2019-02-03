@@ -296,9 +296,9 @@
                     - 최소 Heap을 이용하면 최단 거리를 구해주고 최대 Heap을 이용하면 가장 먼 거리를 구할 수 있다.
         - 알고리즘
             - Pseudocode
-                - [!Alt Text](./image/dijkstra_node.png)
+                - ![Alt Text](./image/dijkstra_node.png)
                     - 각 Node는 이름, 최소 거리, 이전 Node에 대한 정보를 갖는다.
-                - [!Alt Text](./image/dijkstra_pseudo.png)
+                - ![Alt Text](./image/dijkstra_pseudo.png)
                     - While문 이전까지는 Initialization Phase이다.
                         - 즉, start point는 source이므로 거리가 0.
                         - 다른 모든 node는 거리를 INF로 추정시켜 놓고, Graph에서 Node를 각각 꺼내서 Queue에 넣는다.
@@ -380,13 +380,13 @@
                 - 이와 같이 Predecessor에 의해 최단 거리가 지정된다.
         - 인접 행렬을 이용한 다익스트라 알고리즘 해결
             - 예
-                - [!Alt Text](./image/dijkstra_adjcency.png)
+                - ![Alt Text](./image/dijkstra_adjcency.png)
                 - 무방향 그래프로 상호 Wegiht를 가지고 있다.
                 - value != 0 이라면, connection이 있는 것이다.
             - 진행
-                - [!Alt Text](./image/dijkstra_adjcency1.png) 
-                - [!Alt Text](./image/dijkstra_adjcency2.png)
-                - [!Alt Text](./image/dijkstra_adjcency3.png)
+                - ![Alt Text](./image/dijkstra_adjcency1.png) 
+                - ![Alt Text](./image/dijkstra_adjcency2.png)
+                - ![Alt Text](./image/dijkstra_adjcency3.png)
                     - 빨갛게 칠해진 것이 최단 거리가 된다.
         <br/><br/><br/>
     - <b id="bellman-ford">벨만 포드 알고리즘</b> 소개
