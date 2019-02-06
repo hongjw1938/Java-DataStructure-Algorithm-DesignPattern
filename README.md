@@ -1,9 +1,9 @@
 ### Java Data Structure And Algorithm
 - 해당 Repository는 자료구조 및 알고리즘 Study 및 문제 풀이를 종합하여 정리한 Repository 입니다.
-- <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Data_Structure">Data_Structure directory</a>
-    - Java 기반 Data Structure Study 내용을 정리한 Directory 입니다.
+- <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/DataStructure">DataStructure</a>
+    - Java 기반 <b>Data Structure</b> 공부 내용을 정리한 Directory 입니다.
 - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm">Algorithm</a>
-    - 기본 Algorithm 공부한 내용을 정리한 Directory 입니다.
+    - 기본 <b>Algorithm</b> 공부한 내용을 정리한 Directory 입니다.
 - JDK 1.8 설치
     - Linux(Ubuntu)
         - <a href="https://thishosting.rocks/install-java-ubuntu/">참조</a>
