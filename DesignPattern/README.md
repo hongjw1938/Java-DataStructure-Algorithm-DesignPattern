@@ -1,1 +1,64 @@
 ### DesignPattern
+- 참조
+    - <a href="https://gmlwjd9405.github.io/2018/07/06/design-pattern.html">블로그</a>
+- 디자인 패턴이란?
+    - Common Architectural approach를 의미함.
+        - 소프트웨어 설계 시, 특정 맥락에서 자주 발생하는 전형적 문제가 재발생 시, 재사용 가능한 해결책
+    - 1994년 Gang of Four book으로 소개되었음.
+    - 여러 OOP 기반 언어로 번역이 되었는데, 현재 산업적으로 OOP가 여전히 프로그래밍 구현 기반을 차지하고 있어 보편적으로 relavant한 상황
+    - 지금까지 만들어진 디자인 패턴이 빠르게 구식화되지 않을 전망임.
+    - 구조
+        - Context
+            - 문제 발생하는 상황 기술
+            - 즉, 패턴이 적용될 수 있는 상황
+        - Problem
+            - 패턴이 적용되어 해결될 필요가 있는 디자인 이슈 기술
+            - 다양한 제약 사항, 영향력 또한 고려
+        - Solution
+            - 문제 해결을 위한 구성 요소 및 해당 요소 간의 관계, 책임, 협력 관계 기술
+            - 구체적 구현 방법, 언어에 의존적이지 않음. 일종의 Template
+    - Patterns
+        - 개념
+            - 서로 다른 Software Module, Function 등의 공통된 설계 문제에 대한 해결책의 유사점
+        - 종류
+            - Creational
+                - 객체 생성에 관련
+                - 객체 생성, 조합을 Encapsulation하여 특정 객체 생성, 변경 시 프로그램 구조가 영향이 크게 없도록 유연성 제공
+            - Structural
+                - 클래스, 객체 조합해 더 큰 구조 생성
+                - ex)
+                    1. 서로 다른 인터페이스를 지닌 2개의 객체를 묶어 단일 인터페이스 제공 
+                    2. 객체를 서로 묶어 새로운 기능 제공
+            - Behavioral
+                - 객체, 클래스 사이의 알고리즘이나 책임 분배에 관련된 패턴
+                - 한 객체가 혼자 수행 불가한 작업을 여러 객체로 분배하고 객체 사이 결합도 최소화에 중점
+        - Creational(생성) 패턴 종류
+            - Builder
+            - Factories
+                - Abstract Factory
+                - Factory Method
+            - Prototype
+            - Singleton
+        - Structural(구조) 패턴 종류
+            - Adapter
+            - Bridge
+            - Composite
+            - Decorator
+            - Facade
+            - Flyweight
+            - Proxy
+        - Behavioral(행위) 패턴 종류
+            - Chain of Responsibility
+            - Command
+            - Interpreter
+            - Iterator
+            - Mediator
+            - Memento
+            - Null Object
+            - Observer
+            - State
+            - Strategy
+            - Template Method
+            - Visitor
+<br/><br/><br/>
+- Solid Design Principles
