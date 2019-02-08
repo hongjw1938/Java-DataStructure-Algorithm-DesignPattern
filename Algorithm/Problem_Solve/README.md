@@ -45,7 +45,7 @@
 <br/><br/><br/>
 - <b id="bfs">Breadth First Search(BFS)</b>
     - 알고리즘 구현 내역
-        - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/BFS">참조</a>
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/BFS">참조</a>
     - BFS 이해하기 간단 Animation
         - ![Alt Text](./image/bfs.gif)
     - 개념
@@ -116,11 +116,11 @@
             - web crawler의 경우, 특정 Page의 이웃 Page 즉, 해당 Page에서 Source 코드를 참조하였을 때, link로 사용하거나 참조하고 있는 URL을 이웃 URL로 간주하여 해당 URL들을 기반으로 지속하여 이웃 URL을 찾아내는 방식이다.
             - BFS를 사용하는 이유는, DFS를 사용할 경우 Deeply 하게 하나의 Neighbor를 기준으로 지속하여 찾기 때문에 현재 Site의 이웃을 우선적으로 찾지 못하는 단점이 있다.
             - 그래서, BFS를 사용하여 Web Crawler를 만드는데, Queue를 통해 이웃 URL을 지속적으로 저장하고, List에 방문한 URL을 계속 추가하여 중복은 제외하고 점진적으로 지속하여 이웃을 추가하는 방식을 택한다.
-            - 해당 구현 내용은 <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/BFS/WebCrawler">여기</a>에서 참조할 수 있다.
+            - 해당 구현 내용은 <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/BFS/WebCrawler">여기</a>에서 참조할 수 있다.
 <br/><br/><br/>
 - <b id="dfs">Depth First Search(DFS)</b>
     - 알고리즘 구현 내역
-        - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/DFS">참조</a>
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/DFS">참조</a>
     - DFS 이해하기 간단 Animation
         - ![Alt Text](./image/dfs.gif)
     - 개념
@@ -229,7 +229,7 @@
 </br></br></br>
 - <b id="shortest">최단 경로 알고리즘</b>
     - 알고리즘 리스트
-        - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/Shortest_Path">참조</a>
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/Shortest_Path">참조</a>
     - 개념
         - 그래프상의 두 vertex 간의 최단 경로를 구하는 문제
         - 해당 vertex들 간의 사이에는 edge들이 존재하며 해당 edge는 weight가 있고 그를 최소화해야 한다.
@@ -278,7 +278,7 @@
         <br/><br/><br/>
     - <b id="dijkstra">다익스트라 알고리즘</b> 소개
         - 알고리즘 구현 내역
-            - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/Shortest_Path/Dijkstra">참조</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/Shortest_Path/Dijkstra">참조</a>
         - 개념
             - 컴퓨터 과학자 Edsger Dijkstra에 의해 1965년 고안됨.
             - 이는 positive edge weight를 handling할 수 있다.
@@ -391,7 +391,7 @@
         <br/><br/><br/>
     - <b id="bellman-ford">벨만 포드 알고리즘</b> 소개
         - 알고리즘 구현 내역
-            - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/Shortest_Path/BellmanFord">참조</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/Shortest_Path/BellmanFord">참조</a>
         - 개념
             - 이는 negative edge weight 또한 handling할 수 있다.
             - 1958년 Bellman 및 Ford가 각각 만들었으며, 다익스트라 보다는 느리지만, negative edge weight도 다룰 수 있다는 robust함이 있다.
@@ -424,14 +424,14 @@
     <br/><br/></br>
     - <b id="dag">DAG Shortest Path Algorithm</b>
         - 알고리즘 구현 내역
-            - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/Shortest_Path/DAG_Shortest_Path">참조</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/Shortest_Path/DAG_Shortest_Path">참조</a>
         - DAG의 개념은 상단에서 설명하였음.
         - 이러한 Graph의 경우 순환하지 않으므로 Topological Ordering을 구현할 수 있음
         - 이에 따라 선형 시간복잡도에 근사한 수준으로 매우 빠르게 최단 경로를 찾아낼 수 있다.
     <br/><br/><br/>
     - <b id="forex_market">외환 시장 재정 거래 예시</b>
         - 알고리즘 구현 내역
-            - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve/Shortest_Path/Forex_Market">참조</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/Shortest_Path/Forex_Market">참조</a>
         - 환율 테이블은 아래와 같음
             - ![Alt Text](./image/forex_market.png)
         - Vertex : 화폐

@@ -21,7 +21,7 @@
     - <a href="#binarySearch">binary search</a>
 
 - Problem Solve 알고리즘(추가 중)
-    - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/tree/master/Algorithm/Problem_Solve">참조</a>
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve">참조</a>
     - 해당 Directory에는 다음의 내용을 다루고 있음
         - Graph
             - Breadth-first search
@@ -98,7 +98,7 @@
             - Stable sort
                 - 구현하기에 따른 문제이지만, 기본적으로 기존 같은 값 사이의 정렬 순서를 바꾸지 않는다.
         - 구현
-            - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Bubble_sort.java">코드</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Bubble_sort.java">코드</a>
     
     - <b id="selection_sort">선택 정렬</b>
         - 정렬 방식 애니메이션
@@ -121,7 +121,7 @@
                 - 서로 같은 값의 경우에, 비교 대상에 먼저 오르는 쪽이 UnsortedIndex에 있는 값보다 커서 해당 값과 변경될 수 있음
                 - 따라서, 기존의 같은 값 사이의 정렬 상태를 보장하지 못함.
         - 구현
-            - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Selection_sort.java">코드</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Selection_sort.java">코드</a>
     
     - <b id="insertion_sort">삽입 정렬</b>
         - 정렬 방식 애니메이션
@@ -146,7 +146,7 @@
                 - 왜냐하면, 해당 값을 비교 시에 어느 방향에서 시작하든 차례로 시작하며, 해당 값과 같은 값을 비교 시에는 더 이상의 비교를 수행하지 않게 되기 때문
                 - 물론 구현하기에 따라 다를 수는 있음. 하지만 기본적인 concept는 Stable
         - 구현
-            - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Insertion_sort.java">코드</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Insertion_sort.java">코드</a>
     
     - <b id="shell_sort">Shell 정렬</b>
         - 정렬 방식 애니메이션
@@ -188,7 +188,7 @@
             - 참고
                 - 버블 정렬에도 해당 정렬 방식을 응용해서 사용할 수 있다.
         - 구현
-            - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Shell_sort.java">코드</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Shell_sort.java">코드</a>
             
     - <b id="merge_sort">Merge(병합) 정렬</b>
         - 정렬 방식 애니메이션
@@ -232,7 +232,7 @@
                 - O(nlogn) : 반복적으로 배열을 2개로 나누어 작업하기 때문
             - Stable 알고리즘이다.
         - 구현
-            - <a href="https://github.com/hongjw1991/java-data_structure-algorithm/blob/master/Algorithm/Sort_algorithm/Merge_sort.java">코드</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Merge_sort.java">코드</a>
     
     - <b id="quick_sort">Quick 정렬</b>
         - 정렬 방식 애니메이션
