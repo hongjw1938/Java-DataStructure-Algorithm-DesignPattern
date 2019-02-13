@@ -32,14 +32,16 @@
             - Behavioral
                 - 객체, 클래스 사이의 알고리즘이나 책임 분배에 관련된 패턴
                 - 한 객체가 혼자 수행 불가한 작업을 여러 객체로 분배하고 객체 사이 결합도 최소화에 중점
-        - Creational(생성) 패턴 종류
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational">Creational</a>(생성) 패턴 종류
             - Builder
+                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational/Builder.java">코드</a>
+                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational#builder">설명 참조</a>
             - Factories
                 - Abstract Factory
                 - Factory Method
             - Prototype
             - Singleton
-        - Structural(구조) 패턴 종류
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Structural">Structural</a>(구조) 패턴 종류
             - Adapter
             - Bridge
             - Composite
@@ -47,7 +49,7 @@
             - Facade
             - Flyweight
             - Proxy
-        - Behavioral(행위) 패턴 종류
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Behavioral">Behavioral</a>(행위) 패턴 종류
             - Chain of Responsibility
             - Command
             - Interpreter
@@ -152,3 +154,4 @@
             - Dependency Injection 기술을 의미하며 변화를 쉽게 수용하도록 코드를 작성하는 것
             - Class 외부에서 의존되는 것을 대상 객체의 인스턴스 변수에 주입하는 기술을 의미함.
             - Framework에서 주로 사용된다. 
+<br/><br/><br/>
