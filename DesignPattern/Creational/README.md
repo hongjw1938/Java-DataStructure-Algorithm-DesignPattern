@@ -1,6 +1,8 @@
 ### Creational 디자인 패턴
 1. <a href="#builder">Builder</a> 패턴
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational/Builder">상세 설명 보기</a>
 2. <a href="#factoryMethod">FactoryMethod</a>패턴
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational/FactoryMethod">상세 설명 보기</a>
 3. 
 
 </br></br></br>
