@@ -10,6 +10,7 @@
         - 내부 class를 사용하는 경우 객체의 접근 권한을 제한할 수 있다는 장점이 있다.
 - 추상 팩토리(Abstract Factory)
     - 추상 팩토리 패턴은 많은 수의 연관된 서브 클래스를 특정 그룹으로 묶어 한번에 교체할 수 있도록 만든 디자인 패턴이다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/FactoryMethod/AbstractFactoryPattern.java">참조</a>
 - 간단한 Factory Method Pattern 코드
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/FactoryMethod/SimpleFactoryPattern.java">코드 보기</a>
         - 해당 링크 혹은 아래에서 확인 가능
