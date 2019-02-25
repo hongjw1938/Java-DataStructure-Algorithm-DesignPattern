@@ -1,0 +1,11 @@
+### Prototype 패턴
+- Wiki 참조
+    - ![Alt Text](./image/PrototypePatternWiki.png)
+- 개념
+    - 자동차와 같은 복잡한 객체는 단순 scratching 수준으로 디자인될 수 없이, 이미 있는 디자인을 재사용해야 한다.
+    - 부분적 혹은 전체 구성도를 갖는 <b>이미 기 구성된 디자인</b>이 Prototype이다.
+    - 해당 Prototype을 복사(Deep Copy) 하고 customizing하여 사용한다.
+        - Deep Copy이므로 객체의 Reference 까지 복사하는 것
+    - Factory 등의 API를 사용하여 Cloning 작업에 편의성을 추구한다.
+- Cloneable은 사용하지 말 것
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Prototype/DontUseCloneable.java">참조</a>
