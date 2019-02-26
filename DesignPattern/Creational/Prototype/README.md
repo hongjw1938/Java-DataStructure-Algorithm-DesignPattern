@@ -9,3 +9,9 @@
     - Factory 등의 API를 사용하여 Cloning 작업에 편의성을 추구한다.
 - Cloneable은 사용하지 말 것
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Prototype/DontUseCloneable.java">참조</a>
+- 생성자 복사(CopyConstructors)
+    - 이 경우는 기존의 Parameter로 받아 해당 객체의 value들을 기반으로 새로운 객체를 반환하는 생성자를 이용함
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Prototype/CopyConstructors.java">참조</a>
+- Serialize를 이용한 복사
+    - Serialize를 이용해 전체 객체를 Serialize하여 Deep copy하는 방식
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Prototype/CopyThroughSerialization.java">참조</a>

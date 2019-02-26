@@ -5,6 +5,8 @@
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational/FactoryMethod">상세 설명 보기</a>
 3. <a href="#prototype">Prototype</a>패턴
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational/Prototype">상세 설명 보기</a>
+4. <a href="#singleton">Singleton</a>패턴
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational/Singleton">상세 설명 보기</a>
 </br></br></br>
 - <b id="builder">Builder</b>
     - Wiki 참조
@@ -43,4 +45,23 @@
         - 해당 Prototype을 복사(Deep Copy) 하고 customizing하여 사용한다.
             - Deep Copy이므로 객체의 Reference 까지 복사하는 것
         - Factory 등의 API를 사용하여 Cloning 작업에 편의성을 추구한다.
+</br></br></br>
+- <b id="singleton">Singleton</b>
+    - Wiki 참조
+        - ![Alt Text](./image/SingletonPatternWiki.png)
+    - 개념
+        - 어떠한 구성 요소들은 하나의 system만 가지는 것이 적절함.
+            - Database 저장소
+            - Object Factory
+                - 이는 어떤 state를 갖지 않고 객체를 생성하기만 함
+                - 즉, abstract factory, builder, prototype 등이 사용 가능
+        - 생성자 call이 expensive 한 경우
+            - 한 번만 요청하는 것이 적절
+            - 모든 시스템에 하나의 동일한 instance만 제공
+        - 추가적인 인스턴스 복제는 금지하고 싶은 경우 적절
+        - lazy instantiation 및 thread safety를 고려하는 경우 적절
+            - lazy instantiation이란, JVM에 class가 로딩될 때 객체 생성하지 않고, 필요할 때 생성
+                - 객체 생성하는 경우 : ```private List<Grade> grades = new ArrayList<Grade>();```
+                - 즉, 위와 같이 직접 생성되도록 하지 않고 ```private List<Grade> grades;```와 같이 지정하고 필요 시 해당 변수에 객체를 넣어 생성하는 방식
+                - 위의 행위를 위한 여타 메소드가 필요하며, 해당 method가 호출 될 때 객체가 생성된다.
 </br></br></br>
