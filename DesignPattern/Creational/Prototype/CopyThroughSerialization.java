@@ -32,10 +32,10 @@ public class CopyThroughSerialization {
         // deep copy가 가능하다.
         // 객체에 다른 객체가 포함되어 있어도 모든 것이 serialized 된다.
         // 해당 객체를 반환하여 새로 객체를 만듦.
-//        Foo foo2 = SerializationUtils.roundtrip(foo);
-//
-//        foo2.whatever = "xyz";
-//        System.out.println(foo);
-//        System.out.println(foo2);
+        Foo foo2 = SerializationUtils.roundtrip(foo);
+
+        foo2.whatever = "xyz";
+        System.out.println(foo);
+        System.out.println(foo2);
     }
 }
