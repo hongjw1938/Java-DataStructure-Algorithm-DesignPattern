@@ -64,4 +64,3 @@
                 - 객체 생성하는 경우 : ```private List<Grade> grades = new ArrayList<Grade>();```
                 - 즉, 위와 같이 직접 생성되도록 하지 않고 ```private List<Grade> grades;```와 같이 지정하고 필요 시 해당 변수에 객체를 넣어 생성하는 방식
                 - 위의 행위를 위한 여타 메소드가 필요하며, 해당 method가 호출 될 때 객체가 생성된다.
-</br></br></br>
