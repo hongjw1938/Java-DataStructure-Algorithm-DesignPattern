@@ -39,8 +39,14 @@
             - Factories
                 - Abstract Factory
                 - Factory Method
+                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational/FactoryMethod">코드</a>
+                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational#factoryMethod">설명 참조</a>
             - Prototype
+                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational/Prototype">코드</a>
+                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational#prototype">설명 참조</a>
             - Singleton
+                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational/Singleton">코드</a>
+                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational#singleton">설명 참조</a>
         - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Structural">Structural</a>(구조) 패턴 종류
             - Adapter
             - Bridge
