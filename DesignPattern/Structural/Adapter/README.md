@@ -14,3 +14,5 @@
         - 새로운 Class나 기존 Class가 다른 Interface에 Attach된 경우, 조정하기 위한 API가 필요함
         - 즉, Adaptee들을 집계하는 component가 필요하다는 의미임(해당 adaptee에 대한 reference를 가짐)
         - Caching 등의 최적화를 통해 객체를 구현할 수도 있음.
+    - 캐싱이 없는 경우
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Structural/Adapter/NoCaching.java">참조</a>
