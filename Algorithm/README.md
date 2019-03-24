@@ -29,7 +29,7 @@
 
 - <b id="big_o">Big O Notation</b>
     - 알고리즘을 수행하는 데는 시간 복잡도(Time Complexity), 공간 복잡도(Memory Complexity)를 계산한다.
-    - 현재는 Memory 기술이 많이 발달하여 거의 Issue가 되지 않아 시간 복잡도만 가지고 연산 성능을 측정하낟.
+    - 현재는 Memory 기술이 많이 발달하여 거의 Issue가 되지 않아 시간 복잡도만 가지고 연산 성능을 측정한다.
     - 시간복잡도는 Worst case 시나리오를 기반으로 측정한다.
     - 다음의 자료를 참조
         - ![Alt text](./image/bigO_1.png)
@@ -51,13 +51,13 @@
             - Stop. 결과를 반환한다.
         - 해당 순서를 구현
             - iterative 구현
-                - <a href="">코드 참조</a>
+                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Recursion/IterativeFactorial.java">코드 참조</a>
             - 재귀적인 구현
                 - 재귀적인 구현은 해당 method를 계속 호출하는 방식으로 구현함.
                 - 주의
                     - 반드시 재귀 표현을 끝낼 수 있는 종료문을 조건에 맞추어 내부에 추가해야 한다.
                     - 그렇지 않으면 계속해서 메소드를 호출하여 memory를 감당할 수 없게 되어 에러가 발생한다.
-                - <a href="">코드 참조</a>
+                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Recursion/RecursiveFactorial.java">코드 참조</a>
         - 위의 주의점에서 볼 수 있듯이, 재귀를 이용한 구현은 Overhead가 계속 추가되는 방식이므로, Iterative 방식이 어쩌면 더 효율적인 결론을 낼 수 있다.
         - 그러나 때때로, 특정 logic을 수행할 때는 Iterative 방식이 코드 자체도 길어지고, 직관적이지 않은 현상을 낳을 수 있다.
         - 따라서, 재귀 표현에 대해 명확하게 익혀둘 필요가 있다.
