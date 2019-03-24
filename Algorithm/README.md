@@ -401,7 +401,7 @@
                 - 이 방식은, 병합 정렬 방식으로 계속 나누다가, minimum granularity에 도달하면 해당 Sub-array를 sort method를 이용해 정렬한다.
                 - 이는 Thread를 사용하여 수행하기 때문에 parallelSort라고 불리는 것.
             - JDK의 Sort 알고리즘을 사용 시, Object를 이용해 정렬하는 경우에는 Comparable 인터페이스를 통해 정렬 방식을 지정해주어야 한다.
-    <br/>
+
     - <b id="bucket_sort">Bucket 정렬</a>
         - 정렬 방식
             - ![Alt text](./image/bucket_sort.png)
@@ -426,7 +426,7 @@
                 - 이를 단순히 Concatenate로 가능하게 하기 위해서 모든 Bucket 끼리의 값은 차이가 있어야 함
                 - Bucket X가 X-1의 Bucket보다 모든 value가 다 greater해야 한다.
             - 즉, Counting 정렬의 일반화라고 볼 수 있다.
-    <br/>
+
     - <b id="heap_sort">힙 정렬</b>
         - 작동 방식 애니메이션
             - ![Alt text](./image/heap_sort.gif)
