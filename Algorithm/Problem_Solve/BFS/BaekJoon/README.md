@@ -4,6 +4,11 @@
     - <a href="https://www.acmicpc.net/problem/1012">문제 참조</a>
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/BFS/BaekJoon/BaekJoon1012.java">답안</a>
 
+- 케빈 베이컨의 6단계 법칙
+    - 문제 번호 : 1389
+    - <a href="https://www.acmicpc.net/problem/1389">문제 참조</a>
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/BFS/BaekJoon/BaekJoon1389.java">답안</a>
+
 - 이분 그래프 여부 확인
     - 문제 번호 : 1707
     - <a href="https://www.acmicpc.net/problem/1707">문제 참조</a>
@@ -33,6 +38,16 @@
     - 문제 번호 : 2667
     - <a href="https://www.acmicpc.net/problem/2667">문제 참조</a>
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/BFS/BaekJoon/BaekJoon2667.java">답안</a>
+
+- 큐브 모으기
+    - 문제 번호 : 2996
+    - <a href="https://www.acmicpc.net/problem/2996">문제 참조</a>
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/BFS/BaekJoon/BaekJoon2996.java">답안</a>
+
+- 스타트 링크
+    - 문제 번호 : 5014
+    - <a href="https://www.acmicpc.net/problem/5014">문제 참조</a>
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/BFS/BaekJoon/BaekJoon5014.java">답안</a>
 
 - 하이퍼큐브 문제(어려움)
     - 문제 번호 : 5214
