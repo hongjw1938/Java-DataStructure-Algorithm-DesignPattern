@@ -23,3 +23,8 @@
     - 문제 번호 : 10026
     - <a href="https://www.acmicpc.net/problem/10026">문제 참조</a>
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/DFS/BaekJoon/BaekJoon10026.java">답안</a>
+
+- 뿌요뿌요
+    - 문제 번호 : 10026
+    - <a href="https://www.acmicpc.net/problem/11559">문제 참조</a>
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/DFS/BaekJoon/BaekJoon11559.java">답안</a>
