@@ -1,9 +1,12 @@
 package com.problemsolve.dijkstra.baekjoon;
 
 
+import org.w3c.dom.Node;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class BaekJoon1238 {
@@ -15,6 +18,11 @@ public class BaekJoon1238 {
 
     오고 가는데 가장 많은 시간 쓰는 학생의 소요 시간 구하기
      */
+    static long[] backCost;
+    static long[] goCost;
+    static PartyVertex2[] vertex;
+    static PartyVertex2[] backVertex;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -22,40 +30,115 @@ public class BaekJoon1238 {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
         int X = Integer.parseInt(st.nextToken());
-        int map[][] = new int[N+1][N+1];
 
-        for(int i=1; i <= N; i++){
-            for(int j=1; j <= N; j++){
-                if(i!=j){
-                    map[i][j] = 999999;
-                }
+        vertex = new PartyVertex2[M+1];
+        backVertex = new PartyVertex2[M+1];
+        backCost = new long[M+1];
+        goCost = new long[M+1];
 
-            }
-        }
-
+        int y, x, c;
         for(int i=0; i < M; i++){
             st = new StringTokenizer(br.readLine());
-            int y = Integer.parseInt(st.nextToken());
-            int x = Integer.parseInt(st.nextToken());
-            map[y][x] = Math.min(map[y][x], Integer.parseInt(st.nextToken()));
+            y = Integer.parseInt(st.nextToken());
+            x = Integer.parseInt(st.nextToken());
+            c = Integer.parseInt(st.nextToken());
+            vertex[y] = new PartyVertex2(y, x, c, vertex[y]);
+            backVertex[x] = new PartyVertex2(x, y, c, backVertex[x]);
         }
 
-        for(int k=1; k <= N; k++){
-            for(int i=1; i <= N; i++){
-                for(int j=1; j <= N; j++){
-                    if(map[i][j] > map[i][k] + map[k][j]){
-                        map[i][j] = map[i][k] + map[k][j];
-                    }
+//        for(int i=0; i < M; i++){
+//            System.out.println("i : " + i);
+//            if(vertex[i] != null)
+//                System.out.println("start : " + vertex[i].start + ", target : " + vertex[i].target + ", cost : " + vertex[i].cost + ",  v - next's start : " + vertex[i].next.start + ", v - next's target : " + vertex[i].next.target);
+//            else
+//                System.out.println("Null");
+//        }
+
+        for(int i=0; i < M; i++){
+            System.out.println("i : " + i);
+            if(backVertex[i] != null)
+                System.out.println("start : " + backVertex[i].start + ", target : " + backVertex[i].target + ", cost : " + backVertex[i].cost);
+            else
+                System.out.println("Null");
+        }
+
+        System.out.println("------------------------------------------");
+        goParty(X);
+        goBack(X);
+        long max = 0;
+        for(int i=1; i <= M; i++){
+            if(i==X) continue;
+            max = Math.max(backCost[i] + goCost[i], max);
+        }
+        System.out.println(max);
+        br.close();
+    }
+
+    private static void goParty(int start){
+        PriorityQueue<PartyNode2> pq = new PriorityQueue<>();
+        pq.add(new PartyNode2(start, 0));
+        PartyNode2 n;
+        PartyVertex2 v;
+        while(!pq.isEmpty()){
+            n = pq.poll();
+            v = backVertex[n.start];
+            System.out.println("v - start : " + v.start + ", v - target : " + v.target);
+            while(v!=null){
+                if((goCost[v.target] == 0 || goCost[v.target] > v.cost + n.cost)) {
+                    goCost[v.target] = v.cost + n.cost;
+                    pq.add(new PartyNode2(v.target, goCost[v.start]));
                 }
+                v = v.next;
+                if(v != null)
+                    System.out.println("Not null! v - start : " + v.start + ", v - target : " + v.target + ", v - next : " + v.next);
             }
         }
+    }
 
-        int ans = 0;
-        for(int i=1; i <= N; i++){
-            ans = Math.max(ans, map[i][X] + map[X][i]);
+    private static void goBack(int start){
+        PriorityQueue<PartyNode2> pq = new PriorityQueue<>();
+        pq.add(new PartyNode2(start, 0));
+        PartyNode2 n;
+        PartyVertex2 v;
+        while(!pq.isEmpty()){
+            n = pq.poll();
+            v = vertex[n.start];
+            while(v!=null){
+                if((backCost[v.target] == 0 || backCost[v.target] > v.cost + n.cost)){
+                    backCost[v.target] = v.cost + n.cost;
+                    pq.add(new PartyNode2(v.target, backCost[v.target]));
+                }
+                v = v.next;
+            }
         }
+    }
+}
 
-        System.out.println(ans);
-        br.close();
+class PartyVertex2{
+    int start;
+    int target;
+    int cost;
+    PartyVertex2 next;
+
+    public PartyVertex2(int start, int target, int cost, PartyVertex2 next) {
+        this.start = start;
+        this.target = target;
+        this.cost = cost;
+        this.next = next;
+    }
+}
+
+class PartyNode2 implements Comparable<PartyNode2>{
+    int start;
+    long cost;
+
+    public PartyNode2(int start, long cost) {
+        this.start = start;
+        this.cost = cost;
+    }
+
+    @Override
+    public int compareTo(PartyNode2 o) {
+        return (int)(this.cost - o.cost);
     }
 }
