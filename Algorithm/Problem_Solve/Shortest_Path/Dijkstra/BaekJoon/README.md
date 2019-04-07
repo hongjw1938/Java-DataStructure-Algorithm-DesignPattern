@@ -8,3 +8,8 @@
     - 문제 번호 : 1238
     - <a href="https://www.acmicpc.net/problem/1238">문제 참조</a>
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/Shortest_Path/Dijkstra/BaekJoon/BaekJoon1238.java">답안</a>
+ 
+- 숨바꼭질
+    - 문제 번호 : 6118
+    - <a href="https://www.acmicpc.net/problem/6118">문제 참조</a>
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/Shortest_Path/Dijkstra/BaekJoon/BaekJoon6118.java">답안</a>
