@@ -1,6 +1,6 @@
 ### Composite 패턴
 - Wiki 참조
-    - ![Alt Text](./image/compositewiki.png)
+    - ![Alt Text](../image/compositewiki.png)
 - 개념
     - 개별, Scalar 구성 요소를 Aggregate Object 또는 Collections of component 처럼 사용할 수 있게 만듦
     - Object는 다른 Object의 field / method를 상속, composition을 통해 사용할 수 있음
