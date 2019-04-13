@@ -9,4 +9,6 @@
     - 위를 해결하기 위한 옵션
         1. 필요 Object를 상속한다. 그러나 몇 Class는 final이라 상속이 불가하다.
         2. 불가한 경우, Decorator를 Build하여 decorated Object를 참조하도록 지정한다.
+            - 예) <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/DesignPattern/Structural/Decorator/StringDecorator.java">String Class 기능 추가 참조</a>
     - 즉, Decorator 패턴은 추가적인 Behavior를 개별적 Object에 추가하는데 직접적인 상속을 하지 않고 진행하는 방식을 의미한다.
+    
