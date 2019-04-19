@@ -1,0 +1,13 @@
+### Flyweight
+- Wiki 참조
+    - ![Alt Text](./image/FlyweightPatternWiki.png)\
+- 개요
+    - Data를 저장함에 있어 중복, 낭비를 피하기 위한 패턴이다.
+        - 즉, Space Optimization과 관련되어 유사 Object끼리 External한 Storing방식으로 적은 memory를 사용할 수 있도록 만든 패턴
+    - MMORPG 예시
+        - 수많은 유저가 동일한 First/last Name을 갖는다.
+        - 각각의 동일한 이름들을 각각 저장하는 것은 너무나 큰 낭비이다.
+        - 따라서, name의 list를 정리하고 pointer를 이용해 가리키는 방식을 사용할 수 있다.
+    - Bold / Italic text in the console 예시
+        - 각 Character의 형식을 각각 저장하는 것은 낭비가 심하다.
+        - Range를 사용(줄 번호, 시작/끝 위치 등)해서 해당 부분의 위치만 그 Text 형식을 사용하도록 만들 수 있다.
