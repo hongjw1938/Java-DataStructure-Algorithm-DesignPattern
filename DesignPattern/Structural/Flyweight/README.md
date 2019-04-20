@@ -11,3 +11,7 @@
     - Bold / Italic text in the console 예시
         - 각 Character의 형식을 각각 저장하는 것은 낭비가 심하다.
         - Range를 사용(줄 번호, 시작/끝 위치 등)해서 해당 부분의 위치만 그 Text 형식을 사용하도록 만들 수 있다.
+    - 요약
+        - Store common data externally
+        - Index 또는 Reference를 external data store에 명시한다
+        - Range 개념을 이용하여 동일한 집합에 대해 정의하고 해당 범위를 저장함.
