@@ -90,3 +90,36 @@
         - 동일하게 Delegation을 StringBuilder 것을 사용한 것인데, 2가지 큰 문제는 필요없는 Annotation이 존재한다는 것과 Delegation된 method의 Return 타입이 새로 만든 Class가 아닌 기존 Class Type이라는 것
         - 따라서, Return Type을 전부 변경해야 한다는 큰 문제가 발생한다.
         - 이에 따라, Decorator 패턴을 Adapter 패턴처럼 사용하는 방식을 생각해볼 수 있다. 해당 내용을 참조한다.
+<br/><br/><br/>
+- <b id="facade">Facade</b>
+    - Wiki 참조
+        - ![Alt Text](./image/FacadePatternWiki.png)\
+    - 개요
+        - 기본적으로 복수의 component들을 단일 interface를 통해 exposing 시키는 디자인 패턴 >> End user가 사용하기 편리함
+        - 집을 예시로 들어보자
+            - 집은 전기, 위생 설비, 공조 설비 등 여러 설비 즉, Sub System을 갖추고 있다.
+            - 내부 구조는 매우 복잡한데, End User는 이러한 내부 구조를 직접 확인할 필요가 없다.
+        - 위와 같이, Software에서도 마치 Console 화면 처럼 API를 소비하여 동작하도록 하고 기반이 되는 Sub System은 직접 확인할 필요 없는 유연성을 갖는 시스템을 의미한다.
+        - 즉, 크고 정교한 Code Body를 갖는 User에게 쉽고 직관적인 interface를 제공할 수 있는 패턴을 의미한다.
+            - Class Set을 단순화된 API로 제공할 때 사용하며 선택적으로 internal 부분을 노출시킬 수 있다.(이를 통해 control 여부를 늘릴 수 있음)
+            - 이 패턴을 구현하여 User들이 복잡한 API를 쉽게 사용할 수 있도록 만들어준다.
+<br/><br/><br/>
+- <b id="flyweight">Flyweight</b>
+    - Wiki 참조
+        - ![Alt Text](./image/FlyweightPatternWiki.png)\
+    - 개요
+        - Data를 저장함에 있어 중복, 낭비를 피하기 위한 패턴이다.
+            - 즉, Space Optimization과 관련되어 유사 Object끼리 External한 Storing방식으로 적은 memory를 사용할 수 있도록 만든 패턴
+        - MMORPG 예시
+            - 수많은 유저가 동일한 First/last Name을 갖는다.
+            - 각각의 동일한 이름들을 각각 저장하는 것은 너무나 큰 낭비이다.
+            - 따라서, name의 list를 정리하고 pointer를 이용해 가리키는 방식을 사용할 수 있다.
+        - Bold / Italic text in the console 예시
+            - 각 Character의 형식을 각각 저장하는 것은 낭비가 심하다.
+            - Range를 사용(줄 번호, 시작/끝 위치 등)해서 해당 부분의 위치만 그 Text 형식을 사용하도록 만들 수 있다.
+        - 요약
+            - Store common data externally
+            - Index 또는 Reference를 external data store에 명시한다
+            - Range 개념을 이용하여 동일한 집합에 대해 정의하고 해당 범위를 저장함.
+<br/><br/><br/>
+- <b id="proxy">Proxy</b>
