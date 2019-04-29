@@ -1,0 +1,15 @@
+### Chain Of Responsibility
+- Wiki
+    - ![Alt Text](../image/BuilderPatternExplain.png)
+- 개요
+    - 연결된 각각의 Component가 command 또는 query를 수행할 수 있음.
+    - 또한 해당 processing chain을 종료시킬 수도 있다.
+    - 예시로 드는 것이 더욱 이해가 쉽다.
+- 예시
+    - 비윤리적인 행동을 한 근로자. 누구에게 책임?
+        - 고용인 본인 -> Manager, CEO
+    - Form의 그래픽 요소를 클릭
+        - Button Handle -> Underlying Group Box Handle -> Underlying window Handle
+    - CCG computer game
+        - Creature는 공격/수비
+        - 다른 카드에 의해서 boost될 수 있는 능력임.
