@@ -1,6 +1,6 @@
 ### Flyweight
 - Wiki 참조
-    - ![Alt Text](./image/FlyweightPatternWiki.png)\
+    - ![Alt Text](./image/FlyweightPatternWiki.png)
 - 개요
     - Data를 저장함에 있어 중복, 낭비를 피하기 위한 패턴이다.
         - 즉, Space Optimization과 관련되어 유사 Object끼리 External한 Storing방식으로 적은 memory를 사용할 수 있도록 만든 패턴
