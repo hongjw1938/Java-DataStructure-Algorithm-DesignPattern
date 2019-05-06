@@ -4,6 +4,7 @@
 - 개요
     - 연결된 각각의 Component가 command 또는 query를 수행할 수 있음.
     - 또한 해당 processing chain을 종료시킬 수도 있다.
+    - 즉, Object를 하나의 Chain에 list화 하고 순서대로 control을 수행하여 각각의 method를 동작시키는데, 이 사이에 Chain을 도중에 제거할 수 있다.(AutoCloseable interface를 보통 사용)
     - 예시로 드는 것이 더욱 이해가 쉽다.
 - 예시
     - 비윤리적인 행동을 한 근로자. 누구에게 책임?
@@ -13,3 +14,8 @@
     - CCG computer game
         - Creature는 공격/수비
         - 다른 카드에 의해서 boost될 수 있는 능력임.
+- Command Query Separation
+    - 이는 매우 잘 알려진 아이디어 중 하나로, object를 operate 할 때, 모든 vocation을 query / command라는 개념으로 나눈다.
+    - Command : action / change를 요청하는 것이다. 예를 들면 attack value를 2로 설정한다던가
+    - Query : 쿼리는 information을 요청하는 것이다. 즉, 당신의 attack value를 알려달라 같은 것
+    - 그래서 CQS는 command와 query를 분할해서 요청하는 방식을 의미하는 것이다. (direct field access)
