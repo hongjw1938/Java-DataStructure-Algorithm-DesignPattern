@@ -1,0 +1,12 @@
+### Interpreter 패턴
+- 개요
+    - Computer Science 라는 Domain의 Compiler 이론 그 자체이다.
+    - 기본적으로 Processing에 필요한 Textual input이 있다.
+        - OOP 구조로 변경
+        - 예: Programming 언어 컴파일러/IDE, HTML/XML, 정규 표현식, Numeric expressions
+    - 즉, 구조화된 Text data를 processing 하는 component를 의미한다.
+- Phase
+    - Lexing
+        - Text Data를 작은 Token으로 나눈다.(lexical tokens)
+    - Parsing
+        - Token들을 번역한다.
