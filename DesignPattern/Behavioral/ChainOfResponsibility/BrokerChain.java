@@ -1,3 +1,4 @@
+package com.designPattern.behavioral.chainOfResponsibility;
 /*
   이전 예시인 Method Chain의 제한은 모든 modifier를 명시적으로 적용해야 한다는 것이다.
   

@@ -1,3 +1,5 @@
+package com.designPattern.behavioral.chainOfResponsibility;
+import java.util.*;
 class Creature{
     public String name;
     public int attack, defense;
