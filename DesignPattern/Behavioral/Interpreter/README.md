@@ -8,5 +8,6 @@
 - Phase
     - Lexing
         - Text Data를 작은 Token으로 나눈다.(lexical tokens)
+        - Lexing.java 파일을 참조
     - Parsing
         - Token들을 번역한다.
