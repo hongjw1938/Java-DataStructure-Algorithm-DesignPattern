@@ -34,7 +34,7 @@
                 - 한 객체가 혼자 수행 불가한 작업을 여러 객체로 분배하고 객체 사이 결합도 최소화에 중점
         - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational">Creational</a>(생성) 패턴 종류
             - Builder
-                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational/Builder.java">코드</a>
+                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational/Builder">코드</a>
                 - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/DesignPattern/Creational#builder">설명 참조</a>
             - Factories
                 - Abstract Factory

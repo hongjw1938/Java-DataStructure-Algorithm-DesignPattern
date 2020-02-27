@@ -14,7 +14,7 @@
     - <a href="#radix_sort">Radix 정렬</a>
     - <a href="#jdk_library">JDK Arrays class sort method</a>
     - <a href="#bucket_sort">Bucket 정렬</a>
-    - <a href="heap_sort">힙 정렬</a>
+    - <a href="#heap_sort">힙 정렬</a>
 
 - 탐색 알고리즘
     - <a href="#linearSearch">linear search</a>
@@ -61,7 +61,7 @@
         - 위의 주의점에서 볼 수 있듯이, 재귀를 이용한 구현은 Overhead가 계속 추가되는 방식이므로, Iterative 방식이 어쩌면 더 효율적인 결론을 낼 수 있다.
         - 그러나 때때로, 특정 logic을 수행할 때는 Iterative 방식이 코드 자체도 길어지고, 직관적이지 않은 현상을 낳을 수 있다.
         - 따라서, 재귀 표현에 대해 명확하게 익혀둘 필요가 있다.
-        - Tail Call, Tail Recursion, Tail Optimization의 이야기는 <a href"https://homoefficio.github.io/2015/07/27/%EC%9E%AC%EA%B7%80-%EB%B0%98%EB%B3%B5-Tail-Recursion/>여기</a>를 참조한다.
+        - Tail Call, Tail Recursion, Tail Optimization의 이야기는 <a href"https://homoefficio.github.io/2015/07/27/%EC%9E%AC%EA%B7%80-%EB%B0%98%EB%B3%B5-Tail-Recursion/">여기</a>를 참조한다.
 
 - Sort algorithm
     - 기본 정렬 알고리즘 시간복잡도
