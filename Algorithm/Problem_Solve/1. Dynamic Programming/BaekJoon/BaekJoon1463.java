@@ -11,7 +11,7 @@ public class BaekJoon1463 {
         int X = Integer.parseInt(br.readLine());
 
         // Top-Down 방식 풀이
-        //System.out.println(topDown(X));
+        System.out.println(topDown(X));
 
         // Bottom-up 방식 풀이
         System.out.println(bottomUp(X));
