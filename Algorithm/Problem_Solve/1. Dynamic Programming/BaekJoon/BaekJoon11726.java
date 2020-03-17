@@ -6,12 +6,18 @@ import java.io.InputStreamReader;
 
 public class BaekJoon11726 {
     static long[] min = new long[1001];
+    static long[] dp = new long[1001];
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        min[1] = 1;
-        min[2] = 2;
+        min[1] = dp[1] = 1;
+        min[2] = dp[2] = 2;
 
+        for(int i=3; i <= n; i++){
+            dp[i] = (dp[i-1] + dp[i-2]) % 10007;
+        }
+
+        System.out.println(dp[n]);
         System.out.println(topDown(n));
         br.close();
     }

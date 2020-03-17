@@ -1,0 +1,26 @@
+### BaekJoon 알고리즘 Dynamic Programming 풀이
+- 1로 만들기 문제
+    - 문제 번호 : 1463
+    - <a href="https://www.acmicpc.net/problem/1463">문제 참조</a>
+        - 내용 : X의 값을 1로 만들 수 있는 최소의 연산 횟수 구하기(3 또는 2로 나누거나 1을 빼는 행위 가능)
+        - 풀이
+            - 1에 가까운 수부터 1로 만들 수 있는 최소의 횟수를 구한 뒤 점점 큰 수에 대해 동일 연산을 수행하여 해당 연산에 따른 결과값의 연산 횟수에 1을 더한 것 중 최소 값을 배열에 저장
+            - 2를 1로 만드는 것은 1을 빼는 1회
+            - 3을 1로 만드는 것은 1을 빼면 2가 되고 2의 최소 연산은 1이므로 2회, 또는 3을 3으로 나누어 1로 만드는 1회 연산, 둘 중 작은 것은 1회
+            - 4를 1로 만드는 것은 1을 빼면 3의 최소 연산인 1 + 1 = 2회 또는 2로 나누면 2의 최소 연산인 1 + 1 = 2회, 작은 것은 2회
+            - 위와 같이 dp 배열에 저장해 두어 풀이
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon1463.java">답안</a>
+
+- 2*1 타일 채우기 문제
+    - 문제 번호 : 11726
+    - <a href="https://www.acmicpc.net/problem/11726">문제 참조</a>
+        - 내용 : 2\*n 사각형 타일을 1\*2 / 2\*1의 타일로 채우는 경우의 수 구하기
+        - 풀이
+            - 2\*1을 채우는 방법은 1개, 2\*2를 채우는 방법은 2개이다.
+            - 2\*3의 경우 이후에 2\*1(세로로 긴 방향)으로 모두 채우는 방법은 2\*1을 채우는 방법과 같으며, 나머지는 가로로 두개, 세로 하나를 놓는 2가지로 총 3가지이다.
+                - 2\*3은 2\*1과 2\*2를 채우는 두 경우의 수의 합과 같다.
+                - 즉, 가로로 채우는 방법과 세로로 채우는 방법의 합이 답이 된다.
+            - 2\*4의 경우 하나를 세로로 채운다면 나머지는 2\*3을 채우는 방법과 같은 방식으로 채우는 것만 남게 된다. 두 가지를 세로로 채우면 2\*2를 채우는 방법과 같다.
+                - 3개를 세로로 채우는 것은 1개를 세로로 채우는 것과 중복이 된다. 따라서 2*\4도 2\*3 + 2\*2와 같은 방식으로 구할 수 있다.
+            - 즉, dp[n] = dp[n-1] + dp[n-2]가 답이 된다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11726.java">답안</a>
