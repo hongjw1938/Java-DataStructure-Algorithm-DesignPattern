@@ -11,6 +11,29 @@
             - 위와 같이 dp 배열에 저장해 두어 풀이
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon1463.java">답안</a>
 
+- 1,2,3 더하기 문제
+    - 문제 번호 : 9095
+    - <a href="https://www.acmicpc.net/problem/11726">문제 참조</a>
+        - 내용 : 정수 n을 1, 2, 3의 합으로 나타낼 수 있는 경우의 수 구하기
+        - 풀이
+            - 정수 1~3까지는 몇 가지 되지 않으니 쉽게 표현을 미리 지정해 배열에 선정할 수 있다.
+            - 4부터는 해당 정수의 1~3까지 작은 숫자에서 하나의 숫자만 더하는 것이므로 그 작은 숫자를 나타낼 수 있는 경우의 수를 모두 더하면 된다.
+            - 즉, dp[4] = dp[3] + dp[2] + dp[1] 과 같이 표현할 수 있다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon9095.java">답안</a>
+
+- 카드 구매하기
+    - 문제 번호 : 11052
+    - <a href="https://www.acmicpc.net/problem/11052">문제 참조</a>
+        - 내용 : 가챠 카드팩을 N장 구매하기 위해 돈을 사용. 이 돈을 최대로 사용하는 경우의 금액 구하기
+        - 풀이 
+            - 각 카드팩을 구매 시 n장을 산다면 n장 짜리 1개 혹은 n-x(1 <= x <= n-1장의 조합으로 구매할 수 있다.
+            - 그렇다면 1장만 구매 시 부터 n장을 구매 시까지 dynamic_programming으로 정답을 구할 수 있다.
+            - 4장을 사고 각 장 수 만큼 든 카드팩의 비용을 1, 5, 6, 7이라 하자.
+            - 1장만 산다면 1을 지불하는 것이 가장 비용을 많이 쓰는 것이다.
+            - 2장을 산다면 1장을 2개 혹은 2장 팩을 1개 산다고 생각 시, dp[2] 또는 dp[2-1] + dp[1] 이라고 볼 수 있다.
+            - 즉, dp[n] = dp[n-i] + dp[i]로 지정하면 된다.(1 <= i <= n)
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11052.java">답안</a>
+
 - 2*1 타일 채우기 문제
     - 문제 번호 : 11726
     - <a href="https://www.acmicpc.net/problem/11726">문제 참조</a>
@@ -24,3 +47,14 @@
                 - 3개를 세로로 채우는 것은 1개를 세로로 채우는 것과 중복이 된다. 따라서 2*\4도 2\*3 + 2\*2와 같은 방식으로 구할 수 있다.
             - 즉, dp[n] = dp[n-1] + dp[n-2]가 답이 된다.
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11726.java">답안</a>
+
+- 2*1 타일 채우기 문제2
+    - 문제 번호 : 11727
+    - <a href="https://www.acmicpc.net/problem/11727">문제 참조</a>
+        - 내용 : 2\*n 사각형 타일을 1\*2 / 2\*1, 2\*2의 타일로 채우는 경우의 수 구하기
+        - 풀이
+            - 11726의 문제와 풀이 방식은 비슷한데 2\*2가 추가된 것
+            - 그런데 잘 생각해보면 기존의 채울 수 있는 방식에 2\*2만 추가되었으므로 그 부분만 고려하면 됨
+            - 그래서, 2\*2로 채울 수 있는 방법은 한 부분이 2\*2로 채워졌다는 가정하에 생각 시 2*\n 크기라면 2\*(n-2)를 채우는 방법과 동일함
+            - 즉, dp[n] = dp[n-1] + 2 * dp[n-2]가 답이 된다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11727.java">답안</a>
