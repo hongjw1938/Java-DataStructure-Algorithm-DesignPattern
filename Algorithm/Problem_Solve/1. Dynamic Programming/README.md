@@ -58,3 +58,16 @@
             - 그래서, 2\*2로 채울 수 있는 방법은 한 부분이 2\*2로 채워졌다는 가정하에 생각 시 2*\n 크기라면 2\*(n-2)를 채우는 방법과 동일함
             - 즉, dp[n] = dp[n-1] + 2 * dp[n-2]가 답이 된다.
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11727.java">답안</a>
+
+- 카드 구매하기2
+    - 문제 번호 : 16194
+    - <a href="https://www.acmicpc.net/problem/16194">문제 참조</a>
+        - 내용 : 가챠 카드팩을 N장 구매하기 위해 돈을 사용. 이 돈을 최소로 사용하는 경우의 금액 구하기
+        - 풀이 
+            - 각 카드팩을 구매 시 n장을 산다면 n장 짜리 1개 혹은 n-x(1 <= x <= n-1장의 조합으로 구매할 수 있다.
+            - 그렇다면 1장만 구매 시 부터 n장을 구매 시까지 dynamic_programming으로 정답을 구할 수 있다.
+            - 4장을 사고 각 장 수 만큼 든 카드팩의 비용을 1, 5, 6, 7이라 하자.
+            - 1장만 산다면 1을 지불하는 것이 가장 비용을 적게 쓰는 것이다.
+            - 2장을 산다면 1장을 2개 혹은 2장 팩을 1개 산다고 생각 시, dp[2] 또는 dp[2-1] + dp[1] 이라고 볼 수 있다.
+            - 즉, dp[n] = dp[n-i] + dp[i]과 i장짜리 팩 하나를 사는 것 중 작은 것으로 지정하면 된다.(1 <= i <= n)
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon16194.java">답안</a>
