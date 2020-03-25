@@ -21,6 +21,16 @@
             - 즉, dp[4] = dp[3] + dp[2] + dp[1] 과 같이 표현할 수 있다.
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon9095.java">답안</a>
 
+- 쉬운 계단 수
+    - 문제 번호 : 10844
+    - <a href="https://www.acmicpc.net/problem/10844">문제 참조</a>
+    - 내용 : 0으로 시작할 수 없는 숫자의 길이가 주어지며 그 숫자의 각 자리수는 1씩 차이가 나는 계단 수이다. 숫자의 길이가 주어질 때, 계단 수의 수를 구하라.
+    - 풀이
+        - 2차원 배열을 이용해서 숫자의 길이와 1의 자리 숫자를 지정하는 것을 index로 지정하면 된다.
+        - 숫자 길이가 1이면 1의 자리 0인 경우 빼고 모두 1이다. 즉, dp[1][1]~dp[1][9] = 1이다.
+        - 그 이후 dp[n][0] = dp[n-1][1], dp[n][9] = dp[n-1][8], dp[n][i] = dp[n-1][i-1] + dp[n-1][i+1](i는 1~8)
+        - 이를 통해 구현을 수행한다.
+
 - 카드 구매하기
     - 문제 번호 : 11052
     - <a href="https://www.acmicpc.net/problem/11052">문제 참조</a>
@@ -58,6 +68,17 @@
             - 그래서, 2\*2로 채울 수 있는 방법은 한 부분이 2\*2로 채워졌다는 가정하에 생각 시 2*\n 크기라면 2\*(n-2)를 채우는 방법과 동일함
             - 즉, dp[n] = dp[n-1] + 2 * dp[n-2]가 답이 된다.
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11727.java">답안</a>
+
+- 1,2,3 더하기 2
+    - 문제 번호 : 15990
+    - <a href="https://www.acmicpc.net/problem/15990">문제 참조</a>
+    - 내용 : 정수 n을 1, 2, 3의 합으로 나타낼 수 있는 경우의 수 구하기(중복되는 수 연속 사용 불가)
+        - 풀이
+            - 정수 1~3까지는 몇 가지 되지 않으니 쉽게 표현을 미리 지정해 배열에 선정할 수 있다.
+            - 4부터는 3을 만들 시, 마지막 수가 2 또는 3인 경우, 2를 만들 시 마지막 수가 1 또는 3인 경우, 1을 만들 시 마지막 숫자가 1 또는 2인 경우만이 존재한다.
+                - 즉, 2차원 배열을 만들면 dp[4][1] = dp[3][2] + dp[3][3], dp[4][2] = dp[2][1] + dp[2][3], dp[4][3] = dp[1][1] + dp[1][2] 이다.
+                - 즉, 2차원 배열에서 두 번째 index는 마지막으로 더해진 숫자를 의미한다고 생각하면 된다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon15990.java">답안</a>
 
 - 카드 구매하기2
     - 문제 번호 : 16194
