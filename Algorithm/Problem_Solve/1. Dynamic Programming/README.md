@@ -11,6 +11,16 @@
             - 위와 같이 dp 배열에 저장해 두어 풀이
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon1463.java">답안</a>
 
+- 연속합 문제
+    - 문제 번호 : 1912
+    - <a href="https://www.acmicpc.net/problem/1912">문제 참조</a>
+        - 내용 : 배열의 숫자의 연속합 중 최대값이 되는 방법을 구하고 그 값을 출력하기
+        - 풀이
+            - DP를 이용하여 각 숫자를 저장한 배열(num)과, 해당 배열의 index 값의 수가 반드시 합해진 최대값의 배열(dp)를 구한다.
+            - 이러면 dp[0] = num[0]이 된다. 왜냐하면, 0일 때는 그 숫자를 더하는 것만이 반드시 가장 크기 때문(아무것도 더하지 않는 경우는 제외)
+            - dp[n] = Math.max(dp[n-1] + num[n], num[n]), 즉, 이전 최대값과 자신을 더한 것, 혹은 자기 자신의 값 중 최대를 구한다.
+            - dp 배열이 완료되면 해당 배열의 값 중 최대값을 찾아내서 출력한다.
+
 - 이친수 개수 구하기
     - 문제 번호 : 2193
     - <a href="https://www.acmicpc.net/problem/2193">문제 참조</a>
@@ -55,6 +65,16 @@
             - 즉, dp[n] = dp[n-i] + dp[i]로 지정하면 된다.(1 <= i <= n)
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11052.java">답안</a>
 
+- 가장 긴 증가하는 부분 수열
+    - 문제 번호 : 11053
+    - <a href="https://www.acmicpc.net/problem/11053">문제 참조</a>
+        - 내용 : 전체 배열 중 부분수열이 지속적으로 증가하되 가장 긴 배열의 크기를 구하는 것
+        - 풀이
+            - Dynamic Programming을 이용 시, 작은 배열부터 차례대로 순서를 더해주면 된다.
+            - 가장 작은 배열 1개일 때는, 1이 답이되며, 그 다음 부터는 자신의 index 위치부터 가장 작은 index까지 값을 비교한다.
+            - 만약 값이 같으면 해당 index에서 가장 긴 배열 값을 저장하고, 그보다 크다면 그 값에 1을 더한다.
+            - 이를 지속적으로 수행하여 가장 큰 값을 저장한다.
+
 - 2*1 타일 채우기 문제
     - 문제 번호 : 11726
     - <a href="https://www.acmicpc.net/problem/11726">문제 참조</a>
@@ -79,6 +99,15 @@
             - 그래서, 2\*2로 채울 수 있는 방법은 한 부분이 2\*2로 채워졌다는 가정하에 생각 시 2*\n 크기라면 2\*(n-2)를 채우는 방법과 동일함
             - 즉, dp[n] = dp[n-1] + 2 * dp[n-2]가 답이 된다.
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11727.java">답안</a>
+
+- 가장 긴 증가하는 부분 수열2
+    - 문제 번호 : 14002
+    - <a href="https://www.acmicpc.net/problem/14002">문제 참조</a>
+        - 내용 : 전체 배열 중 부분수열이 지속적으로 증가하되 가장 긴 배열의 크기를 구하고 그 배열의 숫자를 출력
+        - 풀이
+            - 11053문제와 동일하게 푼다.
+            - 그 뒤, 해당 배열의 출력값인 최대 길이의 값을 출력하고 그 값을 이용해 기존 배열을 역추적하여 Stack에 저장
+            - 마지막으로 Stack에 들어 있던 값들을 Pop하며 마무리
 
 - 1,2,3 더하기 2
     - 문제 번호 : 15990
