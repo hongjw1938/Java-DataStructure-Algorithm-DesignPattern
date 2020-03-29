@@ -11,6 +11,17 @@
             - 위와 같이 dp 배열에 저장해 두어 풀이
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon1463.java">답안</a>
 
+- 이친수 개수 구하기
+    - 문제 번호 : 2193
+    - <a href="https://www.acmicpc.net/problem/2193">문제 참조</a>
+        - 내용 : 이진수 중 0으로 시작하지 않고 1이 연속 두 번 나오지 않는 것이 이친수이며 N자리의 이친수 개수를 구한다.
+        - 풀이
+            - 쉬운 계단 수와 동일한 방식으로 해결할 수 있다.(10844번)
+            - 2차원 배열을 이용해 1차원에는 N의 자리수, 2차원에는 0 또는 1로 끝나는 이친수의 개수를 지정한다.
+            - 만약 1자리 수 이친수가 0 또는 1로 끝난다면, dp[1][0] = 0, dp[1][1] = 1이다.
+            - 이 때, dp[N][0] = dp[N-1][0] + dp[N-1][1], dp[N][1] = dp[N-1][0]이 된다.
+
+
 - 1,2,3 더하기 문제
     - 문제 번호 : 9095
     - <a href="https://www.acmicpc.net/problem/11726">문제 참조</a>
