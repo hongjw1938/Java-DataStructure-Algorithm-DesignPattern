@@ -122,6 +122,14 @@
             - 이를 지속적으로 수행하여 가장 큰 값을 저장한다.
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11053.java">답안</a>
 
+- 오르막 수 문제
+    - 문제 번호 : 11057
+    - <a href="https://www.acmicpc.net/problem/11057">문제 참조</a>
+        - 내용 : N자리의 수의 오르막 수의 개수를 구하는 문제(2자리라면 00~99까지 1의 자리가 10의 자리보다 크거나 같아야 한다.)
+        - 풀이
+            - 3단 for문을 통해서 진행한다. i는 당연히 1부터 n까지, j는 0으로 끝나는 숫자부터 9로 끝나는 숫자깢.
+            - dp[i][j]의 값은 dp[i-1][k](k는 0보다 크거나 같고, j보다 작거나 같은 수)를 모두 더한 값
+
 - 2*1 타일 채우기 문제
     - 문제 번호 : 11726
     - <a href="https://www.acmicpc.net/problem/11726">문제 참조</a>
