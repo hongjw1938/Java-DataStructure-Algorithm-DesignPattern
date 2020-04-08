@@ -1,4 +1,16 @@
 ### BaekJoon 알고리즘 Dynamic Programming 풀이
+- RGB 거리 문제
+    - 문제 번호 : 1149
+    - <a href="https://www.acmicpc.net/problem/1149">문제 참조</a>
+        - 내용 : N개의 집을 빨, 파, 초의 3가지 색으로 칠할 때, 인접한 집의 색은 다르게 하는 경우 최소의 비용으로 칠하는 경우의 비용 구하기
+        - 풀이
+            - 우선 0번째의 집일 때는, 3가지 색의 비용 중 가장 작은 것이 답이 된다.
+            - 1번째 집일 때는, 파랑으로 칠한다면 0번째집이 빨강 또는 초록으로 칠한 경우와 1번을 파랑으로 칠하는 경우 중 최소값을 구한다.
+            - 즉, 이런식으로 진행 시, 빨강을 0, 파랑을 1, 초록을 2의 index로 놓는다고 가정하면 아래와 같은 점화식이 만들어진다.
+            - house[n][i] = Math.min(house[n-1][(i+1)%3] + rgb[n][i], house[n-1][(i+2)%3] + rgb[n][i])
+            - 이와 같은 방식으로 DP를 이용해 결과를 구한다.
+
+
 - 1로 만들기 문제
     - 문제 번호 : 1463
     - <a href="https://www.acmicpc.net/problem/1463">문제 참조</a>
@@ -18,6 +30,7 @@
         - 풀이
             - dp[1]=1 이다. 1은 1*1로만 나타낼 수 있다. 2부터는 자신 보다 작은 제곱수 중, 가장 큰 값까지 비교하여 해당 값을 뺀 뒤, 기존에 배열에 저장한 값과 비교하여 현재 값을 지정한다.
             - 만약 그 값이 기존에 저장된 값보다 더 작은 경우, 해당 배열의 값이 정답이 된다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon1699.java">답안</a>
         
 - 연속합 문제
     - 문제 번호 : 1912
@@ -28,6 +41,7 @@
             - 이러면 dp[0] = num[0]이 된다. 왜냐하면, 0일 때는 그 숫자를 더하는 것만이 반드시 가장 크기 때문(아무것도 더하지 않는 경우는 제외)
             - dp[n] = Math.max(dp[n-1] + num[n], num[n]), 즉, 이전 최대값과 자신을 더한 것, 혹은 자기 자신의 값 중 최대를 구한다.
             - dp 배열이 완료되면 해당 배열의 값 중 최대값을 찾아내서 출력한다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon1912.java">답안</a>
 
 - 이친수 개수 구하기
     - 문제 번호 : 2193
@@ -38,6 +52,7 @@
             - 2차원 배열을 이용해 1차원에는 N의 자리수, 2차원에는 0 또는 1로 끝나는 이친수의 개수를 지정한다.
             - 만약 1자리 수 이친수가 0 또는 1로 끝난다면, dp[1][0] = 0, dp[1][1] = 1이다.
             - 이 때, dp[N][0] = dp[N-1][0] + dp[N-1][1], dp[N][1] = dp[N-1][0]이 된다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon2193.java">답안</a>
 
 - 합분해
     - 문제 번호 : 2225
@@ -49,6 +64,7 @@
                 - N=1이라면, 0~1까지의 수 K개를 사용하기 때문에 1의 위치에 따라 경우의 수가 다 다르기 때문.
             - 이외의 경우라면, dp[N-1][K] + dp[N][K-1]이 답이 된다.
                 - N-1을 K개의 수로 만든 것에 1을 더한 방법들만 있기 때문이며, N의 수를 K-1개의 수로 더한 값에 추가로 한 가지 수를 더한 값이 답이기 때문
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon2225.java">답안</a>
 
 - 1,2,3 더하기 문제
     - 문제 번호 : 9095
@@ -69,6 +85,7 @@
         - 숫자 길이가 1이면 1의 자리 0인 경우 빼고 모두 1이다. 즉, dp[1][1]~dp[1][9] = 1이다.
         - 그 이후 dp[n][0] = dp[n-1][1], dp[n][9] = dp[n-1][8], dp[n][i] = dp[n-1][i-1] + dp[n-1][i+1](i는 1~8)
         - 이를 통해 구현을 수행한다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon10844.java">답안</a>
 
 - 카드 구매하기
     - 문제 번호 : 11052
@@ -92,6 +109,7 @@
             - 가장 작은 배열 1개일 때는, 1이 답이되며, 그 다음 부터는 자신의 index 위치부터 가장 작은 index까지 값을 비교한다.
             - 만약 값이 같으면 해당 index에서 가장 긴 배열 값을 저장하고, 그보다 크다면 그 값에 1을 더한다.
             - 이를 지속적으로 수행하여 가장 큰 값을 저장한다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11053.java">답안</a>
 
 - 2*1 타일 채우기 문제
     - 문제 번호 : 11726
@@ -126,6 +144,17 @@
             - 11053문제와 동일하게 푼다.
             - 그 뒤, 해당 배열의 출력값인 최대 길이의 값을 출력하고 그 값을 이용해 기존 배열을 역추적하여 Stack에 저장
             - 마지막으로 Stack에 들어 있던 값들을 Pop하며 마무리
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon14002.java">답안</a>
+
+- 1,2,3 더하기 3
+    - 문제 번호 : 15988
+    - <a href="https://www.acmicpc.net/problem/15988">문제 참조</a>
+    - 내용 : 정수 n을 1, 2, 3의 합으로 나타낼 수 있는 경우의 수 구하기(중복되는 수 연속 사용 가능)
+        - 풀이
+            - 정수 1~3까지는 몇 가지 되지 않으니 쉽게 표현을 미리 지정해 배열에 선정할 수 있다.
+            - 4부터는 3을 만들 시, 현재 값보다 1작은 수에 1을 더하거나, 2작은 수에 2를 더하거나, 3 작은 수에 3을 더하는 방법만이 존재하낟.
+            - 즉, dp[n] = dp[n-1] + dp[n-2] + dp[n-3] 이 답이 된다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon15988.java">답안</a>
 
 - 1,2,3 더하기 2
     - 문제 번호 : 15990
