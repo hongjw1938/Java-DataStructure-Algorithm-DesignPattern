@@ -87,6 +87,18 @@
             - 즉, dp[4] = dp[3] + dp[2] + dp[1] 과 같이 표현할 수 있다.
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon9095.java">답안</a>
 
+- 스티커 문제
+    - 문제 번호 : 9465
+    - <a href="https://www.acmicpc.net/problem/9465">문제 참조</a>
+        - 내용 : 스티커를 뜯으면 변을 공유하는 스티커가 전부 뜯어진다. 뜯어진 스티커는 사용 불가 시, 뜯을 수 있는 스티커를 뜯어서 최대값을 구하기
+        - 풀이
+            - 간단히 2*N 배열이므로 그렇게 배열을 선언하고 0번, 1번 row의 스티커를 찢을 때, 현재 column이 x번이면 x-1번까지 찢은 최대값을 구하면 된다.
+            - 만약 0, K 번의 스티커를 찢는다면, 1, K-1까지와 1, K-2까지의 최대값에 현재 스티커의 값을 더해주면 그것이 최대값이 된다.
+            - 이와 같이 진행 시, 점화식은 다음과 같다.
+            - dp[r][c] = Math.max(dp[(r+1)%2][c-1] + sticker_value[r][c], dp[(r+1)%2][c-2] + sticker_value[r][c])
+            - 만약, column이 0번이면 미리 sticker_value만 넣어두고, 1번이면 c-2는 없으므로 c-1의 값만 넣어 지정한다.
+            - Top-down의 경우 시간초과가 나서 boolean 배열을 따로 추가하였고 이는 코드에서 확인할 수 있다.
+
 - 쉬운 계단 수
     - 문제 번호 : 10844
     - <a href="https://www.acmicpc.net/problem/10844">문제 참조</a>
