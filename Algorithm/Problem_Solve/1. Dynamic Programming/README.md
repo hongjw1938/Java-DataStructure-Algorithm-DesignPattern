@@ -9,6 +9,7 @@
             - 즉, 이런식으로 진행 시, 빨강을 0, 파랑을 1, 초록을 2의 index로 놓는다고 가정하면 아래와 같은 점화식이 만들어진다.
             - house[n][i] = Math.min(house[n-1][(i+1)%3] + rgb[n][i], house[n-1][(i+2)%3] + rgb[n][i])
             - 이와 같은 방식으로 DP를 이용해 결과를 구한다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon1149.java">답안</a>
 
 - 동물원 사자 채우기 문제
     - 문제 번호 : 1309
@@ -21,6 +22,7 @@
             - 사실, 위의 점화식은 명시적으로 와닿지는 않는데, 이에 따라 좀 더 설명하자면, N-1일 때, 왼/오른쪽으로 끝나는 경우,
             - N-1의 위치에 한 마리도 없는 경우를 더하면 된다고 생각하면 된다.
             - 이와 같은 방식으로 DP를 이용해 결과를 구한다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon1309.java">답안</a>
 
 - 1로 만들기 문제
     - 문제 번호 : 1463
@@ -141,6 +143,7 @@
         - 풀이
             - 3단 for문을 통해서 진행한다. i는 당연히 1부터 n까지, j는 0으로 끝나는 숫자부터 9로 끝나는 숫자깢.
             - dp[i][j]의 값은 dp[i-1][k](k는 0보다 크거나 같고, j보다 작거나 같은 수)를 모두 더한 값
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11057.java">답안</a>
 
 - 2*1 타일 채우기 문제
     - 문제 번호 : 11726
