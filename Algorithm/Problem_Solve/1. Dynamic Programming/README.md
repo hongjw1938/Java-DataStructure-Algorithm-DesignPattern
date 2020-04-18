@@ -56,6 +56,18 @@
             - dp 배열이 완료되면 해당 배열의 값 중 최대값을 찾아내서 출력한다.
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon1912.java">답안</a>
 
+- 포도주 시식
+    - 문제 번호 : 2156
+    - <a href="https://www.acmicpc.net/problem/2156">문제 참조</a>
+        - 내용 : 포도주의 개수가 주어지며 포도주의 양이 주어질 때, 연속해서 3개를 먹을 수는 없다면 어떻게 먹어야 최대의 양을 먹는지 구하기
+        - 풀이
+            - 포도주 개수가 3개 미만이면 다 먹으면 되며, 3개이면 (1, 3), (2, 3)을 먹은 것 중 더 양이 많은 것을 고른다.
+            - 4개 이상부터는 3개일 때의 최대양과 4번째 와인을 먹는 가정하에 (n-1, n-3)을 먹는 경우, (n-2)개수의 최대 양, 즉 3개 중 최대값을 구한다.
+            - 즉 : Math.max(dp[n-1], Math.max(dp[n-2] + wine[n], dp[n-3] + wine[n-1] + wine[n]))
+            - TopDown 주의점 : 1 ~ 3개까지는 사전에 정의할 수 있는데, 정의할 때, 3개라면 dp(n-1) 과 wine[1] + wine[3] , wine[2] + wine[3] 중 최대를 구할 것이다.
+                - 이 때, 사전에 미리 정의할 거라면 dp의 값을 구하는 경우 무조건 재귀로 구해야한다. 그러지 않으면 0의 값을 그대로 리턴한다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon2156.java">답안</a>
+
 - 이친수 개수 구하기
     - 문제 번호 : 2193
     - <a href="https://www.acmicpc.net/problem/2193">문제 참조</a>
@@ -100,6 +112,7 @@
             - dp[r][c] = Math.max(dp[(r+1)%2][c-1] + sticker_value[r][c], dp[(r+1)%2][c-2] + sticker_value[r][c])
             - 만약, column이 0번이면 미리 sticker_value만 넣어두고, 1번이면 c-2는 없으므로 c-1의 값만 넣어 지정한다.
             - Top-down의 경우 시간초과가 나서 boolean 배열을 따로 추가하였고 이는 코드에서 확인할 수 있다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon9465.java">답안</a>
 
 - 쉬운 계단 수
     - 문제 번호 : 10844
