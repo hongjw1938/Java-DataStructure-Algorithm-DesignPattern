@@ -56,6 +56,22 @@
             - dp 배열이 완료되면 해당 배열의 값 중 최대값을 찾아내서 출력한다.
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon1912.java">답안</a>
 
+- 연속합 문제
+    - 문제 번호 : 1932
+    - <a href="https://www.acmicpc.net/problem/1932">문제 참조</a>
+        - 내용 : 삼각형으로 이루어진 정수의 나열에서 2진 트리 기법으로 생각하여 덧셈을 수행 시 최대값을 구하기
+        - 풀이
+            - (1, 1)에 있는 숫자는 자기 자신이 최대값이다. (2, 1)은 (1, 1)을 더한 것이 최대값이며, (2, 2) 또한 그러하다.
+            - (3, 1)은 dp(2, 1) + (3, 1)이며, (3, 2)는 Math.max(dp(2, 1) + (3, 2), dp(2, 2) + (3, 2))이다. 
+            - (3, 3)은 dp(2, 2) + (3, 2)가 된다.
+            - 이 규칙을 잘 보게 되면, 현재 i번째 줄에 있는 경우, i+1번째 숫자에 대한 결정 방식을 확인할 수 있다.
+            - i+1번째의 줄의 값은, i번째 줄의 현재 숫자가 i번째 중 j번째라고 가정한다면 dp[i][j] 일 것이다.
+            - 그렇다면, 이 숫자가 i+1번째 숫자의 j, j+1번째 숫자에 영향을 미치게 되는 방식이다.
+            - 즉, dp[i+1][j] = Math.max(dp[i+1][j], dp[i][j] + num[i+1][j])
+            - dp[i+1][j+1] = Math.max(dp[i+1][j+1], dp[i][j] + num[i+1][j+1])
+            - 위 점화식을 이용해서 정답을 구할 수 있다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon1932.java">답안</a>
+
 - 포도주 시식
     - 문제 번호 : 2156
     - <a href="https://www.acmicpc.net/problem/2156">문제 참조</a>
@@ -148,6 +164,15 @@
             - 만약 값이 같으면 해당 index에서 가장 긴 배열 값을 저장하고, 그보다 크다면 그 값에 1을 더한다.
             - 이를 지속적으로 수행하여 가장 큰 값을 저장한다.
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11053.java">답안</a>
+
+- 가장 큰 증가하는 부분 수열
+    - 문제 번호 : 11055
+    - <a href="https://www.acmicpc.net/problem/11055">문제 참조</a>
+        - 내용 : 전체 배열 중 부분 수열이 지속적으로 증가하는 배열의 값들을 모두 더한 값 중 최대값을 구하기
+        - 풀이
+            - 가장 작은 배열 1개 시에는 그 1개의 숫자가 답이며, 그 보다 큰 경우, 해당 index 아래의 숫자가 더 작은 경우 지속적으로 더한다.
+            - 즉, dp[n] = Math.max(dp[n], dp[i] + num[n]); (i는 num[i] < num[n] 인 경우, i는 n-1 보다 작거나 같고 0보다 크거나 같음)
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11055.java">답안</a>
 
 - 오르막 수 문제
     - 문제 번호 : 11057
