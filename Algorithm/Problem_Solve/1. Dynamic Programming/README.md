@@ -183,6 +183,13 @@
             - dp[i][j]의 값은 dp[i-1][k](k는 0보다 크거나 같고, j보다 작거나 같은 수)를 모두 더한 값
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11057.java">답안</a>
 
+- 가장 큰 감소하는 부분 수열
+    - 문제 번호 : 11722
+    - <a href="https://www.acmicpc.net/problem/11722">문제 참조</a>
+        - 내용 : 전체 배열 중 부분 수열이 지속적으로 감소하는 배열의 최대 크기 구하기
+        - 풀이
+            - 가장 큰 증가하는 부분수열 문제와 동일하되 반대 방식으로 풀면 됨.
+
 - 2*1 타일 채우기 문제
     - 문제 번호 : 11726
     - <a href="https://www.acmicpc.net/problem/11726">문제 참조</a>
