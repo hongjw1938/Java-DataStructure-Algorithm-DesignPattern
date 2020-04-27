@@ -165,6 +165,17 @@
             - 이를 지속적으로 수행하여 가장 큰 값을 저장한다.
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11053.java">답안</a>
 
+- 가장 긴 바이토닉 부분 수열
+    - 문제 번호 : 11054
+    - <a href="https://www.acmicpc.net/problem/11053">문제 참조</a>
+        - 내용 : 전체 배열 중 가장 긴 바이토닉 수열을 구한다.(바이토닉은 증가 후 감소하는 수열을 의미)
+        - 풀이
+            - 게속 증가하는 최대 값, 계속 감소하는 최대 값을 구한 두 가지의 수열을 구한다.
+            - 그 뒤, 해당 수열끼리 더해준 다음 -1을 한 값 중 최대를 구하면 답이 되는데 -1을 하는 이유는 같은 값이 1회 중복되기 때문
+            - 혹은, 증가하는 최대값을 구해주고, 감소하는 최대값을 구하는 배열에서는 감소값과, 증가 값에서 감소 시작을 하는 2가지 경우로 나누어 더 최대값을 구한다.
+            - 그 뒤 전체 배열에서 최대값을 구하면 답을 알 수 있다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11054.java">답안</a>
+
 - 가장 큰 증가하는 부분 수열
     - 문제 번호 : 11055
     - <a href="https://www.acmicpc.net/problem/11055">문제 참조</a>
@@ -183,12 +194,13 @@
             - dp[i][j]의 값은 dp[i-1][k](k는 0보다 크거나 같고, j보다 작거나 같은 수)를 모두 더한 값
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11057.java">답안</a>
 
-- 가장 큰 감소하는 부분 수열
+- 가장 긴 감소하는 부분 수열
     - 문제 번호 : 11722
     - <a href="https://www.acmicpc.net/problem/11722">문제 참조</a>
         - 내용 : 전체 배열 중 부분 수열이 지속적으로 감소하는 배열의 최대 크기 구하기
         - 풀이
-            - 가장 큰 증가하는 부분수열 문제와 동일하되 반대 방식으로 풀면 됨.
+            - 가장 긴 증가하는 부분수열 문제(11053번)와 동일하되 반대 방식으로 풀면 됨.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11722.java">답안</a>
 
 - 2*1 타일 채우기 문제
     - 문제 번호 : 11726
@@ -214,6 +226,17 @@
             - 그래서, 2\*2로 채울 수 있는 방법은 한 부분이 2\*2로 채워졌다는 가정하에 생각 시 2*\n 크기라면 2\*(n-2)를 채우는 방법과 동일함
             - 즉, dp[n] = dp[n-1] + 2 * dp[n-2]가 답이 된다.
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon11727.java">답안</a>
+
+- 연속합2
+    - 문제 번호 : 13398
+    - <a href="https://www.acmicpc.net/problem/13398">문제 참조</a>
+        - 내용 : 배열 값의 연속합 중 중간에 값을 빼거나 안뺀 경우 최대 덧셈 결과값을 구하기
+        - 풀이
+            - 빼도 되고 빼지 않아도 된다는 것에서 답을 찾아야 한다. 빼지 않는 경우는 이전의 연속합 문제와 동일하게 풀 수 있다.
+            - 빼도 된다고 보는 부분은, 자기 자신을 뺀 경우와 뺀 경우가 없이 덧셈을 진행한 경우를 비교하면 된다.
+            - 즉, dp[i][1] 이 i 번째 값에서 자신을 빼거나 빼지 않은 경우의 최대값이라고 할 때,
+            - dp[i][1] = Math.max(dp[i-1][0], dp[i-1][1] + num[i]), 즉, 중간에 값을 빼지 않고 자기 자신을 뺀 경우와, 자기 자신이 더해진 경우 중 큰 값을 찾는다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon13398.java">답안</a>
 
 - 가장 긴 증가하는 부분 수열2
     - 문제 번호 : 14002
