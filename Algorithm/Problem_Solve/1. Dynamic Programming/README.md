@@ -56,7 +56,7 @@
             - dp 배열이 완료되면 해당 배열의 값 중 최대값을 찾아내서 출력한다.
     - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/1. Dynamic Programming/BaekJoon/BaekJoon1912.java">답안</a>
 
-- 연속합 문제
+- 정수 삼각형 문제
     - 문제 번호 : 1932
     - <a href="https://www.acmicpc.net/problem/1932">문제 참조</a>
         - 내용 : 삼각형으로 이루어진 정수의 나열에서 2진 트리 기법으로 생각하여 덧셈을 수행 시 최대값을 구하기
@@ -109,7 +109,7 @@
 
 - 1,2,3 더하기 문제
     - 문제 번호 : 9095
-    - <a href="https://www.acmicpc.net/problem/11726">문제 참조</a>
+    - <a href="https://www.acmicpc.net/problem/9095">문제 참조</a>
         - 내용 : 정수 n을 1, 2, 3의 합으로 나타낼 수 있는 경우의 수 구하기
         - 풀이
             - 정수 1~3까지는 몇 가지 되지 않으니 쉽게 표현을 미리 지정해 배열에 선정할 수 있다.
