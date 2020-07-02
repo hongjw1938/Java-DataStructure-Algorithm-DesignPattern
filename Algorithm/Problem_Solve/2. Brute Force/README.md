@@ -1,0 +1,22 @@
+### BaekJoon 알고리즘 Brute Force 풀이
+- 날짜 계산
+    - 문제 번호 : 1476
+    - <a href="https://www.acmicpc.net/problem/1476">문제 참조</a>
+        - 내용 : 지구, 태양, 달을 나타내는 숫자를 기반으로 날짜를 세는 나라의 현재 년도를 우리 날짜로 환산한다.
+        - 풀이
+            - E, S, M은 각각 지구, 태양, 달을 나타내는데 E는 1~15, S는 1~28, M는 1~19까지만 있으며 최대 숫자에 도달 시 1로 초기화된다.
+            - 그러므로 최대 셀 수 있는 년도는 15 * 28 * 19 이므로 7980이 된다. 
+            - 완전 탐색을 통해 진행해도 시간적으로 여유가 충분하므로, 1, 1, 1로 시작하여 해당 숫자가 전부 일치 시까지 계속 1씩 더하고 최대 숫자에 도달 시 1로 초기화하여 비교하며 진행하면 된다.
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/2. Brute Force/BaekJoon/BaekJoon1476.java">답안</a>
+
+- 일곱 난쟁이
+    - 문제 번호 : 2309
+    - <a href="https://www.acmicpc.net/problem/2309">문제 참조</a>
+        - 내용 : 일과를 마치고 돌아온 난쟁이 9명 중 7명을 가려내는 문제로, 7명의 난쟁이의 키는 합해서 100이다.
+        - 풀이
+            - 우선 시간 복잡도를 계산해보면, 9명 중 7명을 찾아내는 방법이므로 Combination을 통해 경우의 수를 확인할 수 있다.
+            - 전체 경우의 수는 36가지 이기 때문에, 1억을 1초로 보통 계산하는 컴퓨터의 계산 속도에 의하면 전체를 따져보아도 쉽게 구할 수 있다.
+            - 우선 각각의 키를 배열에 저장하고 해당 배열을 정렬시킨다.
+            - 그리고, 9명 중 2명의 키가 전체 키의 100을 뺀 값과 동일하다면 해당 둘을 제외하고 출력하면 정답을 구할 수 있다.
+            - 이중 반복문과 boolean 배열을 이용해 난쟁의 2명의 키가 전체에서 100을 뺀 값과 같은 경우 해당 난쟁이의 boolean 배열 값만 변경해준다.
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/2. Brute Force/BaekJoon/BaekJoon2309.java">답안</a>

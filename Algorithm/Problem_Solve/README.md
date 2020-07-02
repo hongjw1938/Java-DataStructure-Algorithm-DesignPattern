@@ -1,6 +1,7 @@
 ### Problem Solve Algorithm
 - 목록
     - <a href="#dp">Dynamic Programming</a>
+    - <a href="#brute">Brute Force</a>
     - <a href="#graph">그래프</a>
     - <a href="#bfs">BFS</a>
     - <a href="#dfs">DFS</a>
@@ -19,7 +20,7 @@
     - 개념
         - 큰 문제를 작은 문제로 나누어 푸는 알고리즘
         - 문제의 크기가 큰 것을 작은 문제 여럿으로 나눈 후 원래의 큰 문제를 다시 푸는 방식
-            - 이 방식은 Dynamic Programming과 Divide and Conqure(분할 정복) 방식이 존재한다.
+            - 이 방식은 Dynamic Programming과 Divide and Conqure(분할 정복) 방식이 ��재한다.
             - DP는 작은 문제들이 중복이 가능하나 DC는 중복이 불가하다고 구분할 수 있다.
             - 예) 특정 장소에 40명이 있다면 DP는 40명을 10, 30 / 15, 25명 처럼 크기를 기준으로 나누어볼 수 있다.
             - DP는 10, 30이라면 다시 30을 10, 10, 10으로 나눌 수 있게 되고 이와 같은 동일 크기로 재구성을 하는 중복이 발생할 수 있다.
@@ -81,7 +82,18 @@
                 - 3, 2로 나누거나 1을 빼는 것이 각각의 작은 문제로 주어지게 된다.
             - 점화식 : 배열 D를 기준으로 D[N] = N을 1로 만드는 최소 연산 횟수가 된다.
             - 즉, 작은 문제에서 구한 결과를 큰 문제에서도 사용할 수 있는 관계를 설정할 수 있게 된 것
-        -
+</br></br>
+- <b id="brute">브루트 포스</b>
+    - 개념
+        - 모든 경우의 수를 다 계산해보는 알고리즘
+        - 예를 들어, 비밀번호 4자리이고 숫자로 이루어져 있다면 - 0000 부터 9999까지 시도해보는 것과 같음
+        - 따라서, 경우의 수가 얼마나 되는 지를 계산해보는 것이 중요, 시간적 한계에 따라 경우의 수가 많지 않은 경우에 사용 가능함(시간 제한 고려)
+        - 시간복잡도 : 방법의 수 * 방법 당 시간 복잡도
+    - 진행 방식
+        1. 가능한 모든 경우의 수를 계산 : 손을 이용���서 암산
+        2. 가능한 모든 방법을 직접 만들기 : 하나도 빠짐 없이!
+            - for문 등 반복, 순열, 재귀 호출, 비트 마스크 사용
+        3. 각각의 방법을 대입
 </br></br>
 - <b id="graph">그래프</b>
     - 개념
@@ -147,7 +159,7 @@
             - 위와 같은 구조의 Graph를 BFS로 방문한다고 가정
             - A vertex 추가     : Queue = {A},          Visited : A
             - A dequeue         : Queue = {},           Visited : A
-            - 이웃 vertex 추가  : Queue = {G, F, B},    Visited : A
+            - 이웃 vertex ��가  : Queue = {G, F, B},    Visited : A
             - B dequeue         : Queue = {G, F},       Visited : A, B
             - C, D vertex 추가  : Queue = {D, C, G, F}  Visited : A, B
             - F dequeue         : Queue = {D, C, G}     Visited : A, B, F
@@ -185,7 +197,7 @@
                 - 이 방식이 SNS와 같은 예시에 대해 유용한 정보를 포함한다고 결론 지음
                 - 예를 들어, 그룹 내 가장 유명인 / 사내 최고 중요 software 엔지니어와 같은 유용한 정보를 파악할 수 있다고 생각했다. 
         - 구현
-            - web crawler의 경우, 특정 Page의 이웃 Page 즉, 해당 Page에서 Source 코드를 참조하였을 때, link로 사용하거나 참조하고 있는 URL을 이웃 URL로 간주하여 해당 URL들을 기반으로 지속하여 이웃 URL을 찾아내는 방식이다.
+            - web crawler의 경우, 특정 Page의 이웃 Page 즉, 해당 Page에서 Source 코드를 참조하였을 때, link로 사용하거나 참조하고 있는 URL을 이웃 URL로 간주하여 해당 URL들을 기반으�� 지속하여 이웃 URL을 찾아내는 방식이다.
             - BFS를 사용하는 이유는, DFS를 사용할 경우 Deeply 하게 하나의 Neighbor를 기준으로 지속하여 찾기 때문에 현재 Site의 이웃을 우선적으로 찾지 못하는 단점이 있다.
             - 그래서, BFS를 사용하여 Web Crawler를 만드는데, Queue를 통해 이웃 URL을 지속적으로 저장하고, List에 방문한 URL을 계속 추가하여 중복은 제외하고 점진적으로 지속하여 이웃을 추가하는 방식을 택한다.
             - 해당 구현 내용은 <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/BFS/WebCrawler">여기</a>에서 참조할 수 있다.
@@ -487,7 +499,7 @@
                     - 즉, 모든 Node에서 모든 edge로의 weight를 구하고 더 짧은 경우 update하는 것
                     - 그러면서 가장 짧은 이전 노드도 변경
                 - 최대 가능한 path는 edge상 V-1개인데, 그렇기에 Scanning을 V-1 번 하는 것이다.
-                    - 그래서 만약 마지막 Scanning에서 distance update가 한 번 더 발생한다면 negative cycle이 있다고 봐야 한다.
+                    - 그래서 만약 마지막 Scanning에서 distance update가 한 번 더 발��한다면 negative cycle이 있다고 봐야 한다.
                     - 그래서 마지막에 한 번 더 final iteration을 수행하는 것이다.
         - Yen Optimization
             - 1970년에 고안된 것으로 Bellman-Ford 알고리즘이 때때로 너무 느리기 때문에 최적화할 용도로 고안됨
@@ -523,7 +535,7 @@
                 4. 모든 정점끼리의 최단 경로(All pairs)
             - 플로이드-와샬은 4번의 문제를 풀기 위한 알고리즘이다.(음의 가중치 가능)
             - 2차원 배열을 자료구조로 활용하며, Optimal Substructure의 개념 이용함.
-                - Optimal Substructure : 특정 경로 안에 무수히 많은 경로 시, 중간 정점이 각각 최단이 된다면 모두 이은 경로 또한 최단
+                - Optimal Substructure : 특정 경로 안에 무수히 많은 경로 시, 중간 정점이 각각 최단이 된다면 모두 이은 경로 또��� 최단
         - 기본 로직
             - 2개 Table 활용, 하나는 모든 경로 비용 저장, 하나는 직전의 정점 저장 테이블
             - 예시
