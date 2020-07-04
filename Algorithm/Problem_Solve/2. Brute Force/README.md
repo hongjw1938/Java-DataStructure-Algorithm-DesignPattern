@@ -1,4 +1,15 @@
 ### BaekJoon 알고리즘 Brute Force 풀이
+- 리모컨
+    - 문제 번호 : 1107
+    - <a href="https://www.acmicpc.net/problem/1107">문제 참조</a>
+        - 내용 : 현재 TV 채널 100번에 위치한 상태에서 리모컨의 일부 Control 버튼이 고장난 경우, 특정 채널로 가기 위해 최소한으로 리모컨을 누른 수를 구하기
+        - 풀이
+            - 리모컨은 +, - 와 숫자만 있으므로 특정 버튼으로 가기 위해선 숫자를 누르고 필요 시 +, - 버튼을 누르면 된다.
+            - 최대 50만 채널까지 이동하고자 하는데, 전체 채널이 무한하므로, 100번에서 50만번으로 가는 최대의 수가 약 50만인데, 이것은 100만에서 50만으로 오는 것과 유사.
+            - 그러므로 전체 O(N) 이며 이 N은 100만이라는 시간 복잡도를 대략적으로 얻을 수 있어 컴퓨터 입장에선 완전 탐색으로 풀 수 있다.
+            - 0번부터 시작해서 100만번까지 비교해가며 해당 채널로 갈 수 있는지 확인 후, 해당 채널에서 Target 채널까지의 버튼 누르는 수를 비교하여 최소값을 구하면 된다.
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/2. Brute Force/BaekJoon/BaekJoon1107.java">답안</a>    
+
 - 날짜 계산
     - 문제 번호 : 1476
     - <a href="https://www.acmicpc.net/problem/1476">문제 참조</a>
@@ -20,3 +31,4 @@
             - 그리고, 9명 중 2명의 키가 전체 키의 100을 뺀 값과 동일하다면 해당 둘을 제외하고 출력하면 정답을 구할 수 있다.
             - 이중 반복문과 boolean 배열을 이용해 난쟁의 2명의 키가 전체에서 100을 뺀 값과 같은 경우 해당 난쟁이의 boolean 배열 값만 변경해준다.
         - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/2. Brute Force/BaekJoon/BaekJoon2309.java">답안</a>
+
