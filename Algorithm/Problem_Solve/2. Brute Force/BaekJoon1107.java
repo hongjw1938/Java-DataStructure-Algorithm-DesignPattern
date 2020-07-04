@@ -1,8 +1,8 @@
-package com.problemsolve.dynamic_programming;
+package com.problemsolve.brute_force;
 import java.io.*;
 import java.util.Arrays;
 
-public class Main{
+public class BaekJoon1107{
     static boolean button[];
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

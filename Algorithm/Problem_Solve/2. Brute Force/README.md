@@ -32,3 +32,24 @@
             - 이중 반복문과 boolean 배열을 이용해 난쟁의 2명의 키가 전체에서 100을 뺀 값과 같은 경우 해당 난쟁이의 boolean 배열 값만 변경해준다.
         - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/2. Brute Force/BaekJoon/BaekJoon2309.java">답안</a>
 
+- 사탕 게임
+    - 문제 번호 : 3085
+    - <a href="https://www.acmicpc.net/problem/3085">문제 참조</a>
+        - 내용 : Bomboni 게임으로 N*N 크기의 보드에 4가지 사탕의 색상으로 채워지는데, 이 때, 사탕의 위치를 인접 시 바꾸어가며 가장 긴 연속된 사탕을 먹는 경우에 그 사탕의 개수를 구하는 문제
+        - 풀이
+            - 우선 시간 복잡도를 계산해보면, N*N에서 50이 가장 큰 수인데, 50개의 사탕이 인접한 4개(혹은 2개, 3개, 최대 4개라고 가정)와 맞바꿀 수 있다.
+            - 그런데, 위에서부터 계산 시, 중복 되는 경우를 제거하여 최대 2개라고 한다면, 50*50개가 2번씩 바뀐다고 대략적으로 구하면 최대 5000번의 연산을 한다.
+            - 5000번의 연산은 1억을 1초로 계산하는 컴퓨터의 계산 속도 상 완전 탐색으로 진행해도 전혀 문제가 없다.
+            - 단순히 배열의 사탕을 순서대로 지나가며 인접 사탕과 변경 후, 변경 된 사탕 2개의 위치의 4방면(위, 아래, 왼, 오른)으로 현재 가장 긴 연속 사탕의 수가 몇인지 조사하여 추력하면 된다.
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/2. Brute Force/BaekJoon/BaekJoon3085.java">답안</a>
+
+- 테트리미노
+    - 문제 번호 : 14500
+    - <a href="https://www.acmicpc.net/problem/14500">문제 참조</a>
+        - 내용 : N*M 인 종이에는 숫자가 있으며, 4개 정사각형으로 이루어진 테트로미노를 놓았을 때, 최대값이 되는 값을 구하기
+        - 풀이
+            - 우선 시간 복잡도를 계산해보면, N과 M이 최대 500이고, 테트로미노는 19가지이기에 500^2 * 19 정도의 복잡도를 갖는다고 볼 수 있다.
+            - 이번 경우에 테트로미노는 19가지라고 했는데 ㅗ 모양을 뒤집거나 방향전환 한 것 제외하고는 다 DFS로 풀 수가 있다.
+            - 그래서 DFS로 풀어주고 ㅗ모양은 별도로 처리를 진행하였다.
+            - 그런데 이렇게 진행 시, 오히려 시간이 오래 걸리는 단점이 있어, 시간적인 것을 파악 시, 테트로미노 경우의 수를 직접 다 구현하는 것이 더 낫다.
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/2. Brute Force/BaekJoon/BaekJoon14500.java">답안</a>

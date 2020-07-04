@@ -1,6 +1,6 @@
 package com.problemsolve.brute_force;
 import java.io.*;
-public class Main{
+public class BaekJoon2309{
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int[] h = new int[9];
