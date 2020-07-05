@@ -20,6 +20,18 @@
             - 완전 탐색을 통해 진행해도 시간적으로 여유가 충분하므로, 1, 1, 1로 시작하여 해당 숫자가 전부 일치 시까지 계속 1씩 더하고 최대 숫자에 도달 시 1로 초기화하여 비교하며 진행하면 된다.
         - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/2. Brute Force/BaekJoon/BaekJoon1476.java">답안</a>
 
+- 수 이어 쓰기
+    - 문제 번호 : 1748
+    - <a href="https://www.acmicpc.net/problem/1748">문제 참조</a>
+        - 내용 : 1부터 N까지의 수를 이어 붙일 때, 그 수의 자리수는 몇 인지 계산하는 문제
+        - 풀이
+            - 1~9까지는 1자리이므로, N이 10 미만이면 N이 답이 된다.
+            - 10~99 까지의 90개는 2자리 이므로 2*9*10^1 개수가 추가 된다.
+            - 100~999 까지의 900개는 3자리 이므로 3*9*10^2 개수가 추가 된다.
+            - 만약 수가 120이라면, 9까지의 1*9*10^0 + 2*9*10^1 + 3*(120-99) 가 된다.
+            - 이러한 규칙을 이용하여 반복문을 구현하여 답을 작성한다.
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve/2. Brute Force/BaekJoon/BaekJoon1748.java">답안</a>
+
 - 일곱 난쟁이
     - 문제 번호 : 2309
     - <a href="https://www.acmicpc.net/problem/2309">문제 참조</a>
