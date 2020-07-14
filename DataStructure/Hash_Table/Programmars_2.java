@@ -1,4 +1,4 @@
-package com.problemsolve.brute_force;
+package com.problemsolve.hashtable;
 
 import java.util.Arrays;
 import java.util.HashMap;

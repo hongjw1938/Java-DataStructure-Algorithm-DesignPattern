@@ -1,9 +1,9 @@
-package com.problemsolve.brute_force;
+package com.problemsolve.hashtable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class Solution {
+public class Programmars_3{
     public int solution(String[][] clothes){
         int answer = 1;
         HashMap<String, Integer> map = new HashMap<>();
