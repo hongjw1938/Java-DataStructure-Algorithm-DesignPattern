@@ -1,0 +1,17 @@
+### Prototype 패턴
+- Wiki 참조
+    - ![Alt Text](./image/PrototypePatternWiki.png)
+- 개념
+    - 자동차와 같은 복잡한 객체는 단순 scratching 수준으로 디자인될 수 없이, 이미 있는 디자인을 재사용해야 한다.
+    - 부분적 혹은 전체 구성도를 갖는 <b>이미 기 구성된 디자인</b>이 Prototype이다.
+    - 해당 Prototype을 복사(Deep Copy) 하고 customizing하여 사용한다.
+        - Deep Copy이므로 객체의 Reference 까지 복사하는 것
+    - Factory 등의 API를 사용하여 Cloning 작업에 편의성을 추구한다.
+- Cloneable은 사용하지 말 것
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/design_pattern/prototype/DontUseCloneable.java">참조</a>
+- 생성자 복사(CopyConstructors)
+    - 이 경우는 기존의 Parameter로 받아 해당 객체의 value들을 기반으로 새로운 객체를 반환하는 생성자를 이용함
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/design_pattern/prototype/CopyConstructors.java">참조</a>
+- Serialize를 이용한 복사
+    - Serialize를 이용해 전체 객체를 Serialize하여 Deep copy하는 방식
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/design_pattern/prototype/CopyThroughSerialization.java">참조</a>
