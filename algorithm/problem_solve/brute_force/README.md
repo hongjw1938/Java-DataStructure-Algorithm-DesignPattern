@@ -1,0 +1,67 @@
+### BaekJoon 알고리즘 Brute Force 풀이
+- 리모컨
+    - 문제 번호 : 1107
+    - <a href="https://www.acmicpc.net/problem/1107">문제 참조</a>
+        - 내용 : 현재 TV 채널 100번에 위치한 상태에서 리모컨의 일부 Control 버튼이 고장난 경우, 특정 채널로 가기 위해 최소한으로 리모컨을 누른 수를 구하기
+        - 풀이
+            - 리모컨은 +, - 와 숫자만 있으므로 특정 버튼으로 가기 위해선 숫자를 누르고 필요 시 +, - 버튼을 누르면 된다.
+            - 최대 50만 채널까지 이동하고자 하는데, 전체 채널이 무한하므로, 100번에서 50만번으로 가는 최대의 수가 약 50만인데, 이것은 100만에서 50만으로 오는 것과 유사.
+            - 그러므로 전체 O(N) 이며 이 N은 100만이라는 시간 복잡도를 대략적으로 얻을 수 있어 컴퓨터 입장에선 완전 탐색으로 풀 수 있다.
+            - 0번부터 시작해서 100만번까지 비교해가며 해당 채널로 갈 수 있는지 확인 후, 해당 채널에서 Target 채널까지의 버튼 누르는 수를 비교하여 최소값을 구하면 된다.
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/brute_force/baekjoon/BaekJoon1107.java">답안</a>    
+
+- 날짜 계산
+    - 문제 번호 : 1476
+    - <a href="https://www.acmicpc.net/problem/1476">문제 참조</a>
+        - 내용 : 지구, 태양, 달을 나타내는 숫자를 기반으로 날짜를 세는 나라의 현재 년도를 우리 날짜로 환산한다.
+        - 풀이
+            - E, S, M은 각각 지구, 태양, 달을 나타내는데 E는 1~15, S는 1~28, M는 1~19까지만 있으며 최대 숫자에 도달 시 1로 초기화된다.
+            - 그러므로 최대 셀 수 있는 년도는 15 * 28 * 19 이므로 7980이 된다. 
+            - 완전 탐색을 통해 진행해도 시간적으로 여유가 충분하므로, 1, 1, 1로 시작하여 해당 숫자가 전부 일치 시까지 계속 1씩 더하고 최대 숫자에 도달 시 1로 초기화하여 비교하며 진행하면 된다.
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/brute_force/baekjoon/BaekJoon1476.java">답안</a>
+
+- 수 이어 쓰기
+    - 문제 번호 : 1748
+    - <a href="https://www.acmicpc.net/problem/1748">문제 참조</a>
+        - 내용 : 1부터 N까지의 수를 이어 붙일 때, 그 수의 자리수는 몇 인지 계산하는 문제
+        - 풀이
+            - 1~9까지는 1자리이므로, N이 10 미만이면 N이 답이 된다.
+            - 10~99 까지의 90개는 2자리 이므로 2*9*10^1 개수가 추가 된다.
+            - 100~999 까지의 900개는 3자리 이므로 3*9*10^2 개수가 추가 된다.
+            - 만약 수가 120이라면, 9까지의 1*9*10^0 + 2*9*10^1 + 3*(120-99) 가 된다.
+            - 이러한 규칙을 이용하여 반복문을 구현하여 답을 작성한다.
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/brute_force/baekjoon/BaekJoon1748.java">답안</a>
+
+- 일곱 난쟁이
+    - 문제 번호 : 2309
+    - <a href="https://www.acmicpc.net/problem/2309">문제 참조</a>
+        - 내용 : 일과를 마치고 돌아온 난쟁이 9명 중 7명을 가려내는 문제로, 7명의 난쟁이의 키는 합해서 100이다.
+        - 풀이
+            - 우선 시간 복잡도를 계산해보면, 9명 중 7명을 찾아내는 방법이므로 Combination을 통해 경우의 수를 확인할 수 있다.
+            - 전체 경우의 수는 36가지 이기 때문에, 1억을 1초로 보통 계산하는 컴퓨터의 계산 속도에 의하면 전체를 따져보아도 쉽게 구할 수 있다.
+            - 우선 각각의 키를 배열에 저장하고 해당 배열을 정렬시킨다.
+            - 그리고, 9명 중 2명의 키가 전체 키의 100을 뺀 값과 동일하다면 해당 둘을 제외하고 출력하면 정답을 구할 수 있다.
+            - 이중 반복문과 boolean 배열을 이용해 난쟁의 2명의 키가 전체에서 100을 뺀 값과 같은 경우 해당 난쟁이의 boolean 배열 값만 변경해준다.
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/brute_force/baekjoon/BaekJoon2309.java">답안</a>
+
+- 사탕 게임
+    - 문제 번호 : 3085
+    - <a href="https://www.acmicpc.net/problem/3085">문제 참조</a>
+        - 내용 : Bomboni 게임으로 N*N 크기의 보드에 4가지 사탕의 색상으로 채워지는데, 이 때, 사탕의 위치를 인접 시 바꾸어가며 가장 긴 연속된 사탕을 먹는 경우에 그 사탕의 개수를 구하는 문제
+        - 풀이
+            - 우선 시간 복잡도를 계산해보면, N*N에서 50이 가장 큰 수인데, 50개의 사탕이 인접한 4개(혹은 2개, 3개, 최대 4개라고 가정)와 맞바꿀 수 있다.
+            - 그런데, 위에서부터 계산 시, 중복 되는 경우를 제거하여 최대 2개라고 한다면, 50*50개가 2번씩 바뀐다고 대략적으로 구하면 최대 5000번의 연산을 한다.
+            - 5000번의 연산은 1억을 1초로 계산하는 컴퓨터의 계산 속도 상 완전 탐색으로 진행해도 전혀 문제가 없다.
+            - 단순히 배열의 사탕을 순서대로 지나가며 인접 사탕과 변경 후, 변경 된 사탕 2개의 위치의 4방면(위, 아래, 왼, 오른)으로 현재 가장 긴 연속 사탕의 수가 몇인지 조사하여 추력하면 된다.
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/brute_force/baekjoon/BaekJoon3085.java">답안</a>
+
+- 테트리미노
+    - 문제 번호 : 14500
+    - <a href="https://www.acmicpc.net/problem/14500">문제 참조</a>
+        - 내용 : N*M 인 종이에는 숫자가 있으며, 4개 정사각형으로 이루어진 테트로미노를 놓았을 때, 최대값이 되는 값을 구하기
+        - 풀이
+            - 우선 시간 복잡도를 계산해보면, N과 M이 최대 500이고, 테트로미노는 19가지이기에 500^2 * 19 정도의 복잡도를 갖는다고 볼 수 있다.
+            - 이번 경우에 테트로미노는 19가지라고 했는데 ㅗ 모양을 뒤집거나 방향전환 한 것 제외하고는 다 DFS로 풀 수가 있다.
+            - 그래서 DFS로 풀어주고 ㅗ모양은 별도로 처리를 진행하였다.
+            - 그런데 이렇게 진행 시, 오히려 시간이 오래 걸리는 단점이 있어, 시간적인 것을 파악 시, 테트로미노 경우의 수를 직접 다 구현하는 것이 더 낫다.
+        - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/brute_force/baekjoon/BaekJoon14500.java">답안</a>

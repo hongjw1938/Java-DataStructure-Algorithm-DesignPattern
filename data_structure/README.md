@@ -85,7 +85,7 @@
             - array를 기반으로 만들기 때문에 capacity를 지정하여 배열의 크기를 지정하여 구현한다.
             - 만약, capacity를 지정하지 않으면 기본적으로 10의 크기를 갖는 ArrayList를 만들게 된다.
         - 코드
-            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Data_Structure/List">List</a> Directory 확인
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/data_structure/list">List</a> Directory 확인
 <br/><br/> 
 
     - Vector
@@ -101,7 +101,7 @@
                 - ![Alt text](./image/vector_add.png)
             - ArrayList와 동일하게 Array를 기반으로 구현된 자료형이다.
         - 코드
-            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Data_Structure/List">List</a>확인
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/data_structure/list">List</a>확인
 <br/><br/>
     - LinkedList
         - <a href="https://docs.oracle.com/javase/9/docs/api/java/util/LinkedList.html"></a>

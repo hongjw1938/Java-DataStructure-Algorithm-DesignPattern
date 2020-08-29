@@ -21,7 +21,7 @@
     - <a href="#binarySearch">binary search</a>
 
 - Problem Solve 알고리즘(추가 중)
-    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/Algorithm/Problem_Solve">참조</a>
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve">참조</a>
     - 해당 Directory에는 다음의 내용을 다루고 있음
         - Graph
             - Breadth-first search
@@ -51,13 +51,13 @@
             - Stop. 결과를 반환한다.
         - 해당 순서를 구현
             - iterative 구현
-                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Recursion/IterativeFactorial.java">코드 참조</a>
+                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/algorithm/sort_algorithm/recursion/IterativeFactorial.java">코드 참조</a>
             - 재귀적인 구현
                 - 재귀적인 구현은 해당 method를 계속 호출하는 방식으로 구현함.
                 - 주의
                     - 반드시 재귀 표현을 끝낼 수 있는 종료문을 조건에 맞추어 내부에 추가해야 한다.
                     - 그렇지 않으면 계속해서 메소드를 호출하여 memory를 감당할 수 없게 되어 에러가 발생한다.
-                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Recursion/RecursiveFactorial.java">코드 참조</a>
+                - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/algorithm/sort_algorithm/recursion/RecursiveFactorial.java">코드 참조</a>
         - 위의 주의점에서 볼 수 있듯이, 재귀를 이용한 구현은 Overhead가 계속 추가되는 방식이므로, Iterative 방식이 어쩌면 더 효율적인 결론을 낼 수 있다.
         - 그러나 때때로, 특정 logic을 수행할 때는 Iterative 방식이 코드 자체도 길어지고, 직관적이지 않은 현상을 낳을 수 있다.
         - 따라서, 재귀 표현에 대해 명확하게 익혀둘 필요가 있다.
@@ -98,7 +98,7 @@
             - Stable sort
                 - 구현하기에 따른 문제이지만, 기본적으로 기존 같은 값 사이의 정렬 순서를 바꾸지 않는다.
         - 구현
-            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Bubble_sort.java">코드</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/algorithm/sort_algorithm/BubbleSort.java">코드</a>
     
     - <b id="selection_sort">선택 정렬</b>
         - 정렬 방식 애니메이션
@@ -121,7 +121,7 @@
                 - 서로 같은 값의 경우에, 비교 대상에 먼저 오르는 쪽이 UnsortedIndex에 있는 값보다 커서 해당 값과 변경될 수 있음
                 - 따라서, 기존의 같은 값 사이의 정렬 상태를 보장하지 못함.
         - 구현
-            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Selection_sort.java">코드</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/algorithm/sort_algorithm/SelectionSort.java">코드</a>
     
     - <b id="insertion_sort">삽입 정렬</b>
         - 정렬 방식 애니메이션
@@ -146,7 +146,7 @@
                 - 왜냐하면, 해당 값을 비교 시에 어느 방향에서 시작하든 차례로 시작하며, 해당 값과 같은 값을 비교 시에는 더 이상의 비교를 수행하지 않게 되기 때문
                 - 물론 구현하기에 따라 다를 수는 있음. 하지만 기본적인 concept는 Stable
         - 구현
-            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Insertion_sort.java">코드</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/algorithm/sort_algorithm/InsertionSort.java">코드</a>
     
     - <b id="shell_sort">Shell 정렬</b>
         - 정렬 방식 애니메이션
@@ -188,7 +188,7 @@
             - 참고
                 - 버블 정렬에도 해당 정렬 방식을 응용해서 사용할 수 있다.
         - 구현
-            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Shell_sort.java">코드</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/algorithm/sort_algorithm/ShellSort.java">코드</a>
             
     - <b id="merge_sort">Merge(병합) 정렬</b>
         - 정렬 방식 애니메이션
@@ -232,7 +232,7 @@
                 - O(nlogn) : 반복적으로 배열을 2개로 나누어 작업하기 때문
             - Stable 알고리즘이다.
         - 구현
-            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Merge_sort.java">코드</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/algorithm/sort_algorithm/MergeSort.java">코드</a>
     
     - <b id="quick_sort">Quick 정렬</b>
         - 정렬 방식 애니메이션
@@ -281,7 +281,7 @@
                     - 현재 배열 : {-22, 1, -15, 7, 20, 55, 35}
                 12. 이제 20 좌측은 모두 20보다 작으며, 20 우측은 20보다 다 크다. 두 개의 partition으로 나뉘었으므로 위 과정을 좌, 우측 partition 배열에 대해 동일하게 수행한다.
         - 구현
-            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Quick_sort.java">참조</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/algorithm/sort_algorithm/QuickSort.java">참조</a>
     - <b id="counting_sort">Counting 정렬</b>
         - 정렬 방식 애니메이션
             - ![Alt text](./image/count_sort.gif)
@@ -440,7 +440,7 @@
                 - 그런데, 이렇게 sort를 해버리면 heap을 사용하는 의미가 없어지기 때문에 거의 사용하지 않는다.
                 - 특히, 기존의 array를 heap으로 만들어줘야 하는 번거로움이 있어 일반적으로 다른 sort algorithm을 사용하는 것이 좋을 수 있다.
         - 구현
-            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/Algorithm/Sort_algorithm/Heap_sort.java">참조</a>
+            - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/blob/master/algorithm/sort_algorithm/HeapSort.java">참조</a>
 <br/><br/><br/>
 - Search algorithm
     - <b id="linearSearch">Linear Search</b>
