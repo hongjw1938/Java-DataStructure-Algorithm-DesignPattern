@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.shortest_path.dijkstra;
+package problem_solve.shortest_path.dijkstra;
 
 import java.util.ArrayList;
 import java.util.Collections;

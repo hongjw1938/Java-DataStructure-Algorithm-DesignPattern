@@ -1,4 +1,4 @@
-package com.design_pattern.structural.facade;
+package structural.facade;
 
 
 import javax.swing.*;

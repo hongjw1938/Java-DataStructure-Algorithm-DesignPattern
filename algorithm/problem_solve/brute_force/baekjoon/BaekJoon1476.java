@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.brute_force.baekjoon;
+package problem_solve.brute_force.baekjoon;
 import java.io.*;
 public class BaekJoon1476{
     static int[] esm = new int[3];

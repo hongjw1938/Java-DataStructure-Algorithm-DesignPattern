@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.dfs.maze_solve;
+package problem_solve.dfs.maze_solve;
 
 public class Maze {
     private int[][] maze = {{1, 1, 1, 1, 1, 1},

@@ -1,4 +1,4 @@
-package com.data_structure.hashTable;
+package hashTable;
 
 import java.util.LinkedList;
 import java.util.ListIterator;

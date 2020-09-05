@@ -1,4 +1,4 @@
-package com.design_pattern.creational.prototype;
+package creational.prototype;
 
 // 생성자 복사를 통한 문제를 해결하여 사용하는 방법
 

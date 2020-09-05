@@ -1,4 +1,4 @@
-package com.design_pattern.structural.proxy;
+package structural.proxy;
 
 
 /*

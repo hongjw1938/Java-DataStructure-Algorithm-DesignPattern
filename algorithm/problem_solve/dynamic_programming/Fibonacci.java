@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.dynamic_programming;
+package problem_solve.dynamic_programming;
 
 public class Fibonacci{
     public static void main(String[] args){
@@ -13,7 +13,7 @@ public class Fibonacci{
         }
     }
     
-    public static int memoFibonacci(int n){
+    public static int memoFibonacci(int n, int[] memo){
         if(n <= 1){
             return n;
         } else {
@@ -28,7 +28,7 @@ public class Fibonacci{
     }
     
     public static int bottomupFibonacci(int n){
-        int d = new int[100];
+        int[] d = new int[100];
         d[0] = 0;
         d[1] = 1;
         for (int i=2; i < n; i++){

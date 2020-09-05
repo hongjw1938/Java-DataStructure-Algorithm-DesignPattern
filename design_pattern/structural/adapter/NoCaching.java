@@ -1,4 +1,4 @@
-package com.design_pattern.structural.adapter;
+package structural.adapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.design_pattern.behavioral.command;
+package behavioral.command;
 
 import java.utils.*;
 class BankAccount

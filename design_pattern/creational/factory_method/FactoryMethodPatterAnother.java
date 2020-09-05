@@ -1,4 +1,4 @@
-package com.design_pattern.creational.factory;
+package creational.factory_method;
 
 // 모든 비행기의 기본 구조를 갖는 추상 클래스
 abstract class Plane{

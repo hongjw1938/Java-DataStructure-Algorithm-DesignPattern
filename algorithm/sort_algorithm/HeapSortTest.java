@@ -1,9 +1,9 @@
-package com.algorithm.sort_algorithm;
+package sort_algorithm;
 
 public class HeapSortTest {
 
     public static void main(String[] args){
-        Heap heap = new Heap(10);
+        HeapSort heap = new HeapSort(10);
 
         heap.insert(80);
         heap.insert(75);

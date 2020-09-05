@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.dynamic_programming.baekjoon;
+package problem_solve.dynamic_programming.baekjoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;

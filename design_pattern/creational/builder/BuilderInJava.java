@@ -1,4 +1,4 @@
-package com.design_pattern.creational.builder;
+package creational.builder;
 
 public class BuilderInJava {
     public static void main(String[] args){

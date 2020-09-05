@@ -1,4 +1,4 @@
-package com.design_pattern.structural.adapter;
+package structural.adapter;
 
 // MP3용
 interface MediaPlayer {

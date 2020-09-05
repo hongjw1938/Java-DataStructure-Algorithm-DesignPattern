@@ -1,10 +1,13 @@
-package com.data_structure.queue;
+package queue;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.StringTokenizer;
 
-public class Solution {
+public class Programmars_6 {
     public static void main(String[] args){
-        Solution s = new Solution();
+        Programmars_6 s = new Programmars_6();
         String[] operations = {"I 16", "D 1"};
         int[] answer = s.solution(operations);
 

@@ -1,7 +1,4 @@
-package com.data_structure.list;
-
-import java.util.LinkedList;
-import java.util.List;
+package list;
 
 public class SinglyLinkedList {
     public static void main(String[] args){

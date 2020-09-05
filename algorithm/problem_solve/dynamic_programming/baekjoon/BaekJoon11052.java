@@ -1,12 +1,12 @@
-package com.algorithm.problem_solve.dynamic_programming.baekjoon;
+package problem_solve.dynamic_programming.baekjoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class BaekJoon11052 {
-    static int p[];
-    static int min[];
+    static int P[];
+    static int max[];
     static int dp[];
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

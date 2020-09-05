@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.bfs;
+package problem_solve.bfs;
 
 import java.util.ArrayList;
 import java.util.List;

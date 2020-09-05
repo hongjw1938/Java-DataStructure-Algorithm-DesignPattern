@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.dfs.baekjoon;
+package problem_solve.dfs.baekjoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;

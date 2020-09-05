@@ -1,6 +1,5 @@
-package com.algorithm.problem_solve.bfs.baekjoon;
+package problem_solve.bfs.baekjoon;
 
-import java.awt.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;

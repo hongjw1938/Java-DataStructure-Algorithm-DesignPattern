@@ -1,4 +1,4 @@
-package com.design_pattern.behavioral.command;
+package behavioral.command;
 import java.utils.*;
 class BankAccount
 {
@@ -82,7 +82,7 @@ class BankAccountCommand implements Commands{
 }
 
 
-class UndoOperation{
+public class UndoOperation{
     public static void main(String[] args){
         BankAccount ba = new BankAccount();
         System.out.println(ba);

@@ -1,4 +1,4 @@
-package com.data_structure.tree;
+package tree;
 
 public class BinarySearchTree {
 

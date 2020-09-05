@@ -1,6 +1,6 @@
-package com.algorithm.sort_algorithm;
+package sort_algorithm;
 
-public class Challenge {
+public class Challenging {
     public static void main(String[] args){
         int[] intArray = {20, -1, 3, -4, 32, 21, -5, 425, 10, 452, 31, -353, -43};
         String[] stringArray = {"bcdef", "dbaqc", "abcde", "omadd", "bbbbb"};

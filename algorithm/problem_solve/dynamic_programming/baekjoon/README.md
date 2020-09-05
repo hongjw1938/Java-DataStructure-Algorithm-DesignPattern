@@ -1,0 +1,283 @@
+### BaekJoon 알고리즘 Dynamic Programming 풀이
+- RGB 거리 문제
+    - 문제 번호 : 1149
+    - <a href="https://www.acmicpc.net/problem/1149">문제 참조</a>
+        - 내용 : N개의 집을 빨, 파, 초의 3가지 색으로 칠할 때, 인접한 집의 색은 다르게 하는 경우 최소의 비용으로 칠하는 경우의 비용 구하기
+        - 풀이
+            - 우선 0번째의 집일 때는, 3가지 색의 비용 중 가장 작은 것이 답이 된다.
+            - 1번째 집일 때는, 파랑으로 칠한다면 0번째집이 빨강 또는 초록으로 칠한 경우와 1번을 파랑으로 칠하는 경우 중 최소값을 구한다.
+            - 즉, 이런식으로 진행 시, 빨강을 0, 파랑을 1, 초록을 2의 index로 놓는다고 가정하면 아래와 같은 점화식이 만들어진다.
+            - house[n][i] = Math.min(house[n-1][(i+1)%3] + rgb[n][i], house[n-1][(i+2)%3] + rgb[n][i])
+            - 이와 같은 방식으로 DP를 이용해 결과를 구한다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon1149.java">답안</a>
+
+- 동물원 사자 채우기 문제
+    - 문제 번호 : 1309
+    - <a href="https://www.acmicpc.net/problem/1309">문제 참조</a>
+        - 내용 : 사자를 N*2의 우리에 넣을 때, 가로/세로로 일렬로 놓지 않는 모든 경우의 수를 구하기
+        - 풀이
+            - N*0이라면, 아무 사자도 놓지 않는 경우에 대한 것이므로 1가지
+            - N*1이라면, 아무 사자도 놓지 않는 1가지와 왼쪽 / 오른쪽에 한마리만 두는 2가지를 더해 3가지
+            - 이와 같이 구하다 보면, N-2 + (N-1)*2 라는 규칙이 있는 점화식을 구할 수 있다.
+            - 사실, 위의 점화식은 명시적으로 와닿지는 않는데, 이에 따라 좀 더 설명하자면, N-1일 때, 왼/오른쪽으로 끝나는 경우,
+            - N-1의 위치에 한 마리도 없는 경우를 더하면 된다고 생각하면 된다.
+            - 이와 같은 방식으로 DP를 이용해 결과를 구한다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon1309.java">답안</a>
+
+- 1로 만들기 문제
+    - 문제 번호 : 1463
+    - <a href="https://www.acmicpc.net/problem/1463">문제 참조</a>
+        - 내용 : X의 값을 1로 만들 수 있는 최소의 연산 횟수 구하기(3 또는 2로 나누거나 1을 빼는 행위 가능)
+        - 풀이
+            - 1에 가까운 수부터 1로 만들 수 있는 최소의 횟수를 구한 뒤 점점 큰 수에 대해 동일 연산을 수행하여 해당 연산에 따른 결과값의 연산 횟수에 1을 더한 것 중 최소 값을 배열에 저장
+            - 2를 1로 만드는 것은 1을 빼는 1회
+            - 3을 1로 만드는 것은 1을 빼면 2가 되고 2의 최소 연산은 1이므로 2회, 또는 3을 3으로 나누어 1로 만드는 1회 연산, 둘 중 작은 것은 1회
+            - 4를 1로 만드는 것은 1을 빼면 3의 최소 연산인 1 + 1 = 2회 또는 2로 나누면 2의 최소 연산인 1 + 1 = 2회, 작은 것은 2회
+            - 위와 같이 dp 배열에 저장해 두어 풀이
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon1463.java">답안</a>
+
+- 제곱수의 합
+    - 문제 번호 : 1699
+    - <a href="https://www.acmicpc.net/problem/1699">문제 참조</a>
+        - 내용 : 특정 자연수를 몇 가지 제곱수의 합으로 구할 경우, 해당 제곱수의 개수가 최소가 되는 알고리즘 구하기
+        - 풀이
+            - dp[1]=1 이다. 1은 1*1로만 나타낼 수 있다. 2부터는 자신 보다 작은 제곱수 중, 가장 큰 값까지 비교하여 해당 값을 뺀 뒤, 기존에 배열에 저장한 값과 비교하여 현재 값을 지정한다.
+            - 만약 그 값이 기존에 저장된 값보다 더 작은 경우, 해당 배열의 값이 정답이 된다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon1699.java">답안</a>
+        
+- 연속합 문제
+    - 문제 번호 : 1912
+    - <a href="https://www.acmicpc.net/problem/1912">문제 참조</a>
+        - 내용 : 배열의 숫자의 연속합 중 최대값이 되는 방법을 구하고 그 값을 출력하기
+        - 풀이
+            - DP를 이용하여 각 숫자를 저장한 배열(num)과, 해당 배열의 index 값의 수가 반드시 합해진 최대값의 배열(dp)를 구한다.
+            - 이러면 dp[0] = num[0]이 된다. 왜냐하면, 0일 때는 그 숫자를 더하는 것만이 반드시 가장 크기 때문(아무것도 더하지 않는 경우는 제외)
+            - dp[n] = Math.max(dp[n-1] + num[n], num[n]), 즉, 이전 최대값과 자신을 더한 것, 혹은 자기 자신의 값 중 최대를 구한다.
+            - dp 배열이 완료되면 해당 배열의 값 중 최대값을 찾아내서 출력한다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon1912.java">답안</a>
+
+- 정수 삼각형 문제
+    - 문제 번호 : 1932
+    - <a href="https://www.acmicpc.net/problem/1932">문제 참조</a>
+        - 내용 : 삼각형으로 이루어진 정수의 나열에서 2진 트리 기법으로 생각하여 덧셈을 수행 시 최대값을 구하기
+        - 풀이
+            - (1, 1)에 있는 숫자는 자기 자신이 최대값이다. (2, 1)은 (1, 1)을 더한 것이 최대값이며, (2, 2) 또한 그러하다.
+            - (3, 1)은 dp(2, 1) + (3, 1)이며, (3, 2)는 Math.max(dp(2, 1) + (3, 2), dp(2, 2) + (3, 2))이다. 
+            - (3, 3)은 dp(2, 2) + (3, 2)가 된다.
+            - 이 규칙을 잘 보게 되면, 현재 i번째 줄에 있는 경우, i+1번째 숫자에 대한 결정 방식을 확인할 수 있다.
+            - i+1번째의 줄의 값은, i번째 줄의 현재 숫자가 i번째 중 j번째라고 가정한다면 dp[i][j] 일 것이다.
+            - 그렇다면, 이 숫자가 i+1번째 숫자의 j, j+1번째 숫자에 영향을 미치게 되는 방식이다.
+            - 즉, dp[i+1][j] = Math.max(dp[i+1][j], dp[i][j] + num[i+1][j])
+            - dp[i+1][j+1] = Math.max(dp[i+1][j+1], dp[i][j] + num[i+1][j+1])
+            - 위 점화식을 이용해서 정답을 구할 수 있다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon1932.java">답안</a>
+
+- 포도주 시식
+    - 문제 번호 : 2156
+    - <a href="https://www.acmicpc.net/problem/2156">문제 참조</a>
+        - 내용 : 포도주의 개수가 주어지며 포도주의 양이 주어질 때, 연속해서 3개를 먹을 수는 없다면 어떻게 먹어야 최대의 양을 먹는지 구하기
+        - 풀이
+            - 포도주 개수가 3개 미만이면 다 먹으면 되며, 3개이면 (1, 3), (2, 3)을 먹은 것 중 더 양이 많은 것을 고른다.
+            - 4개 이상부터는 3개일 때의 최대양과 4번째 와인을 먹는 가정하에 (n-1, n-3)을 먹는 경우, (n-2)개수의 최대 양, 즉 3개 중 최대값을 구한다.
+            - 즉 : Math.max(dp[n-1], Math.max(dp[n-2] + wine[n], dp[n-3] + wine[n-1] + wine[n]))
+            - TopDown 주의점 : 1 ~ 3개까지는 사전에 정의할 수 있는데, 정의할 때, 3개라면 dp(n-1) 과 wine[1] + wine[3] , wine[2] + wine[3] 중 최대를 구할 것이다.
+                - 이 때, 사전에 미리 정의할 거라면 dp의 값을 구하는 경우 무조건 재귀로 구해야한다. 그러지 않으면 0의 값을 그대로 리턴한다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon2156.java">답안</a>
+
+- 이친수 개수 구하기
+    - 문제 번호 : 2193
+    - <a href="https://www.acmicpc.net/problem/2193">문제 참조</a>
+        - 내용 : 이진수 중 0으로 시작하지 않고 1이 연속 두 번 나오지 않는 것이 이친수이며 N자리의 이친수 개수를 구한다.
+        - 풀이
+            - 쉬운 계단 수와 동일한 방식으로 해결할 수 있다.(10844번)
+            - 2차원 배열을 이용해 1차원에는 N의 자리수, 2차원에는 0 또는 1로 끝나는 이친수의 개수를 지정한다.
+            - 만약 1자리 수 이친수가 0 또는 1로 끝난다면, dp[1][0] = 0, dp[1][1] = 1이다.
+            - 이 때, dp[N][0] = dp[N-1][0] + dp[N-1][1], dp[N][1] = dp[N-1][0]이 된다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon2193.java">답안</a>
+
+- 합분해
+    - 문제 번호 : 2225
+    - <a href="https://www.acmicpc.net/problem/2225">문제 참조</a>
+        - 내용 : 0부터 N까지의 K개의 수를 더해서 N이 되는 경우의 수를 구한다.
+        - 풀이
+            - 경우의 수를 dp[N][K]라고 한다면, K=1인 경우, 1개의 수로 구하는 것이므로 1가지만 답이다. 즉 dp[N][1] = 1
+            - N=1인 경우, K개의 정수로 N을 N회의 방법으로 만들 수 있다.
+                - N=1이라면, 0~1까지의 수 K개를 사용하기 때문에 1의 위치에 따라 경우의 수가 다 다르기 때문.
+            - 이외의 경우라면, dp[N-1][K] + dp[N][K-1]이 답이 된다.
+                - N-1을 K개의 수로 만든 것에 1을 더한 방법들만 있기 때문이며, N의 수를 K-1개의 수로 더한 값에 추가로 한 가지 수를 더한 값이 답이기 때문
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon2225.java">답안</a>
+
+- 1,2,3 더하기 문제
+    - 문제 번호 : 9095
+    - <a href="https://www.acmicpc.net/problem/9095">문제 참조</a>
+        - 내용 : 정수 n을 1, 2, 3의 합으로 나타낼 수 있는 경우의 수 구하기
+        - 풀이
+            - 정수 1~3까지는 몇 가지 되지 않으니 쉽게 표현을 미리 지정해 배열에 선정할 수 있다.
+            - 4부터는 해당 정수의 1~3까지 작은 숫자에서 하나의 숫자만 더하는 것이므로 그 작은 숫자를 나타낼 수 있는 경우의 수를 모두 더하면 된다.
+            - 즉, dp[4] = dp[3] + dp[2] + dp[1] 과 같이 표현할 수 있다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon9095.java">답안</a>
+
+- 스티커 문제
+    - 문제 번호 : 9465
+    - <a href="https://www.acmicpc.net/problem/9465">문제 참조</a>
+        - 내용 : 스티커를 뜯으면 변을 공유하는 스티커가 전부 뜯어진다. 뜯어진 스티커는 사용 불가 시, 뜯을 수 있는 스티커를 뜯어서 최대값을 구하기
+        - 풀이
+            - 간단히 2*N 배열이므로 그렇게 배열을 선언하고 0번, 1번 row의 스티커를 찢을 때, 현재 column이 x번이면 x-1번까지 찢은 최대값을 구하면 된다.
+            - 만약 0, K 번의 스티커를 찢는다면, 1, K-1까지와 1, K-2까지의 최대값에 현재 스티커의 값을 더해주면 그것이 최대값이 된다.
+            - 이와 같이 진행 시, 점화식은 다음과 같다.
+            - dp[r][c] = Math.max(dp[(r+1)%2][c-1] + sticker_value[r][c], dp[(r+1)%2][c-2] + sticker_value[r][c])
+            - 만약, column이 0번이면 미리 sticker_value만 넣어두고, 1번이면 c-2는 없으므로 c-1의 값만 넣어 지정한다.
+            - Top-down의 경우 시간초과가 나서 boolean 배열을 따로 추가하였고 이는 코드에서 확인할 수 있다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon9465.java">답안</a>
+
+- 쉬운 계단 수
+    - 문제 번호 : 10844
+    - <a href="https://www.acmicpc.net/problem/10844">문제 참조</a>
+    - 내용 : 0으로 시작할 수 없는 숫자의 길이가 주어지며 그 숫자의 각 자리수는 1씩 차이가 나는 계단 수이다. 숫자의 길이가 주어질 때, 계단 수의 수를 구하라.
+    - 풀이
+        - 2차원 배열을 이용해서 숫자의 길이와 1의 자리 숫자를 지정하는 것을 index로 지정하면 된다.
+        - 숫자 길이가 1이면 1의 자리 0인 경우 빼고 모두 1이다. 즉, dp[1][1]~dp[1][9] = 1이다.
+        - 그 이후 dp[n][0] = dp[n-1][1], dp[n][9] = dp[n-1][8], dp[n][i] = dp[n-1][i-1] + dp[n-1][i+1](i는 1~8)
+        - 이를 통해 구현을 수행한다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon10844.java">답안</a>
+
+- 카드 구매하기
+    - 문제 번호 : 11052
+    - <a href="https://www.acmicpc.net/problem/11052">문제 참조</a>
+        - 내용 : 가챠 카드팩을 N장 구매하기 위해 돈을 사용. 이 돈을 최대로 사용하는 경우의 금액 구하기
+        - 풀이 
+            - 각 카드팩을 구매 시 n장을 산다면 n장 짜리 1개 혹은 n-x(1 <= x <= n-1장의 조합으로 구매할 수 있다.
+            - 그렇다면 1장만 구매 시 부터 n장을 구매 시까지 dynamic_programming으로 정답을 구할 수 있다.
+            - 4장을 사고 각 장 수 만큼 든 카드팩의 비용을 1, 5, 6, 7이라 하자.
+            - 1장만 산다면 1을 지불하는 것이 가장 비용을 많이 쓰는 것이다.
+            - 2장을 산다면 1장을 2개 혹은 2장 팩을 1개 산다고 생각 시, dp[2] 또는 dp[2-1] + dp[1] 이라고 볼 수 있다.
+            - 즉, dp[n] = dp[n-i] + dp[i]로 지정하면 된다.(1 <= i <= n)
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon11052.java">답안</a>
+
+- 가장 긴 증가하는 부분 수열
+    - 문제 번호 : 11053
+    - <a href="https://www.acmicpc.net/problem/11053">문제 참조</a>
+        - 내용 : 전체 배열 중 부분수열이 지속적으로 증가하되 가장 긴 배열의 크기를 구하는 것
+        - 풀이
+            - Dynamic Programming을 이용 시, 작은 배열부터 차례대로 순서를 더해주면 된다.
+            - 가장 작은 배열 1개일 때는, 1이 답이되며, 그 다음 부터는 자신의 index 위치부터 가장 작은 index까지 값을 비교한다.
+            - 만약 값이 같으면 해당 index에서 가장 긴 배열 값을 저장하고, 그보다 크다면 그 값에 1을 더한다.
+            - 이를 지속적으로 수행하여 가장 큰 값을 저장한다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon11053.java">답안</a>
+
+- 가장 긴 바이토닉 부분 수열
+    - 문제 번호 : 11054
+    - <a href="https://www.acmicpc.net/problem/11054">문제 참조</a>
+        - 내용 : 전체 배열 중 가장 긴 바이토닉 수열을 구한다.(바이토닉은 증가 후 감소하는 수열을 의미)
+        - 풀이
+            - 게속 증가하는 최대 값, 계속 감소하는 최대 값을 구한 두 가지의 수열을 구한다.
+            - 그 뒤, 해당 수열끼리 더해준 다음 -1을 한 값 중 최대를 구하면 답이 되는데 -1을 하는 이유는 같은 값이 1회 중복되기 때문
+            - 혹은, 증가하는 최대값을 구해주고, 감소하는 최대값을 구하는 배열에서는 감소값과, 증가 값에서 감소 시작을 하는 2가지 경우로 나누어 더 최대값을 구한다.
+            - 그 뒤 전체 배열에서 최대값을 구하면 답을 알 수 있다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon11054.java">답안</a>
+
+- 가장 큰 증가하는 부분 수열
+    - 문제 번호 : 11055
+    - <a href="https://www.acmicpc.net/problem/11055">문제 참조</a>
+        - 내용 : 전체 배열 중 부분 수열이 지속적으로 증가하는 배열의 값들을 모두 더한 값 중 최대값을 구하기
+        - 풀이
+            - 가장 작은 배열 1개 시에는 그 1개의 숫자가 답이며, 그 보다 큰 경우, 해당 index 아래의 숫자가 더 작은 경우 지속적으로 더한다.
+            - 즉, dp[n] = Math.max(dp[n], dp[i] + num[n]); (i는 num[i] < num[n] 인 경우, i는 n-1 보다 작거나 같고 0보다 크거나 같음)
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon11055.java">답안</a>
+
+- 오르막 수 문제
+    - 문제 번호 : 11057
+    - <a href="https://www.acmicpc.net/problem/11057">문제 참조</a>
+        - 내용 : N자리의 수의 오르막 수의 개수를 구하는 문제(2자리라면 00~99까지 1의 자리가 10의 자리보다 크거나 같아야 한다.)
+        - 풀이
+            - 3단 for문을 통해서 진행한다. i는 당연히 1부터 n까지, j는 0으로 끝나는 숫자부터 9로 끝나는 숫자깢.
+            - dp[i][j]의 값은 dp[i-1][k](k는 0보다 크거나 같고, j보다 작거나 같은 수)를 모두 더한 값
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon11057.java">답안</a>
+
+- 가장 긴 감소하는 부분 수열
+    - 문제 번호 : 11722
+    - <a href="https://www.acmicpc.net/problem/11722">문제 참조</a>
+        - 내용 : 전체 배열 중 부분 수열이 지속적으로 감소하는 배열의 최대 크기 구하기
+        - 풀이
+            - 가장 긴 증가하는 부분수열 문제(11053번)와 동일하되 반대 방식으로 풀면 됨.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon11722.java">답안</a>
+
+- 2*1 타일 채우기 문제
+    - 문제 번호 : 11726
+    - <a href="https://www.acmicpc.net/problem/11726">문제 참조</a>
+        - 내용 : 2\*n 사각형 타일을 1\*2 / 2\*1의 타일로 채우는 경우의 수 구하기
+        - 풀이
+            - 2\*1을 채우는 방법은 1개, 2\*2를 채우는 방법은 2개이다.
+            - 2\*3의 경우 이후에 2\*1(세로로 긴 방향)으로 모두 채우는 방법은 2\*1을 채우는 방법과 같으며, 나머지는 가로로 두개, 세로 하나를 놓는 2가지로 총 3가지이다.
+                - 2\*3은 2\*1과 2\*2를 채우는 두 경우의 수의 합과 같다.
+                - 즉, 가로로 채우는 방법과 세로로 채우는 방법의 합이 답이 된다.
+            - 2\*4의 경우 하나를 세로로 채운다면 나머지는 2\*3을 채우는 방법과 같은 방식으로 채우는 것만 남게 된다. 두 가지를 세로로 채우면 2\*2를 채우는 방법과 같다.
+                - 3개를 세로로 채우는 것은 1개를 세로로 채우는 것과 중복이 된다. 따라서 2*\4도 2\*3 + 2\*2와 같은 방식으로 구할 수 있다.
+            - 즉, dp[n] = dp[n-1] + dp[n-2]가 답이 된다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon11726.java">답안</a>
+
+- 2*1 타일 채우기 문제2
+    - 문제 번호 : 11727
+    - <a href="https://www.acmicpc.net/problem/11727">문제 참조</a>
+        - 내용 : 2\*n 사각형 타일을 1\*2 / 2\*1, 2\*2의 타일로 채우는 경우의 수 구하기
+        - 풀이
+            - 11726의 문제와 풀이 방식은 비슷한데 2\*2가 추가된 것
+            - 그런데 잘 생각해보면 기존의 채울 수 있는 방식에 2\*2만 추가되었으므로 그 부분만 고려하면 됨
+            - 그래서, 2\*2로 채울 수 있는 방법은 한 부분이 2\*2로 채워졌다는 가정하에 생각 시 2*\n 크기라면 2\*(n-2)를 채우는 방법과 동일함
+            - 즉, dp[n] = dp[n-1] + 2 * dp[n-2]가 답이 된다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon11727.java">답안</a>
+
+- 연속합2
+    - 문제 번호 : 13398
+    - <a href="https://www.acmicpc.net/problem/13398">문제 참조</a>
+        - 내용 : 배열 값의 연속합 중 중간에 값을 빼거나 안뺀 경우 최대 덧셈 결과값을 구하기
+        - 풀이
+            - 빼도 되고 빼지 않아도 된다는 것에서 답을 찾아야 한다. 빼지 않는 경우는 이전의 연속합 문제와 동일하게 풀 수 있다.
+            - 빼도 된다고 보는 부분은, 자기 자신을 뺀 경우와 뺀 경우가 없이 덧셈을 진행한 경우를 비교하면 된다.
+            - 즉, dp[i][1] 이 i 번째 값에서 자신을 빼거나 빼지 않은 경우의 최대값이라고 할 때,
+            - dp[i][1] = Math.max(dp[i-1][0], dp[i-1][1] + num[i]), 즉, 중간에 값을 빼지 않고 자기 자신을 뺀 경우와, 자기 자신이 더해진 경우 중 큰 값을 찾는다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon13398.java">답안</a>
+
+- 가장 긴 증가하는 부분 수열2
+    - 문제 번호 : 14002
+    - <a href="https://www.acmicpc.net/problem/14002">문제 참조</a>
+        - 내용 : 전체 배열 중 부분수열이 지속적으로 증가하되 가장 긴 배열의 크기를 구하고 그 배열의 숫자를 출력
+        - 풀이
+            - 11053문제와 동일하게 푼다.
+            - 그 뒤, 해당 배열의 출력값인 최대 길이의 값을 출력하고 그 값을 이용해 기존 배열을 역추적하여 Stack에 저장
+            - 마지막으로 Stack에 들어 있던 값들을 Pop하며 마무리
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon14002.java">답안</a>
+
+- 1,2,3 더하기 3
+    - 문제 번호 : 15988
+    - <a href="https://www.acmicpc.net/problem/15988">문제 참조</a>
+    - 내용 : 정수 n을 1, 2, 3의 합으로 나타낼 수 있는 경우의 수 구하기(중복되는 수 연속 사용 가능)
+        - 풀이
+            - 정수 1~3까지는 몇 가지 되지 않으니 쉽게 표현을 미리 지정해 배열에 선정할 수 있다.
+            - 4부터는 3을 만들 시, 현재 값보다 1작은 수에 1을 더하거나, 2작은 수에 2를 더하거나, 3 작은 수에 3을 더하는 방법만이 존재하낟.
+            - 즉, dp[n] = dp[n-1] + dp[n-2] + dp[n-3] 이 답이 된다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon15988.java">답안</a>
+
+- 1,2,3 더하기 2
+    - 문제 번호 : 15990
+    - <a href="https://www.acmicpc.net/problem/15990">문제 참조</a>
+    - 내용 : 정수 n을 1, 2, 3의 합으로 나타낼 수 있는 경우의 수 구하기(중복되는 수 연속 사용 불가)
+        - 풀이
+            - 정수 1~3까지는 몇 가지 되지 않으니 쉽게 표현을 미리 지정해 배열에 선정할 수 있다.
+            - 4부터는 3을 만들 시, 마지막 수가 2 또는 3인 경우, 2를 만들 시 마지막 수가 1 또는 3인 경우, 1을 만들 시 마지막 숫자가 1 또는 2인 경우만이 존재한다.
+                - 즉, 2차원 배열을 만들면 dp[4][1] = dp[3][2] + dp[3][3], dp[4][2] = dp[2][1] + dp[2][3], dp[4][3] = dp[1][1] + dp[1][2] 이다.
+                - 즉, 2차원 배열에서 두 번째 index는 마지막으로 더해진 숫자를 의미한다고 생각하면 된다.
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon15990.java">답안</a>
+
+- 카드 구매하기2
+    - 문제 번호 : 16194
+    - <a href="https://www.acmicpc.net/problem/16194">문제 참조</a>
+        - 내용 : 가챠 카드팩을 N장 구매하기 위해 돈을 사용. 이 돈을 최소로 사용하는 경우의 금액 구하기
+        - 풀이 
+            - 각 카드팩을 구매 시 n장을 산다면 n장 짜리 1개 혹은 n-x(1 <= x <= n-1장의 조합으로 구매할 수 있다.
+            - 그렇다면 1장만 구매 시 부터 n장을 구매 시까지 dynamic_programming으로 정답을 구할 수 있다.
+            - 4장을 사고 각 장 수 만큼 든 카드팩의 비용을 1, 5, 6, 7이라 하자.
+            - 1장만 산다면 1을 지불하는 것이 가장 비용을 적게 쓰는 것이다.
+            - 2장을 산다면 1장을 2개 혹은 2장 팩을 1개 산다고 생각 시, dp[2] 또는 dp[2-1] + dp[1] 이라고 볼 수 있다.
+            - 즉, dp[n] = dp[n-i] + dp[i]과 i장짜리 팩 하나를 사는 것 중 작은 것으로 지정하면 된다.(1 <= i <= n)
+    - <a href="https://github.com/hongjw1991/Java-DataStructure-Algorithm-DesignPattern/tree/master/algorithm/problem_solve/dynamic_programming/baekjoon/BaekJoon16194.java">답안</a>

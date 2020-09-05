@@ -1,4 +1,4 @@
-package com.design_pattern.creational.prototype;
+package creational.prototype;
 
 
 import java.util.Arrays;

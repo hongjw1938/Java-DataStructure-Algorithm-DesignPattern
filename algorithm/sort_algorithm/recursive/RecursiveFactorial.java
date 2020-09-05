@@ -1,4 +1,4 @@
-package com.algorithm.sort_algorithm.recursive;
+package sort_algorithm.recursive;
 
 public class RecursiveFactorial {
     public static void main(String[] args){

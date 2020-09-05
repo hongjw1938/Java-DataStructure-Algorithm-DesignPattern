@@ -1,4 +1,4 @@
-package com.design_pattern.structural.adapter;
+package structural.adapter;
 
 import java.util.*;
 import java.util.function.Consumer;

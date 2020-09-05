@@ -1,10 +1,10 @@
-package com.data_structure.stack;
+package stack;
 
 import java.util.Stack;
 
-public class Solution {
+public class Programmars_1 {
     public static void main(String[] args){
-        Solution s = new Solution();
+        Programmars_1 s = new Programmars_1();
         int[] heights = {6, 9, 5, 7, 3};
         int[] answer = s.solution(heights);
         for(int i=0; i < answer.length; i++){

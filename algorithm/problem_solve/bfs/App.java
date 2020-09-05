@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.bfs;
+package problem_solve.bfs;
 
 public class App {
 

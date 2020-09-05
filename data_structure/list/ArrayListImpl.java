@@ -1,4 +1,4 @@
-package com.data_structure.list;
+package list;
 
 import java.util.Arrays;
 import java.util.Comparator;

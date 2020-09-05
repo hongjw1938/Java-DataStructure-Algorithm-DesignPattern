@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.brute_force.baekjoon;
+package problem_solve.brute_force.baekjoon;
 
 import java.io.*;
 import java.util.StringTokenizer;

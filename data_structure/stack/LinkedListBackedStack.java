@@ -1,4 +1,4 @@
-package com.data_structure.stack;
+package stack;
 
 import java.util.LinkedList;
 import java.util.ListIterator;

@@ -1,8 +1,7 @@
-package com.algorithm.problem_solve.dfs;
+package problem_solve.dfs;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 public class App {
     public static void main(String[] args){

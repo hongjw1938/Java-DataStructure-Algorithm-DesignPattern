@@ -1,10 +1,10 @@
-package com.data_structure.queue;
+package queue;
 
 import java.util.*;
 
-public class Solution {
+public class Programmars_4 {
     public static void main(String[] args){
-        Solution s = new Solution();
+        Programmars_4 s = new Programmars_4();
         int stock = 4;
         int[] dates = {4, 10, 15};
         int[] supplies = {20, 5, 10};

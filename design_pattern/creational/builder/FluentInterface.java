@@ -1,4 +1,4 @@
-package com.design_pattern.creational.builder;
+package creational.builder;
 
 
 class Person{

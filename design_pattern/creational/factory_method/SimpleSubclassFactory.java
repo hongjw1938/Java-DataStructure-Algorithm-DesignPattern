@@ -1,4 +1,4 @@
-package com.design_pattern.creational.factory;
+package creational.factory_method;
 
 /*
     SimpleFactoryPatter의 예시에서는 직접 method를 객체 내부에 포함시키는 방법을 사용했으나, 실제로는

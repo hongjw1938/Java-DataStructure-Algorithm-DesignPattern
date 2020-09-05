@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.bfs.webcrawler;
+package problem_solve.bfs.webcrawler;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -15,7 +15,7 @@ public class WebCrawler {
     // 방문한 website list
     private List<String> discoverWebsitesList;
 
-    public Webcrawler() {
+    public WebCrawler() {
         this.queue = new LinkedList<>();
         this.discoverWebsitesList = new ArrayList<>();
     }

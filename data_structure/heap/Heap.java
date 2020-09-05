@@ -1,4 +1,4 @@
-package com.data_structure.heap;
+package heap;
 
 public class Heap {
 

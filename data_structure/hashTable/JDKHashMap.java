@@ -1,7 +1,6 @@
-package com.data_structure.hashTable;
+package hashTable;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class JDKHashMap {

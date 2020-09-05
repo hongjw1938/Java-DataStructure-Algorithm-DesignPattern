@@ -1,10 +1,10 @@
-package com.data_structure.queue;
+package queue;
 
 import java.util.*;
 
-public class Solution {
+public class Programmars_3 {
     public static void main(String[] args){
-        Solution s = new Solution();
+        Programmars_3 s = new Programmars_3();
         int[] scoville = {1, 2, 3, 9, 10, 12};
         int K = 7;
 

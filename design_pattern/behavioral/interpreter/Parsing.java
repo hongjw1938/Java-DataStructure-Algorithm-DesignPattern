@@ -1,4 +1,4 @@
-package com.design_pattern.behavioral.interpreter;
+package behavioral.interpreter;
 
 import java.utils.*;
 

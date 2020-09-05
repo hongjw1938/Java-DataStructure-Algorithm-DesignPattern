@@ -1,4 +1,4 @@
-package com.design_pattern.structural.composite;
+package structural.composite;
 
 import java.util.*;
 import java.util.function.Consumer;

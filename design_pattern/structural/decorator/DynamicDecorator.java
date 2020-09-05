@@ -1,4 +1,4 @@
-package com.design_pattern.structural.decorator;
+package structural.decorator;
 
 interface Shape{
     String info();

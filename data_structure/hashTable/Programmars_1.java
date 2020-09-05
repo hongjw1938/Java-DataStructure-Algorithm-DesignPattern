@@ -1,7 +1,9 @@
-package com.data_structure.hashTable;
+package hashTable;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class Programmars_1 {
     public String solution(String[] participant, String[] completion){

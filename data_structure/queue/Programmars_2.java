@@ -1,11 +1,11 @@
-package com.data_structure.queue;
+package queue;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Solution {
+public class Programmars_2 {
     public static void main(String[] args){
-        Solution s = new Solution();
+        Programmars_2 s = new Programmars_2();
         int[] priorities = {2, 1, 3, 2};
         System.out.println(s.solution(priorities, 2));
 

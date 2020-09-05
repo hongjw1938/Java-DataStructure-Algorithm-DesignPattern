@@ -1,4 +1,4 @@
-package com.design_pattern.creational.factory;
+package creational.factory_method;
 
 import java.util.ArrayList;
 import java.util.List;

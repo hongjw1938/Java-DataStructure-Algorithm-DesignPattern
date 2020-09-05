@@ -1,4 +1,4 @@
-package com.design_pattern.structural.decorator;
+package structural.decorator;
 
 
 import java.util.function.Supplier;

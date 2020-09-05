@@ -1,4 +1,4 @@
-package com.design_pattern.structural.proxy;
+package structural.proxy;
 
 /*
 Dynamic Proxy의 기본 개념은 Proxy가 compile time이 아닌 runtime에 생성된다는 것이다.

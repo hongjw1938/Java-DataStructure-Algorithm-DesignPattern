@@ -1,7 +1,5 @@
-package com.algorithm.problem_solve.shortest_path.dijkstra.baekjoon;
+package problem_solve.shortest_path.dijkstra.baekjoon;
 
-
-import org.w3c.dom.Node;
 
 import java.io.BufferedReader;
 import java.io.IOException;

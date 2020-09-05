@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.shortest_path.dijkstra;
+package problem_solve.shortest_path.dijkstra;
 
 public class App {
     public static void main(String[] args){

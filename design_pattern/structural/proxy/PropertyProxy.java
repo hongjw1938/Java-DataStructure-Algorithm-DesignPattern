@@ -1,4 +1,4 @@
-package com.design_pattern.structural.proxy;
+package structural.proxy;
 
 /*
  멤버 변수에 무언가가 들어가는 것을 logging하고 싶다고 하자.

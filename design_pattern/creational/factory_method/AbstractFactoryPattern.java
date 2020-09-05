@@ -1,9 +1,8 @@
-package com.design_pattern.creational.factory;
+package creational.factory_method;
 
 import com.sun.management.HotSpotDiagnosticMXBean;
 import javafx.util.Pair;
 import org.reflections.Reflections;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

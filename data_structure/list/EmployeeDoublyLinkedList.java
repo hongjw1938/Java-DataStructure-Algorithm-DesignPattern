@@ -1,4 +1,4 @@
-package com.data_structure.list;
+package list;
 
 public class EmployeeDoublyLinkedList {
     private DLEmployeeNode head;

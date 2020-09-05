@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.shortest_path.dijkstra;
+package problem_solve.shortest_path.dijkstra;
 
 
 // 간선 정보 저장하는 Class

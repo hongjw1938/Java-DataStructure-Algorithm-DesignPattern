@@ -1,10 +1,10 @@
-package com.data_structure.stack;
+package stack;
 
 import java.util.Stack;
 
-public class Solution {
+public class Programmars_2 {
     public static void main(String[] args){
-        Solution s = new Solution();
+        Programmars_2 s = new Programmars_2();
         String arrangement = "()(((()())(())()))(())";
         System.out.println(s.solution(arrangement));
 

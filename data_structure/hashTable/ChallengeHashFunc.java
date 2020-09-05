@@ -1,4 +1,4 @@
-package com.data_structure.hashTable;
+package hashTable;
 
 public class ChallengeHashFunc {
     public static void main(String[] args){

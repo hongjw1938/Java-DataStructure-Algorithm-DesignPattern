@@ -1,11 +1,11 @@
-package com.algorithm.sort_algorithm;
+package sort_algorithm;
 
 public class HeapSort {
 
     private int[] heap;
     private int size;
 
-    public Heap_sort(int capacity){
+    public HeapSort(int capacity){
         heap = new int[capacity];
     }
 

@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.dfs.maze_solve;
+package problem_solve.dfs.maze_solve;
 
 public class MazeSolver {
     private int rowSize;

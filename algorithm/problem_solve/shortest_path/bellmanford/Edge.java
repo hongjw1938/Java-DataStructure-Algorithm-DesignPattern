@@ -1,4 +1,4 @@
-package com.algorith.problem_solve.shortest_path.bellmanford;
+package problem_solve.shortest_path.bellmanford;
 
 public class Edge {
 

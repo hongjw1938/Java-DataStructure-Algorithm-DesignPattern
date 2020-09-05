@@ -1,4 +1,4 @@
-package com.design_pattern.creational.singleton;
+package creational.singleton;
 
 import java.io.File;
 import java.io.IOException;

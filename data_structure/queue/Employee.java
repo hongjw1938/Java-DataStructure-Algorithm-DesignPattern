@@ -1,4 +1,4 @@
-package com.data_structure.queue;
+package queue;
 
 import java.util.Objects;
 

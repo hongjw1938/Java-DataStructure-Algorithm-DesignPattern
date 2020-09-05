@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.brute_force.baekjoon;
+package problem_solve.brute_force.baekjoon;
 import java.io.*;
 public class BaekJoon3085{
     static char[][] bomboni;

@@ -1,4 +1,4 @@
-package com.design_pattern.creational.singleton;
+package creational.singleton;
 
 class BasicSingletonObject{
     // 이와 같이 생성자를 private으로 생성하여 외부에서 접근할 수 없도록 한다.

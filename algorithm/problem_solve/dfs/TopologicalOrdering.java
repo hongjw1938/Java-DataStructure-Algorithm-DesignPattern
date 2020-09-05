@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.dfs;
+package problem_solve.dfs;
 
 import java.util.Stack;
 

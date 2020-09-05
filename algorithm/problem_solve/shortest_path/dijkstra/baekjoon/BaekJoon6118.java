@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.shortest_path.dijkstra.baekjoon;
+package problem_solve.shortest_path.dijkstra.baekjoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;

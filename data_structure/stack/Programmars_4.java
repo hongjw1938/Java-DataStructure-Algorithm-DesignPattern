@@ -1,12 +1,12 @@
-package com.data_structure.stack;
+package stack;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class Solution {
+public class Programmars_4 {
     public static void main(String[] args){
-        Solution s = new Solution();
+        Programmars_4 s = new Programmars_4();
         int[] progresses = {93, 30, 55};
         int[] speeds = {1, 30, 5};
 

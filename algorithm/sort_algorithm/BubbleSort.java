@@ -1,4 +1,4 @@
-package com.algorithm.sort_algorithm;
+package sort_algorithm;
 
 public class BubbleSort {
     public static void main(String[] args){

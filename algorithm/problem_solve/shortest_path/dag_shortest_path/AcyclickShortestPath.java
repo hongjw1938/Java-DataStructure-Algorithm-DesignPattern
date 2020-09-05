@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.shortest_path.dag_shortest_path;
+package problem_solve.shortest_path.dag_shortest_path;
 
 import java.util.ArrayList;
 import java.util.Collections;

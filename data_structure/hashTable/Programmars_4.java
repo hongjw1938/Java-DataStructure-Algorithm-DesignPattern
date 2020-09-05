@@ -1,4 +1,4 @@
-package com.data_structure.hashTable;
+package hashTable;
 import java.util.*;
 
 public class Programmars_4 {

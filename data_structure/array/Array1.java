@@ -1,4 +1,4 @@
-package com.datastructure.array;
+package array;
 
 public class Array1 {
 

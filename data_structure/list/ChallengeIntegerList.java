@@ -1,4 +1,4 @@
-package com.data_structure.list;
+package list;
 
 public class ChallengeIntegerList {
     public static void main(String[] args) {

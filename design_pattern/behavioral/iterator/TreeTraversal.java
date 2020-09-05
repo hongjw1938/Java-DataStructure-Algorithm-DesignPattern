@@ -1,4 +1,4 @@
-package com.design_pattern.behavioral.iterator;
+package behavioral.iterator;
 
 class Node<T>{
     public T value;

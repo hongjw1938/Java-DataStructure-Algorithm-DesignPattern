@@ -1,4 +1,4 @@
-package com.data_structure.hashTable;
+package hashTable;
 
 import java.util.*;
 
@@ -22,11 +22,11 @@ public class ChallengeRemoveDupl {
 
         while(iterator.hasNext()){
             Employee employee = iterator.next();
-            if(employeeTable.containsKey(employee.getId())){
+            if(employeeTable.containsKey(employee.getAge())){
                 remove.add(employee);
 
             } else {
-                employeeTable.put(employee.getId(), employee);
+                employeeTable.put(employee.getAge(), employee);
             }
         }
 

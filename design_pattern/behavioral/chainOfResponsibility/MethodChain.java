@@ -1,4 +1,4 @@
-package com.design_pattern.behavioral.chainOfResponsibility;
+package behavioral.chainOfResponsibility;
 import java.util.*;
 class Creature{
     public String name;

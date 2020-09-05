@@ -1,4 +1,4 @@
-package com.algorithm.problem_solve.shortest_path.floyd_warshall.baekjoon;
+package problem_solve.shortest_path.floyd_warshall.baekjoon;
 
 
 import java.io.BufferedReader;

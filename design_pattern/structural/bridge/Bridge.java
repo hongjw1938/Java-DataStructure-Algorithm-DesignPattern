@@ -1,4 +1,4 @@
-package com.design_pattern.structural.bridge;
+package structural.bridge;
 
 
 /*
