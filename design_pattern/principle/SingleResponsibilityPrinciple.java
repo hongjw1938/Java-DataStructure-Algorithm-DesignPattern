@@ -1,4 +1,4 @@
-package com.design_pattern.principle;
+package principle;
 
 import java.io.File;
 import java.io.PrintStream;

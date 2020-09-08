@@ -1,8 +1,6 @@
 package structural.facade;
 
 
-import javax.swing.*;
-import javax.swing.text.View;
 import java.util.ArrayList;
 import java.util.List;
 

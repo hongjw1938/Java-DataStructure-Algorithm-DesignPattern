@@ -8,8 +8,6 @@ package behavioral.chainOfResponsibility;
   
 */
 
-import java.util.*;
-
 // Observer Pattern, CQS
 class Event<Args>
 {

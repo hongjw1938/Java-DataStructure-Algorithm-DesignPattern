@@ -1,6 +1,5 @@
 package structural.composite;
 
-import java.util.*;
 import java.util.function.Consumer;
 
 interface SomeNeurons extends Iterable<Neuron>{

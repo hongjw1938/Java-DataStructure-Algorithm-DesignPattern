@@ -1,4 +1,4 @@
-package com.design_pattern.principle;
+package principle;
 
 import java.util.Arrays;
 import java.util.List;

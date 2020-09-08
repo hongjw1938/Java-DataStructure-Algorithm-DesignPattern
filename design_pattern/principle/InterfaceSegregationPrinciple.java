@@ -1,4 +1,4 @@
-package com.design_pattern.principle;
+package principle;
 
 public class InterfaceSegregationPrinciple {
 }

@@ -1,5 +1,5 @@
-package com.design_pattern.principle;
-import org.javatuples.Triplet;
+package principle;
+//import org.javatuples.Triplet;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,5 @@
 package creational.singleton;
 
-import java.io.File;
-import java.io.IOException;
-
 class StaticBlockSingletonExample{
     /*
     다음과 같이 생성자가 예외를 발생시킬 수 있는 경우에는 문제가 발생할 수 있다.
