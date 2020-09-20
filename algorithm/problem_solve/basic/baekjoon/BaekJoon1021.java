@@ -67,14 +67,11 @@ public class BaekJoon1021 {
             newNode.prev = tail;
             if(size == 0){
                 head = newNode;
-                tail = newNode;
             } else {
                 head.prev = newNode;
                 tail.next = newNode;
-
-                tail = newNode;
             }
-
+            tail = newNode;
             size++;
         }
 
