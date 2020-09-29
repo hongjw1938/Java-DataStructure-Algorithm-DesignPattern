@@ -101,3 +101,43 @@ public class BaekJoon2504{
         }
     }
 }
+
+/* 다른 풀이
+import java.io.*;
+
+class Main {
+	static char input[];
+	static int index;
+	static int stk(int mul) { // 1:start 2:paren 3:bracket
+		int base = 0, tmp = -1987654321;
+		while(index < input.length) {
+			switch(input[index++]) {
+			case '(':
+				tmp = stk(2);
+				if(tmp == 0) return 0;
+				break;
+			case '[':
+				tmp = stk(3);
+				if(tmp == 0) return 0;
+				break;
+			case ')':
+				if(mul != 2) return 0;
+				else return base==0 ? 2 : base*2;
+			case ']':
+				if(mul != 3) return 0;
+				else return base==0 ? 3 : base*3;
+			default:
+				break;
+			}
+			base += tmp;
+		}
+		if(mul!=1) return 0;
+		return base;
+	}
+	public static void main(String aaaaaaaaaa[]) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		input = br.readLine().toCharArray();
+		System.out.println(stk(1));
+	}
+}
+ */
