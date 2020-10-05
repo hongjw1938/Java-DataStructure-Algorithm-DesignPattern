@@ -15,34 +15,19 @@ public class BaekJoon5397 {
             QueueImpl post_q = new QueueImpl();
             for(int j=0; j < keyLogger.length(); j++){
                 char c = keyLogger.charAt(j);
-                if(c == '<'){
-                    if(pre_q.isEmpty()){
-                        continue;
-                    } else {
-                        post_q.addFirst(pre_q.popLast().c);
-                    }
-                } else if(c == '>'){
-                    if(post_q.isEmpty()){
-                        continue;
-                    } else {
-                        pre_q.addLast(post_q.popFirst().c);
-                    }
-                } else if(c == '-'){
-                    if(pre_q.isEmpty()){
-                        continue;
-                    } else {
-                        pre_q.popLast();
-                    }
-                } else {
-                    pre_q.addLast(c);
+                switch(c){
+                    case '<':post_q.add(pre_q.popLast()); break;
+                    case '>':pre_q.add(post_q.popLast()); break;
+                    case '-':pre_q.popLast(); break;
+                    default: pre_q.add(c); break;
                 }
             }
             StringBuilder sb = new StringBuilder();
             while(!pre_q.isEmpty()){
-                sb.append(pre_q.popFirst().c);
+                sb.append(pre_q.popFirst());
             }
             while(!post_q.isEmpty()){
-                sb.append(post_q.popFirst().c);
+                sb.append(post_q.popLast());
             }
             System.out.println(sb);
         }
@@ -51,79 +36,39 @@ public class BaekJoon5397 {
     }
 
     private static class QueueImpl{
-        Node head;
-        Node tail;
         int size = 0;
+        int lastIndex = -1;
+        int startIndex = 0;
+        char[] arr = new char[1000001];
 
-        public void addFirst(char c){
-            Node newNode = new Node(c);
+        public void add(char c){
+            if(c == ' '){
+                return;
+            }
+            arr[++lastIndex] = c;
+            size++;
+        }
+
+        public char popFirst(){
             if(this.size == 0){
-                this.tail = newNode;
-            } else {
-                this.head.prev = newNode;
-                newNode.next = this.head;
+                return ' ';
             }
-            this.head = newNode;
-            this.size++;
+            char retChar = arr[startIndex++];
+            this.size--;
+            return retChar;
         }
 
-        public void addLast(char c){
-            Node newNode = new Node(c);
+        public char popLast(){
             if(this.size == 0){
-                this.head = newNode;
-            } else {
-                this.tail.next = newNode;
-                newNode.prev = this.tail;
+                return ' ';
             }
-            this.tail = newNode;
-            this.size++;
-        }
-
-        public Node popFirst(){
-            Node retNode = this.head;
-            if(isEmpty()){
-                throw new NullPointerException();
-            }
-
-            if(this.size > 1){
-                retNode.next.prev = null;
-                this.head = retNode.next;
-            } else {
-                this.head = null;
-                this.tail = null;
-            }
-
-            size--;
-            return retNode;
-        }
-
-        public Node popLast(){
-            Node retNode = this.tail;
-            if(isEmpty()){
-                throw new NullPointerException();
-            }
-
-            if(this.size > 1){
-                retNode.prev.next = null;
-                this.tail = retNode.prev;
-            } else {
-                this.head = null;
-                this.tail = null;
-            }
-            size--;
-            return retNode;
+            char retChar = arr[lastIndex--];
+            this.size--;
+            return retChar;
         }
 
         public boolean isEmpty(){
             return this.size==0;
-        }
-    }
-    private static class Node{
-        char c;
-        Node next;
-        Node prev;
-        public Node(char c){
-            this.c = c;
         }
     }
 }
