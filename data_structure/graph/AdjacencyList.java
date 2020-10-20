@@ -14,7 +14,6 @@ public class AdjacencyList {
         adList.put(4, 5, 7);
 
         adList.printGraph(1);
-
     }
 
     private static class Node{
