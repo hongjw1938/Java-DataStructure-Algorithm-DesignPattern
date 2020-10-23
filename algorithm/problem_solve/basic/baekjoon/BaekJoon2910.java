@@ -3,11 +3,13 @@ package problem_solve.basic.baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 public class BaekJoon2910 {
-    static Node[] array = new Node[1000000001];
     static ListImpl[] list = new ListImpl[1001];
+    static Map<Integer, Node> map = new HashMap<>();
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -18,18 +20,26 @@ public class BaekJoon2910 {
         int order = 1;
         while(st.hasMoreTokens()){
             int num = Integer.parseInt(st.nextToken());
-            if(array[num] == null){
-                Node newNode = new Node(num, order++, 1);
-                array[num] = newNode;
-                list[1].add(newNode);
+            if(map.containsKey(num)){
+                Node node = map.get(num);
+                node.count++;
+                map.put(num, node);
             } else {
-                int count = array[num].count++;
-                list[count+1].add(list[count].pop(num));
+                Node newNode = new Node(num, order++, 1);
+                map.put(num, newNode);
             }
         }
 
+        for(Map.Entry<Integer, Node> entry : map.entrySet()){
+            int count = entry.getValue().count;
+            if(list[count] == null){
+                list[count] = new ListImpl();
+            }
+            list[count].add(entry.getValue());
+        }
+
         StringBuilder sb = new StringBuilder();
-        for(int i=1; i <= n; i++){
+        for(int i=n; i >= 1; i--){
             if(list[i] == null || list[i].size == 0){
                 continue;
             }
@@ -58,54 +68,28 @@ public class BaekJoon2910 {
                 this.tail = node;
             } else{
                 Node current = this.head;
-                while(current.count < node.count){
+                while(current.order < node.order){
                     if(current.next == null){
                         current.next = node;
+                        node.prev = current;
                         this.tail = node;
+                        this.size++;
+                        return;
                     }
                     current = current.next;
                 }
-                node.prev = current.prev.next;
-                current.prev.next = node;
-                current.prev = node;
-                node.next = current;
+                if(current.equals(this.head)){
+                    current.prev = node;
+                    node.next = current;
+                    this.head = node;
+                } else {
+                    node.prev = current.prev;
+                    current.prev.next = node;
+                    current.prev = node;
+                    node.next = current;
+                }
             }
             this.size++;
-        }
-
-        public Node get(int number){
-            Node current = this.head;
-            while(current.number != number){
-                current = current.next;
-            }
-            return current;
-        }
-
-        public Node pop(int number){
-            Node match = this.get(number);
-            if(this.tail.equals(match)){
-                if(match.prev != null){
-                    match.prev.next = null;
-                    this.tail = match.prev;
-                } else {
-                    this.head = null;
-                    this.tail = null;
-                }
-            } else if(this.head.equals(match)){
-                if(match.next != null){
-                    match.next.prev = null;
-                    this.head = match.next;
-                } else {
-                    this.head = null;
-                    this.tail = null;
-                }
-            } else {
-                Node next = match.next;
-                match.prev.next = match.next;
-                next.prev = match.prev;
-            }
-            this.size--;
-            return match;
         }
 
         public Node popFirst(){
