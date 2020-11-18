@@ -19,8 +19,8 @@ public class BaekJoon4195 {
         for(int i=0; i < t; i++){
             int f = Integer.parseInt(br.readLine());
 
-            parent = new int[100001];
-            relations = new int[100001];
+            parent = new int[200001];
+            relations = new int[200001];
             Map<String, Integer> map = new HashMap<>();
             int idx = 1;
 
@@ -52,7 +52,7 @@ public class BaekJoon4195 {
 
     public static int find(int[] parent, int e){
         if(parent[e] == e) return e;
-        return find(parent, parent[e]);
+        return parent[e] = find(parent, parent[e]);
     }
 
     public static void union(int parent[], int relations[], int e1, int e2){
